@@ -1,5 +1,5 @@
-@Component('openable')
-export class Openable {
+@Component('org.decentraland.OpenableDoor')
+export class OpenableDoor {
   transition: number = -1
   isOpen: boolean = false
 }
@@ -8,10 +8,10 @@ const openDoor = Quaternion.Euler(0, 90, 0)
 const closedDoor = Quaternion.Euler(0, 0, 0)
 
 export class DoorSystem {
-  group = engine.getComponentGroup(Openable)
+  group = engine.getComponentGroup(OpenableDoor)
   update(dt: number) {
     for (const entity of this.group.entities) {
-      const openable = entity.getComponent(Openable)
+      const openable = entity.getComponent(OpenableDoor)
       const transform = entity.getComponent(Transform)
 
       const start = openable.isOpen ? closedDoor : openDoor
