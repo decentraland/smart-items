@@ -6,7 +6,7 @@
 // chest.init()
 
 // for (let i = 0; i < 4; i++) {
-//   const host = new Entity()
+//   const host = new Entity('chest-' + i)
 //   host.addComponent(
 //     new Transform({
 //       position: new Vector3(i * 2 + 1, 0, i * 2 + 1)
