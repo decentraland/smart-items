@@ -1,5 +1,18 @@
-import zombieSpawner from './item'
+// /* Uncomment the following to run with `dcl start` */
 
-const ent = new Entity()
-zombieSpawner(ent, { speed: 0.08, amount: 10, spawnRadius: 10 })
-engine.addEntity(ent)
+// import ZombieSpawner from './item'
+
+// const spawner = new ZombieSpawner()
+// spawner.init()
+
+// const host = new Entity('host')
+// engine.addEntity(host)
+// host.addComponent(
+//   new Transform({
+//     position: new Vector3(16, 0, 16)
+//   })
+// )
+// spawner.spawn(host, {} as any)
+
+// declare var console
+// console.log(engine)
