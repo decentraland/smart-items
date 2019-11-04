@@ -1,0 +1,31 @@
+{
+  "name": "Chest",
+  "tags": ["chest", "interactive"],
+  "category": "decorations",
+  "model": "chest.glb",
+  "parameters": [
+    {
+      "id": "isLocked",
+      "label": "Locked",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+  "actions": [
+    {
+      "id": "open",
+      "label": "Open",
+      "parameters": []
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Toggle",
+      "parameters": []
+    }
+  ]
+}

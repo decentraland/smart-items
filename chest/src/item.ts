@@ -34,9 +34,9 @@ export default class Chest implements IScript<Props> {
     )
     top.addComponent(new GLTFShape('models/Chest_Top_01/Chest_Top_01.glb'))
     const bus = new MessageBus()
-    bus.on(host.name, ({ isOpen }) => {
+    bus.on(host.name, () => {
       const openable = pivot.getComponent(OpenableChest)
-      openable.isOpen = isOpen
+      openable.isOpen = !openable.isOpen
       if (openable.transition === -1) {
         openable.transition = 0
       } else {
