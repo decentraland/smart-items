@@ -1,9 +1,11 @@
+import { getGlobalPosition, setGlobalPosition, globalLookAt } from './utils'
+
 @Component('org.decentraland.zombie-follower')
-class Zombie {
+export class Zombie {
   speed: number
 }
 
-class ZombieSystem implements ISystem {
+export class ZombieSystem implements ISystem {
   group = engine.getComponentGroup(Zombie)
 
   update(dt: number) {
@@ -13,10 +15,20 @@ class ZombieSystem implements ISystem {
 
       const targetPosition = Camera.instance.position
 
-      transform.position.x = Scalar.Lerp(transform.position.x, targetPosition.x, speed * dt)
-      transform.position.z = Scalar.Lerp(transform.position.z, targetPosition.z, speed * dt)
+      // transform.position.x = Scalar.Lerp(transform.position.x, targetPosition.x, speed * dt)
+      // transform.position.z = Scalar.Lerp(transform.position.z, targetPosition.z, speed * dt)
 
-      transform.lookAt(targetPosition)
+      const globalPos = getGlobalPosition(entity)
+
+      const newPos = new Vector3(
+        Scalar.Lerp(globalPos.x, targetPosition.x, speed * dt),
+        globalPos.y,
+        Scalar.Lerp(globalPos.z, targetPosition.z, speed * dt)
+      )
+
+      setGlobalPosition(entity, newPos)
+
+      globalLookAt(entity, targetPosition)
       transform.rotation.x = 0
       transform.rotation.z = 0
     }
