@@ -6,7 +6,7 @@
     {
       "id": "onClick",
       "label": "On Click",
-      "type": "action"
+      "type": "actions"
     }
   ]
 }
