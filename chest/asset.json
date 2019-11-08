@@ -2,13 +2,13 @@
   "name": "Chest",
   "tags": ["chest", "interactive"],
   "category": "decorations",
-  "model": "chest.glb",
+  "model": "models/chest.glb",
   "parameters": [
     {
-      "id": "isLocked",
-      "label": "Locked",
-      "type": "boolean",
-      "default": false
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions",
+      "default": "toggle"
     }
   ],
   "actions": [

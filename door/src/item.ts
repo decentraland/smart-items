@@ -32,7 +32,7 @@ export default class Door implements IScript<Props> {
     )
   }
 
-  toggle(entity: Entity, value?: boolean) {
+  toggle(entity: Entity, value?: boolean, playSound = true) {
     const openable = entity.getComponent(OpenableDoor)
 
     // compute new value
@@ -47,10 +47,12 @@ export default class Door implements IScript<Props> {
     }
 
     // Play sound
-    const clip = openable.isOpen ? this.openClip : this.closeClip
-    const source = new AudioSource(clip)
-    entity.addComponentOrReplace(source)
-    source.playing = true
+    if (playSound) {
+      const clip = openable.isOpen ? this.openClip : this.closeClip
+      const source = new AudioSource(clip)
+      entity.addComponentOrReplace(source)
+      source.playing = true
+    }
 
     // start transition
     if (openable.transition === -1) {
@@ -83,7 +85,9 @@ export default class Door implements IScript<Props> {
     channel.handleAction('toggle', () => this.toggle(pivot))
 
     // sync initial values
-    channel.request<boolean>('isOpen', isOpen => this.toggle(pivot, isOpen))
+    channel.request<boolean>('isOpen', isOpen =>
+      this.toggle(pivot, isOpen, false)
+    )
     channel.reply<boolean>(
       'isOpen',
       () => pivot.getComponent(OpenableDoor).isOpen

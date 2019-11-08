@@ -1,17 +1,9 @@
-/* Uncomment the following to run with `dcl start` */
+import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
+import Chest, { Props } from './item'
 
-// import Chest from './item'
+const chest = new Chest()
+const spawner = new Spawner<Props>(chest)
 
-// const chest = new Chest()
-// chest.init()
-
-// for (let i = 0; i < 4; i++) {
-//   const host = new Entity('chest-' + i)
-//   host.addComponent(
-//     new Transform({
-//       position: new Vector3(i * 2 + 1, 0, i * 2 + 1)
-//     })
-//   )
-//   engine.addEntity(host)
-//   chest.spawn(host, {})
-// }
+spawner.spawn('chest', new Transform({ position: new Vector3(4, 0, 8) }), {
+  onClick: [{ entityName: 'chest', actionId: 'toggle', values: {} }]
+})
