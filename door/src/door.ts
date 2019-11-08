@@ -2,6 +2,11 @@
 export class OpenableDoor {
   transition: number = -1
   isOpen: boolean = false
+  constructor(
+    public channel: IChannel,
+    public onOpen?: Actions,
+    public onClose?: Actions
+  ) {}
 }
 
 const openDoor = Quaternion.Euler(0, 90, 0)
@@ -25,6 +30,13 @@ export class DoorSystem {
       } else if (openable.transition > 1) {
         openable.transition = -1
         transform.rotation.copyFrom(end)
+
+        // send actions
+        if (openable.isOpen && openable.onOpen) {
+          openable.channel.sendActions(openable.onOpen)
+        } else if (!openable.isOpen && openable.onClose) {
+          openable.channel.sendActions(openable.onClose)
+        }
       }
     }
   }
