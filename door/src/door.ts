@@ -21,9 +21,10 @@ export class DoorSystem {
 
       const start = openable.isOpen ? closedDoor : openDoor
       const end = openable.isOpen ? openDoor : closedDoor
+      const speed = openable.isOpen ? 1 : 2
 
       if (openable.transition >= 0 && openable.transition < 1) {
-        openable.transition += dt
+        openable.transition += dt * speed
         transform.rotation.copyFrom(
           Quaternion.Slerp(start, end, openable.transition)
         )

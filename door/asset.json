@@ -8,7 +8,7 @@
       "id": "onClick",
       "label": "On Click",
       "type": "actions",
-      "default": "open"
+      "default": "toggle"
     },
     {
       "id": "onOpen",
