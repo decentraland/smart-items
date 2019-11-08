@@ -1,7 +1,7 @@
 {
   "name": "Door",
   "tags": ["door", "interactive"],
-  "category": "structures",
+  "category": "decorations",
   "model": "models/door/door.glb",
   "parameters": [
     {

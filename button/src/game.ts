@@ -1,20 +1,12 @@
-// import Button from './item'
+import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
+import Button, { Props } from './item'
 
-// const button = new Button()
-// button.init()
-// const host = new Entity()
-// host.addComponent(
-//   new Transform({
-//     position: new Vector3(8, 0, 8)
-//   })
-// )
-// engine.addEntity(host)
-// button.spawn(host, {
-//   onClick: {
-//     entityName: '1234',
-//     actionId: 'open',
-//     values: {
-//       isLocked: true
-//     }
-//   }
-// })
+const button = new Button()
+const spawner = new Spawner<Props>(button)
+
+spawner.spawn(
+  'button',
+  new Transform({
+    position: new Vector3(4, 2, 8)
+  })
+)

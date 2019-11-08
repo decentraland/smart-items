@@ -1,31 +1,59 @@
-export interface IScript<T extends {}> {
-  init(): void;
-  spawn(host: Entity, props: T): void;
+export type Props = {
+  onClick?: Actions
 }
 
-export type Action = {
-  entityName: string;
-  actionId: string;
-  values: Record<string, any>;
-};
-
-export type Props = {
-  onClick: Action[];
-};
-
 export default class Button implements IScript<Props> {
-  init() {}
-  spawn(host: Entity, props: Props) {
-    const bus = new MessageBus();
-    host.addComponent(
-      new GLTFShape("models/ButtonPanel_01/ButtonPanel_01.glb")
-    );
-    host.addComponent(
-      new OnClick(() => {
-        for (const action of props.onClick) {
-          bus.emit(action.entityName, action);
+  instances: [Entity, Props, IChannel][] = []
+  clip = new AudioClip('sounds/click.mp3')
+
+  init() {
+    Input.instance.subscribe(
+      'BUTTON_DOWN',
+      ActionButton.PRIMARY,
+      true,
+      event => {
+        if (event.hit) {
+          const entity = engine.entities[event.hit.entityId]
+          for (const [button, props, channel] of this.instances) {
+            if (button === entity) {
+              this.play(button)
+              channel.sendActions(props.onClick)
+            }
+          }
         }
+      }
+    )
+  }
+
+  play(entity: Entity) {
+    const source = new AudioSource(this.clip)
+    entity.addComponentOrReplace(source)
+    source.playing = true
+
+    const animator = entity.getComponent(Animator)
+    const clip = animator.getClip('ButtonAction')
+    clip.stop()
+    clip.play()
+  }
+
+  spawn(host: Entity, props: Props, channel: IChannel) {
+    const button = new Entity()
+    button.setParent(host)
+
+    button.addComponent(new GLTFShape('models/Button.glb'))
+
+    const animator = new Animator()
+    const clip = new AnimationState('ButtonAction', { looping: false })
+    animator.addClip(clip)
+    button.addComponent(animator)
+
+    button.addComponent(
+      new OnClick(() => {
+        this.play(button)
+        channel.sendActions(props.onClick)
       })
-    );
+    )
+
+    this.instances.push([button, props, channel])
   }
 }
