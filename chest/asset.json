@@ -9,6 +9,16 @@
       "label": "On Click",
       "type": "actions",
       "default": "toggle"
+    },
+    {
+      "id": "onOpen",
+      "label": "On Open",
+      "type": "actions"
+    },
+    {
+      "id": "onClose",
+      "label": "On Close",
+      "type": "actions"
     }
   ],
   "actions": [

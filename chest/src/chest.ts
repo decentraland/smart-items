@@ -31,13 +31,12 @@ export class ChestSystem {
       } else if (openable.transition > 1) {
         openable.transition = -1
         transform.rotation.copyFrom(end)
-      }
-
-      // send actions
-      if (openable.isOpen && openable.onOpen) {
-        openable.channel.sendActions(openable.onOpen)
-      } else if (!openable.isOpen && openable.onClose) {
-        openable.channel.sendActions(openable.onClose)
+        // send actions
+        if (openable.isOpen && openable.onOpen) {
+          openable.channel.sendActions(openable.onOpen)
+        } else if (!openable.isOpen && openable.onClose) {
+          openable.channel.sendActions(openable.onClose)
+        }
       }
     }
   }
