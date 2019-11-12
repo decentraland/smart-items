@@ -72,8 +72,14 @@ export default class Door implements IScript<Props> {
       () => platform.getComponent(HorizontalPlatform).position
     )
 
-    if (autoStart !== false && onReachStart) {
-      channel.sendActions(onReachStart)
+    // auto start platform
+    if (autoStart !== false) {
+      const goToEndAction: BaseAction<{}> = {
+        entityName: host.name,
+        actionId: 'goToEnd',
+        values: {}
+      }
+      channel.sendActions([goToEndAction])
     }
   }
 }

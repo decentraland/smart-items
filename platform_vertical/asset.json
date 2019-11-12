@@ -23,16 +23,16 @@
       "default": true
     },
     {
-      "id": "onReachStart",
-      "label": "On Reach Start",
-      "type": "actions",
-      "default": "goToEnd"
-    },
-    {
       "id": "onReachEnd",
       "label": "On Reach End",
       "type": "actions",
       "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "On Reach Start",
+      "type": "actions",
+      "default": "goToEnd"
     }
   ],
   "actions": [
