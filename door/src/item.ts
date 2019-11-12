@@ -14,22 +14,6 @@ export default class Door implements IScript<Props> {
 
   init() {
     engine.addSystem(new DoorSystem())
-    Input.instance.subscribe(
-      'BUTTON_DOWN',
-      ActionButton.PRIMARY,
-      true,
-      event => {
-        if (event.hit) {
-          const entity = engine.entities[event.hit.entityId]
-          for (const [door, props, channel] of this.instances) {
-            if (door === entity) {
-              channel.sendActions(props.onClick)
-              break
-            }
-          }
-        }
-      }
-    )
   }
 
   toggle(entity: Entity, value?: boolean, playSound = true) {
@@ -73,11 +57,10 @@ export default class Door implements IScript<Props> {
     door.addComponent(new Transform({ position: new Vector3(-0.8, 0, 0) }))
     door.addComponent(new GLTFShape('models/door/door.glb'))
 
-    // add to list
-    this.instances.push([door, props, channel])
-
     // handle click
-    door.addComponent(new OnClick(() => channel.sendActions(props.onClick)))
+    door.addComponent(
+      new OnPointerDown(() => channel.sendActions(props.onClick))
+    )
 
     // handle actions
     channel.handleAction('open', () => this.toggle(pivot, true))

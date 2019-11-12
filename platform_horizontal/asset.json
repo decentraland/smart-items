@@ -1,8 +1,8 @@
 {
-  "name": "Vertical Platform",
-  "tags": ["platform", "vertical", "interactive"],
+  "name": "Horizontal Platform",
+  "tags": ["platform", "horizontal", "interactive"],
   "category": "decorations",
-  "model": "models/Vertical_Platform.glb",
+  "model": "models/Horizontal_Platform.glb",
   "parameters": [
     {
       "id": "distance",
@@ -15,6 +15,12 @@
       "label": "Speed",
       "type": "integer",
       "default": 5
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
     },
     {
       "id": "onReachStart",

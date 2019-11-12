@@ -10,29 +10,11 @@ const offsetX = 0.4
 const offsetY = -0.15
 
 export default class Chest implements IScript<Props> {
-  instances: [Entity, Props, IChannel][] = []
-
   openClip = new AudioClip('sounds/openChest.mp3')
   closeClip = new AudioClip('sounds/closeChest.mp3')
 
   init() {
     engine.addSystem(new ChestSystem())
-    Input.instance.subscribe(
-      'BUTTON_DOWN',
-      ActionButton.PRIMARY,
-      true,
-      event => {
-        if (event.hit) {
-          const entity = engine.entities[event.hit.entityId]
-          for (const [top, props, channel] of this.instances) {
-            if (top === entity) {
-              channel.sendActions(props.onClick)
-              break
-            }
-          }
-        }
-      }
-    )
   }
 
   toggle(entity: Entity, value?: boolean, playSound = true) {
@@ -83,11 +65,10 @@ export default class Chest implements IScript<Props> {
     )
     top.addComponent(new GLTFShape('models/Chest_Top_01/Chest_Top_01.glb'))
 
-    // add to list
-    this.instances.push([top, props, channel])
-
     // handle click
-    top.addComponent(new OnClick(() => channel.sendActions(props.onClick)))
+    top.addComponent(
+      new OnPointerDown(() => channel.sendActions(props.onClick))
+    )
 
     // handle actions
     channel.handleAction('open', () => this.toggle(pivot, true))

@@ -1,19 +1,24 @@
-import { VerticalPlatformSystem, VerticalPlatform, Position } from './platform'
+import {
+  HorizontalPlatformSystem,
+  HorizontalPlatform,
+  Position
+} from './platform'
 
 export type Props = {
   distance?: number
   speed?: number
+  autoStart?: boolean
   onReachStart?: Actions
   onReachEnd?: Actions
 }
 
 export default class Door implements IScript<Props> {
   init() {
-    engine.addSystem(new VerticalPlatformSystem())
+    engine.addSystem(new HorizontalPlatformSystem())
   }
 
   move(entity: Entity, newPosition?: Position, useTransition = true) {
-    const platform = entity.getComponent(VerticalPlatform)
+    const platform = entity.getComponent(HorizontalPlatform)
     const isStart = platform.position === 'start'
 
     // compute new value
@@ -38,14 +43,14 @@ export default class Door implements IScript<Props> {
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
-    const { distance, speed, onReachStart, onReachEnd } = props
+    const { distance, speed, autoStart, onReachStart, onReachEnd } = props
 
-    const platform = new Entity('verticalPlatform')
+    const platform = new Entity('HorizontalPlatform')
     platform.setParent(host)
     platform.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
     platform.addComponent(new GLTFShape('models/Platform.glb'))
     platform.addComponent(
-      new VerticalPlatform(channel, distance, speed, onReachStart, onReachEnd)
+      new HorizontalPlatform(channel, distance, speed, onReachStart, onReachEnd)
     )
 
     // add animation
@@ -64,10 +69,10 @@ export default class Door implements IScript<Props> {
     )
     channel.reply<Position>(
       'position',
-      () => platform.getComponent(VerticalPlatform).position
+      () => platform.getComponent(HorizontalPlatform).position
     )
 
-    if (onReachStart) {
+    if (autoStart !== false && onReachStart) {
       channel.sendActions(onReachStart)
     }
   }
