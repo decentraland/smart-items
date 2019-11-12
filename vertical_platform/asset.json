@@ -1,0 +1,44 @@
+{
+  "name": "Vertical Platform",
+  "tags": ["platform", "vertical", "interactive"],
+  "category": "decorations",
+  "model": "models/Vertical_Platform.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "integer",
+      "default": 5
+    },
+    {
+      "id": "onReachStart",
+      "label": "On Reach Start",
+      "type": "actions",
+      "default": "goToEnd"
+    },
+    {
+      "id": "onReachEnd",
+      "label": "On Reach End",
+      "type": "actions",
+      "default": "goToStart"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go To End",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Go To Start",
+      "parameters": []
+    }
+  ]
+}
