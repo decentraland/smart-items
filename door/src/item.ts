@@ -7,8 +7,6 @@ export type Props = {
 }
 
 export default class Door implements IScript<Props> {
-  instances: [Entity, Props, IChannel][] = []
-
   openClip = new AudioClip('sounds/doorOpen.mp3')
   closeClip = new AudioClip('sounds/doorClose.mp3')
 
