@@ -99,7 +99,6 @@ export default class Button implements IScript<Props> {
     key.addComponent(
       new OnPointerDown(() => channel.sendActions(props.onClick))
     )
-    key.addComponent(new Transform({ scale: new Vector3(1.5, 1.5, 1.5) }))
 
     channel.handleAction('equip', action => {
       if (!this.isEquipped(key)) {
