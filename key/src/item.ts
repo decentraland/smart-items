@@ -1,80 +1,126 @@
 export type Props = {
-  text?: string
-  fontSize?: number
+  onClick?: Actions
+  onUse?: Actions
 }
 
 export default class Button implements IScript<Props> {
-  instances: [Entity, Props][] = []
-  clip = new AudioClip('sounds/open.mp3')
+  equippedKeys: Entity[] = []
+  hiddenKeys: Entity[] = []
+  images: Record<string, UIImage> = {}
+
+  clip = new AudioClip('sounds/use.mp3')
   canvas = new UICanvas()
-  texture = new Texture('images/scroll.png')
-  image = new UIImage(this.canvas, this.texture)
-  message = new UIText(this.canvas)
+  container = new UIContainerStack(this.canvas)
+  texture = new Texture('images/Key.png')
 
   init() {
-    const width = 700
-    const height = 700
+    this.container.isPointerBlocker = false
+    this.container.vAlign = 'bottom'
+    this.container.hAlign = 'right'
+    this.container.stackOrientation = UIStackOrientation.VERTICAL
+    this.container.spacing = 0
+    this.container.positionY = 75
+    this.container.positionX = -25
+  }
 
-    this.canvas.visible = false
-    this.canvas.isPointerBlocker = true
+  playSound(key: Entity) {
+    const source = new AudioSource(this.clip)
+    key.addComponentOrReplace(source)
+    source.playing = true
+  }
 
-    this.message.adaptWidth = true
-    this.message.vAlign = 'center'
-    this.message.hAlign = 'center'
-    this.message.color = new Color4(0, 0, 0, 1)
+  isEquipped(key: Entity) {
+    return this.equippedKeys.indexOf(key) !== -1
+  }
 
-    this.image.width = width
-    this.image.height = height
-    this.image.vAlign = 'center'
-    this.image.hAlign = 'center'
-    this.image.sourceTop = 0
-    this.image.sourceLeft = 0
-    this.image.sourceHeight = width
-    this.image.sourceWidth = height
-    this.image.isPointerBlocker = true
-    this.image.onClick = new OnClick(() => {
-      this.canvas.visible = false
-    })
+  isHidden(key: Entity) {
+    return this.hiddenKeys.indexOf(key) !== -1
+  }
 
-    const handler = (event: LocalActionButtonEvent) => {
-      if (this.canvas.visible) {
-        this.canvas.visible = false
-      } else if (event.hit) {
-        const entity = engine.entities[event.hit.entityId]
-        for (const [scroll, props] of this.instances) {
-          if (scroll === entity) {
-            this.open(scroll, props.text, props.fontSize)
-          }
-        }
-      }
+  equip(key: Entity) {
+    if (this.isEquipped(key)) return
+
+    const width = 150
+    const height = 125
+
+    this.equippedKeys.push(key)
+
+    const image = new UIImage(this.container, this.texture)
+    image.width = width
+    image.height = height
+    image.sourceTop = 0
+    image.sourceLeft = 0
+    image.sourceHeight = 200
+    image.sourceWidth = 270
+
+    image.isPointerBlocker = false
+    image.visible = true
+
+    this.images[key.uuid] = image
+
+    this.playSound(key)
+  }
+
+  hide(key: Entity) {
+    if (this.isHidden(key)) return
+    this.hiddenKeys.push(key)
+
+    const gltfShape = key.getComponent(GLTFShape)
+    gltfShape.visible = false
+  }
+
+  unequip(key: Entity) {
+    if (!this.isEquipped(key)) return
+
+    const image = this.images[key.uuid]
+    if (image) {
+      image.visible = false
     }
 
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, true, handler)
-    Input.instance.subscribe(
-      'BUTTON_DOWN',
-      ActionButton.SECONDARY,
-      true,
-      handler
+    this.equippedKeys = this.equippedKeys.filter(_key => _key !== key)
+
+    this.playSound(key)
+  }
+
+  show(key: Entity) {
+    if (!this.isHidden(key)) return
+
+    const gltfShape = key.getComponent(GLTFShape)
+    gltfShape.visible = true
+
+    this.hiddenKeys = this.hiddenKeys.filter(_key => _key !== key)
+  }
+
+  spawn(host: Entity, props: Props, channel: IChannel) {
+    const key = new Entity()
+    key.setParent(host)
+
+    key.addComponent(new GLTFShape('models/Key.glb'))
+    key.addComponent(
+      new OnPointerDown(() => channel.sendActions(props.onClick))
     )
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, handler)
-  }
+    key.addComponent(new Transform({ scale: new Vector3(1.5, 1.5, 1.5) }))
 
-  open(entity: Entity, text = '', fontSize = 36) {
-    const source = new AudioSource(this.clip)
-    entity.addComponentOrReplace(source)
-    source.playing = true
+    channel.handleAction('equip', action => {
+      if (!this.isEquipped(key)) {
+        // we only equip the key for the player who triggered the action
+        if (action.sender === channel.id) {
+          this.equip(key)
+        }
+        // we remove the key from the scene for everybody
+        this.hide(key)
+      }
+    })
 
-    this.message.value = text
-    this.message.fontSize = fontSize
-    this.canvas.visible = true
-  }
-
-  spawn(host: Entity, props: Props) {
-    const scroll = new Entity()
-    scroll.setParent(host)
-
-    scroll.addComponent(new GLTFShape('models/Scroll.glb'))
-
-    this.instances.push([scroll, props])
+    channel.handleAction('use', action => {
+      if (this.isEquipped(key)) {
+        if (action.sender === channel.id) {
+          channel.sendActions(props.onUse)
+          this.unequip(key)
+        }
+        // we respawn the key for everybody
+        this.show(key)
+      }
+    })
   }
 }

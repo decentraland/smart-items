@@ -1,19 +1,31 @@
 {
-  "name": "Scroll",
-  "tags": ["scroll", "interactive"],
+  "name": "Key",
+  "tags": ["key", "interactive"],
   "category": "decorations",
-  "model": "models/Scroll.glb",
+  "model": "models/Key.glb",
   "parameters": [
     {
-      "id": "text",
-      "label": "Text",
-      "type": "string"
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions",
+      "default": "equip"
     },
     {
-      "id": "fontSize",
-      "label": "Font Size",
-      "type": "integer",
-      "default": 36
+      "id": "onUse",
+      "label": "On Use",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "use",
+      "label": "Use",
+      "parameters": []
+    },
+    {
+      "id": "equip",
+      "label": "Equip",
+      "parameters": []
     }
   ]
 }

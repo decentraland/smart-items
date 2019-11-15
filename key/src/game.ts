@@ -1,15 +1,37 @@
 import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
-import Scroll, { Props } from './item'
+import Key, { Props } from './item'
 
-const scroll = new Scroll()
-const spawner = new Spawner<Props>(scroll)
+const key = new Key()
+const spawner = new Spawner<Props>(key)
 
 spawner.spawn(
-  'scroll',
+  'key',
   new Transform({
     position: new Vector3(4, 2, 8)
   }),
   {
-    text: 'Testing'
+    onClick: [
+      {
+        entityName: 'key',
+        actionId: 'equip',
+        values: {}
+      }
+    ]
+  }
+)
+
+spawner.spawn(
+  'key2',
+  new Transform({
+    position: new Vector3(4, 1, 8)
+  }),
+  {
+    onClick: [
+      {
+        entityName: 'key2',
+        actionId: 'equip',
+        values: {}
+      }
+    ]
   }
 )

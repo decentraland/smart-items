@@ -14,31 +14,31 @@ export default class Button implements IScript<Props> {
   init() {
     const width = 700
     const height = 700
+    const padding = 100
 
-    this.canvas.visible = false
-    this.canvas.isPointerBlocker = true
-
-    this.message.adaptWidth = true
     this.message.vAlign = 'center'
     this.message.hAlign = 'center'
+    this.message.adaptWidth = true
     this.message.color = new Color4(0, 0, 0, 1)
+    this.message.visible = false
+    this.message.paddingBottom = padding / 2
 
     this.image.width = width
-    this.image.height = height
+    this.image.height = height + padding
+    this.image.paddingBottom = padding
     this.image.vAlign = 'center'
     this.image.hAlign = 'center'
     this.image.sourceTop = 0
     this.image.sourceLeft = 0
-    this.image.sourceHeight = width
-    this.image.sourceWidth = height
+    this.image.sourceHeight = 500
+    this.image.sourceWidth = 500
     this.image.isPointerBlocker = true
-    this.image.onClick = new OnClick(() => {
-      this.canvas.visible = false
-    })
+    this.image.visible = false
+    this.image.onClick = new OnClick(() => this.hide())
 
     const handler = (event: LocalActionButtonEvent) => {
-      if (this.canvas.visible) {
-        this.canvas.visible = false
+      if (this.isOpen()) {
+        this.hide()
       } else if (event.hit) {
         const entity = engine.entities[event.hit.entityId]
         for (const [scroll, props] of this.instances) {
@@ -66,7 +66,17 @@ export default class Button implements IScript<Props> {
 
     this.message.value = text
     this.message.fontSize = fontSize
-    this.canvas.visible = true
+    this.message.visible = true
+    this.image.visible = true
+  }
+
+  hide() {
+    this.message.visible = false
+    this.image.visible = false
+  }
+
+  isOpen() {
+    return this.message.visible && this.image.visible
   }
 
   spawn(host: Entity, props: Props) {
