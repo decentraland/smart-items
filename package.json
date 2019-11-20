@@ -1,0 +1,23 @@
+{
+  "name": "smart-items",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pack": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decentraland/smart-items.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/decentraland/smart-items/issues"
+  },
+  "homepage": "https://github.com/decentraland/smart-items#readme",
+  "dependencies": {
+    "rimraf": "^3.0.0"
+  }
+}
