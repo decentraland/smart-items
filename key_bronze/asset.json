@@ -1,8 +1,8 @@
 {
-  "name": "Key",
+  "name": "Bronze Key",
   "tags": ["key", "interactive"],
   "category": "decorations",
-  "model": "models/Key.glb",
+  "model": "models/Bronze_Key.glb",
   "parameters": [
     {
       "id": "onClick",

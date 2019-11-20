@@ -1,0 +1,31 @@
+{
+  "name": "Golden Key",
+  "tags": ["key", "interactive"],
+  "category": "decorations",
+  "model": "models/Golden_Key.glb",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions",
+      "default": "equip"
+    },
+    {
+      "id": "onUse",
+      "label": "On Use",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "use",
+      "label": "Use",
+      "parameters": []
+    },
+    {
+      "id": "equip",
+      "label": "Equip",
+      "parameters": []
+    }
+  ]
+}
