@@ -18,10 +18,10 @@ export default class Button implements IScript<Props> {
 
     this.message.vAlign = 'center'
     this.message.hAlign = 'center'
+    this.message.hTextAlign = 'center'
     this.message.adaptWidth = true
     this.message.color = new Color4(0, 0, 0, 1)
     this.message.visible = false
-    this.message.paddingBottom = padding / 2
 
     this.image.width = width
     this.image.height = height + padding
@@ -50,12 +50,7 @@ export default class Button implements IScript<Props> {
     }
 
     Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, true, handler)
-    Input.instance.subscribe(
-      'BUTTON_DOWN',
-      ActionButton.SECONDARY,
-      true,
-      handler
-    )
+    Input.instance.subscribe('BUTTON_DOWN', ActionButton.SECONDARY, true, handler)
     Input.instance.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, handler)
   }
 
@@ -67,6 +62,7 @@ export default class Button implements IScript<Props> {
     this.message.value = text
     this.message.fontSize = fontSize
     this.message.visible = true
+    this.message.paddingBottom = 50 - ((text.split('\n').length - 1) / 2) * fontSize
     this.image.visible = true
   }
 

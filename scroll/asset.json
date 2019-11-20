@@ -7,7 +7,7 @@
     {
       "id": "text",
       "label": "Text",
-      "type": "string"
+      "type": "textarea"
     },
     {
       "id": "fontSize",
