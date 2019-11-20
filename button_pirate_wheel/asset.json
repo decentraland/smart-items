@@ -1,0 +1,12 @@
+{
+  "name": "Ship's Wheel",
+  "tags": ["button"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "On Turn",
+      "type": "actions"
+    }
+  ]
+}

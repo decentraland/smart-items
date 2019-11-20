@@ -1,0 +1,17 @@
+{
+  "name": "Toggle Button",
+  "tags": ["button"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "On Activate",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "On Deactivate",
+      "type": "actions"
+    }
+  ]
+}

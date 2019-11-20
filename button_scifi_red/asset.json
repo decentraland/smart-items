@@ -1,0 +1,12 @@
+{
+  "name": "Red Light Button",
+  "tags": ["button"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions"
+    }
+  ]
+}
