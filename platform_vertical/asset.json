@@ -13,8 +13,11 @@
     {
       "id": "speed",
       "label": "Speed",
-      "type": "integer",
-      "default": 5
+      "type": "slider",
+      "default": 5,
+      "max": 20,
+      "min": 0,
+      "step": 1
     },
     {
       "id": "autoStart",
