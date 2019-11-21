@@ -13,7 +13,7 @@
 	  {
 		"id": "fontSize",
 		"label": "Font Size",
-		"type": "number",
+		"type": "float",
 		"default": 20
 	  }
 	],
