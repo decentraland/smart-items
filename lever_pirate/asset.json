@@ -1,6 +1,6 @@
 {
-  "name": "Toggle Button",
-  "tags": ["button"],
+  "name": "Pirate Lever",
+  "tags": ["lever"],
   "category": "decorations",
   "parameters": [
     {
@@ -12,6 +12,18 @@
       "id": "onDeactivate",
       "label": "On Deactivate",
       "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
     }
   ]
 }

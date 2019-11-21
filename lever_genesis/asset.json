@@ -1,0 +1,29 @@
+{
+  "name": "Toy Lever",
+  "tags": ["lever"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "On Activate",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "On Deactivate",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}
