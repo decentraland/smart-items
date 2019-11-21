@@ -1,0 +1,26 @@
+{
+  "name": "Scoreboard",
+  "tags": ["scoreboard", "counter", "interactive"],
+  "category": "decorations",
+  "model": "models/board/Scoreboard.glb",
+  "parameters": [
+    {
+      "id": "onSolve",
+      "label": "On Solve",
+      "type": "actions"
+	},
+	{
+		"id": "combination",
+		"label": "Correct combination",
+		"type": "integer",
+		"default": 1234
+	}
+  ],
+  "actions": [
+    {
+      "id": "scramble",
+      "label": "Scramble",
+      "parameters": []
+    }
+  ]
+}
