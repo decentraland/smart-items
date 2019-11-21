@@ -11,7 +11,7 @@
       "default": "increase"
 	},
 	{
-		"id": "initalVal",
+		"id": "initialVal",
 		"label": "Initial value",
 		"type": "integer",
 		"default": 0
@@ -26,7 +26,7 @@
 		"id": "targetVal",
 		"label": "Target value",
 		"type": "integer",
-		"default": 10
+		"default": 100
 	},
 	{
 		"id": "onThreshold",

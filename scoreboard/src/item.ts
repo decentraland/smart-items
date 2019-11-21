@@ -87,7 +87,6 @@ export default class ScoreBoard implements IScript<Props> {
 	const board = new Entity()
 	board.setParent(host)
 	board.addComponent(new Transform({ 
-		rotation: Quaternion.Euler(90,0,0),
 		position: new Vector3(0, 0, 0) 
 	}))
 	board.addComponent(new GLTFShape('models/board/Scoreboard.glb'))
@@ -100,7 +99,8 @@ export default class ScoreBoard implements IScript<Props> {
 	const digit1 = new Entity()
 	digit1.setParent(host)
 	digit1.addComponent(new Transform({ 
-		position: new Vector3(-0.6, 0, 0.06),
+		rotation: Quaternion.Euler(90,180,180),
+		position: new Vector3(-0.6, 0.05, 0.06),
 		scale: new Vector3(0.8, 0.8, 0.8)
 	}))
 	digit1.addComponent(new PlaneShape())
@@ -109,7 +109,8 @@ export default class ScoreBoard implements IScript<Props> {
 	const digit2 = new Entity()
 	digit2.setParent(host)
 	digit2.addComponent(new Transform({ 
-		position: new Vector3(-0.2, 0, 0.06),
+		rotation: Quaternion.Euler(90,180,180),
+		position: new Vector3(-0.2, 0.05, 0.06),
 		scale: new Vector3(0.8, 0.8, 0.8)
 	}))
 	digit2.addComponent(new PlaneShape())
@@ -118,7 +119,8 @@ export default class ScoreBoard implements IScript<Props> {
 	const digit3 = new Entity()
 	digit3.setParent(host)
 	digit3.addComponent(new Transform({ 
-		position: new Vector3(0.2, 0, 0.06),
+		rotation: Quaternion.Euler(90,180,180),
+		position: new Vector3(0.2, 0.05, 0.06),
 		scale: new Vector3(0.8, 0.8, 0.8)
 	}))
 	digit3.addComponent(new PlaneShape())
@@ -127,7 +129,8 @@ export default class ScoreBoard implements IScript<Props> {
 	const digit4 = new Entity()
 	digit4.setParent(host)
 	digit4.addComponent(new Transform({ 
-		position: new Vector3(0.6, 0, 0.06),
+		rotation: Quaternion.Euler(90,180,180),
+		position: new Vector3(0.6, 0.05, 0.06),
 		scale: new Vector3(0.8, 0.8, 0.8)
 	}))
 	digit4.addComponent(new PlaneShape())
