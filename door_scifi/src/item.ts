@@ -68,9 +68,10 @@ export default class Button implements IScript<Props> {
       }
     })
     channel.handleAction('toggle', ({ sender }) => {
-      this.toggle(door, !this.active[door.name])
+      const newValue = !this.active[door.name]
+      this.toggle(door, newValue)
       if (sender === channel.id) {
-        channel.sendActions(props.onClose)
+        channel.sendActions(newValue ? props.onOpen : props.onClose)
       }
     })
 
