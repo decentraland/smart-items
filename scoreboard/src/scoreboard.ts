@@ -7,8 +7,10 @@ export class ScoreBoardComponent {
   digit3: PlaneShape
   digit4: PlaneShape
   digit5: PlaneShape
+  initialValue: number
   threshold: number
   onThreshold: Actions
+
 
   constructor(
 	public channel: IChannel,
@@ -22,6 +24,7 @@ export class ScoreBoardComponent {
 	digit4: PlaneShape,
   ) {
 	  this.currentValue = currentValue
+	  this.initialValue = currentValue
 	  this.enabled = enabled
 	  this.threshold = threshold
 	  this.onThreshold = onThreshold

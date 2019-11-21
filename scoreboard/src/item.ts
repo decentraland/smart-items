@@ -32,13 +32,13 @@ export default class ScoreBoard implements IScript<Props> {
 
   init() {
 	const numberMaterial = new Material()
-	const numberTexture = new Texture('images/Scoreboard_TX.png')
+	const numberTexture = new Texture('images/Scoreboard1024_TX.png')
 	
 	numberMaterial.albedoTexture = numberTexture
 	numberMaterial.alphaTexture = numberTexture
 	numberMaterial.metallic  = 0
 	numberMaterial.emissiveColor = Color3.Red()
-	numberMaterial.emissiveIntensity = 3.5
+	numberMaterial.emissiveIntensity = 3
 	this.numberMaterial = numberMaterial
   }
 
@@ -49,11 +49,12 @@ export default class ScoreBoard implements IScript<Props> {
 	
 	score.currentValue = newValue
 	const clip = this.activateClip
-    const source = new AudioSource(clip)
+	const source = new AudioSource(clip)
+	source.volume = 0.3
     entity.addComponentOrReplace(source)
     source.playOnce()
 
-	if(newValue >= score.threshold){
+	if(newValue == score.threshold){
 		score.channel.sendActions(score.onThreshold)
 	}
 
@@ -73,13 +74,10 @@ export default class ScoreBoard implements IScript<Props> {
 		d2 = 10
 	} 
 
-
-
 	score.digit1.uvs = this.uvTable[d1]
 	score.digit2.uvs = this.uvTable[d2]
 	score.digit3.uvs = this.uvTable[d3]
 	score.digit4.uvs = this.uvTable[d4]
-
 
   }
 
@@ -162,17 +160,26 @@ export default class ScoreBoard implements IScript<Props> {
 	})
     channel.handleAction('reset', () => {
 		if (!score.enabled) return
-		this.updateBoard(board , 0)
+		this.updateBoard(board , score.currentValue)
+	})
+	channel.handleAction('enable', () => {
+		score.enabled = true
+	})
+	channel.handleAction('disable', () => {
+		score.enabled = false
+	})
+	channel.handleAction('toggleEnable', () => {
+		score.enabled != score.enabled
 	})
 
     // sync initial values
-	channel.request<ScoreBoardComponent>('getValue', count => {
+	channel.request<ScoreBoardComponent>('value', count => {
 		score.enabled = count.enabled
 		this.updateBoard(board, count.currentValue)
 	  }
     )
     channel.reply<ScoreBoardComponent>(
-      'getValue',
+      'value',
       () => {
 		 return board.getComponent(ScoreBoardComponent)
 	  }

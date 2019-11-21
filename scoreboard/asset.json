@@ -1,8 +1,8 @@
 {
-  "name": "Door",
-  "tags": ["door", "interactive"],
+  "name": "Scoreboard",
+  "tags": ["scoreboard", "counter", "interactive"],
   "category": "decorations",
-  "model": "models/door/door.glb",
+  "model": "models/board/Scoreboard.glb",
   "parameters": [
     {
       "id": "onClick",
@@ -29,8 +29,8 @@
 		"default": 10
 	},
 	{
-		"id": "onTarget",
-		"label": "On Target",
+		"id": "onThreshold",
+		"label": "On Threshold",
 		"type": "actions",
 		"default": ""
 	}  
@@ -50,6 +50,21 @@
       "id": "reset",
       "label": "Reset",
       "parameters": []
-    }
+	},
+	{
+		"id": "enable",
+		"label": "Enable",
+		"parameters": []
+	},
+	{
+		"id": "disable",
+		"label": "Disable",
+		"parameters": []
+	},
+	{
+		"id": "toggleEnable",
+		"label": "Toggle Enable",
+		"parameters": []
+	}
   ]
 }
