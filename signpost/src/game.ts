@@ -1,9 +1,12 @@
 import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
-import Door, { Props } from './item'
+import SignPost, { Props } from './item'
 
-const door = new Door()
-const spawner = new Spawner<Props>(door)
+const post = new SignPost()
+const spawner = new Spawner<Props>(post)
 
-spawner.spawn('door', new Transform({ position: new Vector3(4, 0, 8) }), {
-  onClick: [{ entityName: 'door', actionId: 'toggle', values: {} }]
+spawner.spawn(
+  'post', 
+  new Transform({ position: new Vector3(4, 0, 8) }), {
+  text: "Juancalandia",
+  fontSize: 20
 })

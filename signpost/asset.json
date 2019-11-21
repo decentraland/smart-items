@@ -1,41 +1,22 @@
 {
-  "name": "Door",
-  "tags": ["door", "interactive"],
-  "category": "decorations",
-  "model": "models/door/door.glb",
-  "parameters": [
-    {
-      "id": "onClick",
-      "label": "On Click",
-      "type": "actions",
-      "default": "toggle"
-    },
-    {
-      "id": "onOpen",
-      "label": "On Open",
-      "type": "actions"
-    },
-    {
-      "id": "onClose",
-      "label": "On Close",
-      "type": "actions"
-    }
-  ],
-  "actions": [
-    {
-      "id": "open",
-      "label": "Open",
-      "parameters": []
-    },
-    {
-      "id": "close",
-      "label": "Close",
-      "parameters": []
-    },
-    {
-      "id": "toggle",
-      "label": "Toggle",
-      "parameters": []
-    }
-  ]
-}
+	"name": "Signpost",
+	"tags": ["signpost", "text", "interactive"],
+	"category": "decorations",
+	"model": "models/signpost/SignPost.glb",
+	"parameters": [
+	  {
+		  "id": "text",
+		  "label": "Text",
+		  "type": "textarea",
+		  "default": "text"
+	  },
+	  {
+		"id": "fontSize",
+		"label": "Font Size",
+		"type": "number",
+		"default": 20
+	  }
+	],
+	"actions": []
+  }
+  
