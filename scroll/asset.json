@@ -12,8 +12,11 @@
     {
       "id": "fontSize",
       "label": "Font Size",
-      "type": "integer",
-      "default": 36
+      "type": "slider",
+      "default": 36,
+      "min": 12,
+      "max": 36,
+      "step": 0.5
     }
   ]
 }
