@@ -1,0 +1,40 @@
+{
+  "name": "Iron Fence Door",
+  "tags": ["door"],
+  "category": "structures",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions",
+      "default": "toggle"
+    },
+    {
+      "id": "onOpen",
+      "label": "On Open",
+      "type": "actions"
+    },
+    {
+      "id": "onClose",
+      "label": "On Close",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "open",
+      "label": "Open",
+      "parameters": []
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Open or Close",
+      "parameters": []
+    }
+  ]
+}
