@@ -1,0 +1,70 @@
+{
+  "name": "Scoreboard",
+  "tags": ["scoreboard", "counter", "interactive"],
+  "category": "decorations",
+  "model": "models/board/Scoreboard.glb",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "On Click",
+      "type": "actions",
+      "default": "increase"
+	},
+	{
+		"id": "initalVal",
+		"label": "Initial value",
+		"type": "integer",
+		"default": 0
+	},
+	{
+		"id": "enabled",
+		"label": "Enabled",
+		"type": "boolean",
+		"default": true
+	},
+	{
+		"id": "targetVal",
+		"label": "Target value",
+		"type": "integer",
+		"default": 10
+	},
+	{
+		"id": "onThreshold",
+		"label": "On Threshold",
+		"type": "actions",
+		"default": ""
+	}  
+  ],
+  "actions": [
+    {
+      "id": "increase",
+      "label": "Increase",
+      "parameters": []
+    },
+    {
+      "id": "decrease",
+      "label": "Decrease",
+      "parameters": []
+    },
+    {
+      "id": "reset",
+      "label": "Reset",
+      "parameters": []
+	},
+	{
+		"id": "enable",
+		"label": "Enable",
+		"parameters": []
+	},
+	{
+		"id": "disable",
+		"label": "Disable",
+		"parameters": []
+	},
+	{
+		"id": "toggleEnable",
+		"label": "Toggle Enable",
+		"parameters": []
+	}
+  ]
+}
