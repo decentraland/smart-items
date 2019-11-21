@@ -5,35 +5,35 @@
   "model": "models/board/Scoreboard.glb",
   "parameters": [
     {
+      "id": "initialVal",
+      "label": "Initial value",
+      "type": "integer",
+      "default": 0
+    },
+    {
+      "id": "targetVal",
+      "label": "Target value",
+      "type": "integer",
+      "default": 100
+    },
+    {
+      "id": "enabled",
+      "label": "Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onThreshold",
+      "label": "On Threshold",
+      "type": "actions",
+      "default": ""
+    },
+    {
       "id": "onClick",
       "label": "On Click",
       "type": "actions",
       "default": "increase"
-	},
-	{
-		"id": "initialVal",
-		"label": "Initial value",
-		"type": "integer",
-		"default": 0
-	},
-	{
-		"id": "enabled",
-		"label": "Enabled",
-		"type": "boolean",
-		"default": true
-	},
-	{
-		"id": "targetVal",
-		"label": "Target value",
-		"type": "integer",
-		"default": 100
-	},
-	{
-		"id": "onThreshold",
-		"label": "On Threshold",
-		"type": "actions",
-		"default": ""
-	}  
+    }
   ],
   "actions": [
     {
@@ -50,21 +50,21 @@
       "id": "reset",
       "label": "Reset",
       "parameters": []
-	},
-	{
-		"id": "enable",
-		"label": "Enable",
-		"parameters": []
-	},
-	{
-		"id": "disable",
-		"label": "Disable",
-		"parameters": []
-	},
-	{
-		"id": "toggleEnable",
-		"label": "Toggle Enable",
-		"parameters": []
-	}
+    },
+    {
+      "id": "enable",
+      "label": "Enable",
+      "parameters": []
+    },
+    {
+      "id": "disable",
+      "label": "Disable",
+      "parameters": []
+    },
+    {
+      "id": "toggleEnable",
+      "label": "Toggle Enable",
+      "parameters": []
+    }
   ]
 }
