@@ -1,0 +1,51 @@
+{
+  "name": "Rising pillar",
+  "tags": ["platform", "pillar", "vertical", "interactive"],
+  "category": "decorations",
+  "model": "models/Vertical_Platform.glb",
+  "parameters": [
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 5,
+      "max": 20,
+      "min": 0,
+      "step": 1
+	},
+	{
+		"id": "autoStart",
+		"label": "Auto Start",
+		"type": "boolean",
+		"default": false
+	},
+    {
+      "id": "onReachBottom",
+      "label": "On Reach Bottom",
+      "type": "actions"
+    },
+    {
+      "id": "onReachTop",
+      "label": "On Reach Top",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "rise",
+      "label": "Rise",
+      "parameters": []
+    },
+    {
+      "id": "hide",
+      "label": "Hide",
+      "parameters": []
+    }
+  ]
+}
