@@ -7,8 +7,11 @@
     {
       "id": "height",
       "label": "Height",
-      "type": "integer",
-      "default": 10
+      "type": "slider",
+	  "default": 10,
+	  "max": 20,
+      "min": 0,
+      "step": 1
     },
     {
       "id": "speed",

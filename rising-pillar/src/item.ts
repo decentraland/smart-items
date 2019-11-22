@@ -20,11 +20,9 @@ export default class Pillar implements IScript<Props> {
     const platform = entity.getComponent(RisingPillar)
     const isStart = platform.position === 'start'
 
-
-	// const clip = this.risingClip
-	// const source = new AudioSource(clip)
-	// source.volume = 1
-    // entity.addComponentOrReplace(source)
+	const source = new AudioSource(this.risingClip)
+	source.volume = 1
+    entity.addComponentOrReplace(source)
     // source.playing = true
 
     // compute new value

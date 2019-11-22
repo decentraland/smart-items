@@ -21,7 +21,8 @@ export class RisingPillarSystem {
   update(dt: number) {
     for (const entity of this.group.entities) {
       const platform = entity.getComponent(RisingPillar)
-      const transform = entity.getComponent(Transform)
+	  const transform = entity.getComponent(Transform)
+	  const clip = entity.getComponent(AudioSource)
 
       const endPosition = new Vector3(0, platform.height, 0)
 
@@ -36,7 +37,8 @@ export class RisingPillarSystem {
         platform.transition += dt * speed
         transform.position.copyFrom(
           Vector3.Lerp(start, end, platform.transition)
-        )
+		)
+		clip.playing = true
 
 
       } else if (platform.transition >= 1) {
@@ -46,9 +48,11 @@ export class RisingPillarSystem {
 
         // send actions
         if (!isStart && platform.onReachTop) {
-          platform.channel.sendActions(platform.onReachTop)
+		  platform.channel.sendActions(platform.onReachTop)
+		  clip.playing = false
         } else if (isStart && platform.onReachBottom) {
-          platform.channel.sendActions(platform.onReachBottom)
+		  platform.channel.sendActions(platform.onReachBottom)
+		  clip.playing = false
         }
       } else if (platform.delay >= 0 && platform.delay < 1) {
         platform.delay += dt
