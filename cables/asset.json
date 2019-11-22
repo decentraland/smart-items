@@ -1,0 +1,66 @@
+{
+  "name": "Cable Box",
+  "tags": ["button", "cables", "toggle"],
+  "category": "decorations",
+  "parameters": [
+	{
+		"id": "greenCable",
+		"label": "Green Cable",
+		"type": "boolean",
+		"default": true
+	},
+	{
+		"id": "greenCut",
+		"label": "When Green Cut",
+		"type": "actions"
+	},
+	{
+		"id": "blueCable",
+		"label": "Blue Cable",
+		"type": "boolean",
+		"default": true
+	},
+	{
+		"id": "blueCut",
+		"label": "When Blue Cut",
+		"type": "actions"
+	},	{
+		"id": "redCable",
+		"label": "Red Cable",
+		"type": "boolean",
+		"default": true
+	},
+	{
+		"id": "redCut",
+		"label": "When Red Cut",
+		"type": "actions"
+	},
+	{
+      "id": "openBoxOpen",
+      "label": "When Box Open",
+      "type": "actions"
+    },
+    {
+      "id": "onBoxClose",
+      "label": "When Box Closed",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "openBox",
+      "label": "Open Box",
+      "parameters": []
+    },
+    {
+      "id": "closeBox",
+      "label": "Close Box",
+      "parameters": []
+    },
+    {
+      "id": "reset",
+      "label": "Reset",
+      "parameters": []
+    }
+  ]
+}
