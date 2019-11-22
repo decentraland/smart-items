@@ -1,0 +1,29 @@
+{
+  "name": "Parrot",
+  "tags": ["parrot"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "When screaming",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When quiet",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Scream",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Be quiet",
+      "parameters": []
+    }
+  ]
+}
