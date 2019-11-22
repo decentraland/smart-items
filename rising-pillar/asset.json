@@ -8,8 +8,8 @@
       "id": "height",
       "label": "Height",
       "type": "slider",
-	  "default": 10,
-	  "max": 20,
+	  "default": 5,
+	  "max": 5.5,
       "min": 0,
       "step": 1
     },
