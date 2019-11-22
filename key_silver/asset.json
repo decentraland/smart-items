@@ -8,7 +8,7 @@
       "id": "onClick",
       "label": "When clicked",
       "type": "actions",
-      "default": "equip"
+      "default": "Pick up"
     },
     {
       "id": "onUse",
@@ -23,8 +23,8 @@
       "parameters": []
     },
     {
-      "id": "equip",
-      "label": "Equip",
+      "id": "Pick up",
+      "label": "Pick up",
       "parameters": []
     }
   ]
