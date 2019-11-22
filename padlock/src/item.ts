@@ -55,7 +55,8 @@ export default class PadLock implements IScript<Props> {
 	const padLock = new Entity()
 	padLock.setParent(host)
 	padLock.addComponent(new Transform({ 
-		position: new Vector3(0, 0, 0),
+		position: new Vector3(0, -0.1375, 0.01),
+		scale:new Vector3(0.8, 1, 1)
 	}))
 	padLock.addComponent(new GLTFShape('models/padlock/Padlock.glb'))
 

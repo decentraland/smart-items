@@ -6,7 +6,7 @@ const spawner = new Spawner<Props>(padLock)
 
 spawner.spawn(
 	'padLock', 
-	new Transform({ position: new Vector3(4, 1.5, 8) }),  {
+	new Transform({ position: new Vector3(4, 1.7, 8) }),  {
 	combination : 1234,
 	onSolve : null
 })
