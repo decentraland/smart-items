@@ -1,20 +1,20 @@
 {
-  "name": "Scoreboard",
-  "tags": ["scoreboard", "counter", "interactive"],
+  "name": "Padlock",
+  "tags": ["padlock"],
   "category": "decorations",
-  "model": "models/padlock/Padlock.glb",
+  "model": "models/padlock/Padlock_placeholder.glb",
   "parameters": [
     {
       "id": "onSolve",
       "label": "On Solve",
       "type": "actions"
-	},
-	{
-		"id": "combination",
-		"label": "Correct combination",
-		"type": "integer",
-		"default": 1234
-	}
+    },
+    {
+      "id": "combination",
+      "label": "Correct combination",
+      "type": "integer",
+      "default": 1234
+    }
   ],
   "actions": [
     {
