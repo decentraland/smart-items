@@ -34,7 +34,7 @@
     },
     {
       "id": "toggle",
-      "label": "Toggle",
+      "label": "Open or close",
       "parameters": []
     }
   ]
