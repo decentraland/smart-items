@@ -1,16 +1,29 @@
 export type Props = {
-  onActivate?: Actions
-  onDeactivate?: Actions
+	greenCable: boolean
+	onGreenCut: Actions
+	blueCable: boolean
+	onBlueCut: Actions
+	redCable: boolean
+	onRedCut: Actions
+	openBoxOpen: Actions
+	onBoxClose: Actions
 }
 
-export default class Button implements IScript<Props> {
-  clip = new AudioClip('sounds/click.mp3')
+export enum CableColors {
+	Blue,
+	Green,
+	Red
+  }
 
-  active: Record<string, boolean> = {}
+
+export default class Cables implements IScript<Props> {
+  //clip = new AudioClip('sounds/click.mp3')
+
+  //active: Record<string, boolean> = {}
 
   init() {}
 
-  toggle(entity: Entity, value: boolean, playSound = true) {
+  toggle(entity: Entity, value: boolean, color: CableColors, playSound = true) {
     if (this.active[entity.name] === value) return
 
     if (playSound) {

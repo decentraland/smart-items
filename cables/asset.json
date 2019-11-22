@@ -10,7 +10,7 @@
 		"default": true
 	},
 	{
-		"id": "greenCut",
+		"id": "onGreenCut",
 		"label": "When Green Cut",
 		"type": "actions"
 	},
@@ -21,7 +21,7 @@
 		"default": true
 	},
 	{
-		"id": "blueCut",
+		"id": "onBlueCut",
 		"label": "When Blue Cut",
 		"type": "actions"
 	},	{
@@ -31,7 +31,7 @@
 		"default": true
 	},
 	{
-		"id": "redCut",
+		"id": "onRedCut",
 		"label": "When Red Cut",
 		"type": "actions"
 	},
