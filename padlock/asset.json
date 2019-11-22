@@ -2,18 +2,18 @@
   "name": "Padlock",
   "tags": ["padlock"],
   "category": "decorations",
-  "model": "models/padlock/Padlock_placeholder.glb",
+  "model": "models/padlock/Padlock.glb",
   "parameters": [
-    {
-      "id": "onSolve",
-      "label": "On Solve",
-      "type": "actions"
-    },
     {
       "id": "combination",
       "label": "Correct combination",
       "type": "integer",
       "default": 1234
+    },
+    {
+      "id": "onSolve",
+      "label": "When solved",
+      "type": "actions"
     }
   ],
   "actions": [
