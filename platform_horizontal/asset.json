@@ -27,13 +27,13 @@
     },
     {
       "id": "onReachEnd",
-      "label": "On Reach End",
+      "label": "When end reached",
       "type": "actions",
       "default": "goToStart"
     },
     {
       "id": "onReachStart",
-      "label": "On Reach Start",
+      "label": "When start reached",
       "type": "actions",
       "default": "goToEnd"
     }
@@ -41,12 +41,12 @@
   "actions": [
     {
       "id": "goToEnd",
-      "label": "Go To End",
+      "label": "Go to end",
       "parameters": []
     },
     {
       "id": "goToStart",
-      "label": "Go To Start",
+      "label": "Return to start",
       "parameters": []
     }
   ]

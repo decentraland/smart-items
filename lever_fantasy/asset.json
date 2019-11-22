@@ -5,12 +5,12 @@
   "parameters": [
     {
       "id": "onActivate",
-      "label": "On Activate",
+      "label": "When activated",
       "type": "actions"
     },
     {
       "id": "onDeactivate",
-      "label": "On Deactivate",
+      "label": "When deactivated",
       "type": "actions"
     }
   ],

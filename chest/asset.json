@@ -6,18 +6,18 @@
   "parameters": [
     {
       "id": "onClick",
-      "label": "On Click",
+      "label": "When clicked",
       "type": "actions",
       "default": "toggle"
     },
     {
       "id": "onOpen",
-      "label": "On Open",
+      "label": "When opened",
       "type": "actions"
     },
     {
       "id": "onClose",
-      "label": "On Close",
+      "label": "When closed",
       "type": "actions"
     }
   ],

@@ -1,22 +1,24 @@
 {
-	"name": "Signpost",
-	"tags": ["signpost", "text", "interactive"],
-	"category": "decorations",
-	"model": "models/signpost/SignPost.glb",
-	"parameters": [
-	  {
-		  "id": "text",
-		  "label": "Text",
-		  "type": "textarea",
-		  "default": "text"
-	  },
-	  {
-		"id": "fontSize",
-		"label": "Font Size",
-		"type": "float",
-		"default": 20
-	  }
-	],
-	"actions": []
-  }
-  
+  "name": "Signpost",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/signpost/SignPost.glb",
+  "parameters": [
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "text",
+      "default": "Some text"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 12,
+      "max": 30,
+      "step": 0.5,
+      "default": 20
+    }
+  ],
+  "actions": []
+}

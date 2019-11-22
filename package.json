@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pack": "node ."
+    "pack": "node .",
+    "build": "BUILD=1 node ."
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@
   "parameters": [
     {
       "id": "onClick",
-      "label": "On Turn",
+      "label": "When turned",
       "type": "actions"
     }
   ]

@@ -24,13 +24,13 @@
     },
     {
       "id": "onThreshold",
-      "label": "On Threshold",
+      "label": "When threshold reached",
       "type": "actions",
       "default": ""
     },
     {
       "id": "onClick",
-      "label": "On Click",
+      "label": "When clicked",
       "type": "actions",
       "default": "increase"
     }

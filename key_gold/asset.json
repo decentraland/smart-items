@@ -6,13 +6,13 @@
   "parameters": [
     {
       "id": "onClick",
-      "label": "On Click",
+      "label": "When clicked",
       "type": "actions",
       "default": "equip"
     },
     {
       "id": "onUse",
-      "label": "On Use",
+      "label": "When used",
       "type": "actions"
     }
   ],
