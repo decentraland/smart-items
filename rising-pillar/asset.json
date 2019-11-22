@@ -2,7 +2,7 @@
   "name": "Rising pillar",
   "tags": ["platform", "pillar", "vertical", "interactive"],
   "category": "decorations",
-  "model": "models/Vertical_Platform.glb",
+  "model": "models/Rising_Pillar.glb",
   "parameters": [
     {
       "id": "height",
@@ -20,10 +20,10 @@
       "step": 1
 	},
 	{
-		"id": "autoStart",
-		"label": "Auto Start",
-		"type": "boolean",
-		"default": false
+	  "id": "autoStart",
+	  "label": "Auto Start",
+	  "type": "boolean",
+	  "default": false
 	},
     {
       "id": "onReachBottom",
