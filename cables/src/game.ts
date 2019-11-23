@@ -7,7 +7,8 @@ const spawner = new Spawner<Props>(cables)
 spawner.spawn(
   'cables',
   new Transform({
-    position: new Vector3(4, 2, 8)
+	position: new Vector3(4, 2, 8),
+	rotation: Quaternion.Euler(90, 0, 0)
   }),
   { greenCable: true, 
 	blueCable: true,

@@ -5,15 +5,16 @@
   "model": "models/Cable_Box.glb",
   "parameters": [
 	{
-		"id": "greenCable",
-		"label": "Green Cable",
+		"id": "redCable",
+		"label": "Red Cable",
 		"type": "boolean",
 		"default": true
 	},
 	{
-		"id": "onGreenCut",
-		"label": "When Green Cut",
-		"type": "actions"
+		"id": "greenCable",
+		"label": "Green Cable",
+		"type": "boolean",
+		"default": true
 	},
 	{
 		"id": "blueCable",
@@ -22,20 +23,20 @@
 		"default": true
 	},
 	{
-		"id": "onBlueCut",
-		"label": "When Blue Cut",
-		"type": "actions"
-	},	{
-		"id": "redCable",
-		"label": "Red Cable",
-		"type": "boolean",
-		"default": true
-	},
-	{
 		"id": "onRedCut",
 		"label": "When Red Cut",
 		"type": "actions"
 	},
+	{
+		"id": "onGreenCut",
+		"label": "When Green Cut",
+		"type": "actions"
+	},
+	{
+		"id": "onBlueCut",
+		"label": "When Blue Cut",
+		"type": "actions"
+	},	
 	{
       "id": "onBoxOpen",
       "label": "When Box Open",

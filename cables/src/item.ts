@@ -104,7 +104,6 @@ export default class Cables implements IScript<Props> {
 	box.addComponent(new GLTFShape('models/Cable_Box.glb'))
 	box.addComponent(new Transform({
 		position: new Vector3(0,0,0),
-		rotation: Quaternion.Euler(90,0,0),
 		scale: new Vector3(0.3, 0.3, 0.3)
 	}))
 
@@ -123,8 +122,7 @@ export default class Cables implements IScript<Props> {
 	this.redCableCut[redCable.name] = false
 	if (props.redCable){	
 		redCable.addComponent(new Transform({
-			position: new Vector3(-0.07,0,0.05),
-			rotation: Quaternion.Euler(90,0,0),
+			position: new Vector3(-0.07,0.05,0),
 			scale: new Vector3(0.3, 0.3, 0.3)
 		}))
 		const redClip = new AnimationState("CableRedAction", {looping: false})
@@ -143,8 +141,7 @@ export default class Cables implements IScript<Props> {
 	this.greenCableCut[greenCable.name] = false
 	if (props.greenCable){
 		greenCable.addComponent(new Transform({
-			position: new Vector3(0,0,0.05),
-			rotation: Quaternion.Euler(90,0,0),
+			position: new Vector3(0,0.05,0),
 			scale: new Vector3(0.3, 0.3, 0.3)
 		}))
 		const greenClip = new AnimationState("CableGreenAction", {looping: false})
@@ -162,8 +159,7 @@ export default class Cables implements IScript<Props> {
 	this.blueCableCut[blueCable.name] = false
 	if (props.blueCable){
 		blueCable.addComponent(new Transform({
-			position: new Vector3(0.07,0,0.05),
-			rotation: Quaternion.Euler(90,0,0),
+			position: new Vector3(0.07,0.05,0),
 			scale: new Vector3(0.3, 0.3, 0.3)
 		}))
 		const blueClip = new AnimationState("CableBlueAction", {looping: false})
@@ -219,14 +215,22 @@ export default class Cables implements IScript<Props> {
 	  })
 	  channel.handleAction('onRedCut', ({ sender }) => {
 		this.toggleCable(redCable, true, CableColors.Red)
-	  })
-	  channel.handleAction('onBlueCut', ({ sender }) => {
-		this.toggleCable(blueCable, true, CableColors.Blue)
+		if (sender === channel.id) {
+			channel.sendActions(props.onRedCut)
+		}
 	  })
 	  channel.handleAction('onGreenCut', ({ sender }) => {
 		this.toggleCable(greenCable, true, CableColors.Green)
+		if (sender === channel.id) {
+			channel.sendActions(props.onGreenCut)
+		  }
 	  })
-	 
+	  channel.handleAction('onBlueCut', ({ sender }) => {
+		this.toggleCable(blueCable, true, CableColors.Blue)
+		if (sender === channel.id) {
+			channel.sendActions(props.onBlueCut)
+		}
+	  })
 
 	channel.handleAction('reset', ({ sender }) => {
 		this.toggleCable(redCable, false, CableColors.Red)
