@@ -26,7 +26,7 @@
 		"id": "onClick",
 		"label": "When Clicked",
 		"type": "actions",
-		"default": "toggle"
+		"default": "toggleBox"
 	},
 	{
 		"id": "onRedCut",
