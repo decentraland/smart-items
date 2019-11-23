@@ -2,11 +2,12 @@ export type Props = {
 	redCable: boolean
 	greenCable: boolean
 	blueCable: boolean
-	onRedCut: Actions
-	onGreenCut: Actions
-	onBlueCut: Actions
-	onBoxOpen: Actions
-	onBoxClose: Actions
+	onClick?: Actions
+	onRedCut?: Actions
+	onGreenCut?: Actions
+	onBlueCut?: Actions
+	onBoxOpen?: Actions
+	onBoxClose?: Actions
 }
 
 export enum CableColors {
@@ -19,7 +20,8 @@ export enum CableColors {
 export default class Cables implements IScript<Props> {
   openClip = new AudioClip('sounds/Chest_Open.mp3')
   closeClip = new AudioClip('sounds/Chest_Close.mp3')
-  //cableClip
+  //cableClip = new AudioClip()
+
   open: Record<string, boolean> = {}
   redCableCut: Record<string, boolean> = {}
   greenCableCut: Record<string, boolean> = {}
@@ -98,9 +100,8 @@ export default class Cables implements IScript<Props> {
 	const closeClip = new AnimationState("close", {looping: false})
     animator.addClip(openClip)
     animator.addClip(closeClip)
-    box.addComponent(animator)
-    //openClip.stop()
-
+	box.addComponent(animator)
+	
 	box.addComponent(new GLTFShape('models/Cable_Box.glb'))
 	box.addComponent(new Transform({
 		position: new Vector3(0,0,0),
@@ -110,12 +111,7 @@ export default class Cables implements IScript<Props> {
     box.addComponent(
       new OnPointerDown(e => {
 		if (e.hit.length > 4) return
-        const value = !this.open[box.name]
-        const action = channel.createAction(
-          value ? 'openBox' : 'closeBox',
-          {}
-        )
-        channel.sendActions([action])
+        channel.sendActions(props.onClick)
       })
     )
 	const redCable = new Entity()
@@ -131,8 +127,8 @@ export default class Cables implements IScript<Props> {
 		redCable.addComponent(new GLTFShape("models/RedCable.glb"))
 		redCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-
-			const action = channel.createAction('onRedCut', {})
+			if (this.redCableCut[redCable.name] === true) return
+			const action = channel.createAction('redCut', {})
 			channel.sendActions([action])
 		} ))	
 	}
@@ -150,7 +146,8 @@ export default class Cables implements IScript<Props> {
 		greenCable.addComponent(new GLTFShape("models/GreenCable.glb"))
 		greenCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-			const action = channel.createAction('onGreenCut', {})
+			if (this.greenCableCut[greenCable.name] === true) return
+			const action = channel.createAction('greenCut', {})
 			channel.sendActions([action])
 		} ))
 	}
@@ -168,7 +165,8 @@ export default class Cables implements IScript<Props> {
 		blueCable.addComponent(new GLTFShape("models/BlueCable.glb"))
 		blueCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-			const action = channel.createAction('onBlueCut', {})
+			if (this.blueCableCut[blueCable.name] === true) return
+			const action = channel.createAction('blueCut', {})
 			channel.sendActions([action])
 		} ))
 	}
@@ -213,19 +211,19 @@ export default class Cables implements IScript<Props> {
 		  } 
 		}
 	  })
-	  channel.handleAction('onRedCut', ({ sender }) => {
+	  channel.handleAction('redCut', ({ sender }) => {
 		this.toggleCable(redCable, true, CableColors.Red)
 		if (sender === channel.id) {
 			channel.sendActions(props.onRedCut)
 		}
 	  })
-	  channel.handleAction('onGreenCut', ({ sender }) => {
+	  channel.handleAction('greenCut', ({ sender }) => {
 		this.toggleCable(greenCable, true, CableColors.Green)
 		if (sender === channel.id) {
 			channel.sendActions(props.onGreenCut)
 		  }
 	  })
-	  channel.handleAction('onBlueCut', ({ sender }) => {
+	  channel.handleAction('blueCut', ({ sender }) => {
 		this.toggleCable(blueCable, true, CableColors.Blue)
 		if (sender === channel.id) {
 			channel.sendActions(props.onBlueCut)

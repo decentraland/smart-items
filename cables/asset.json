@@ -23,6 +23,12 @@
 		"default": true
 	},
 	{
+		"id": "onClick",
+		"label": "When Clicked",
+		"type": "actions",
+		"default": "toggle"
+	},
+	{
 		"id": "onRedCut",
 		"label": "When Red Cut",
 		"type": "actions"

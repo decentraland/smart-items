@@ -13,10 +13,11 @@ spawner.spawn(
   { greenCable: true, 
 	blueCable: true,
 	redCable: true,
-	onRedCut: null,
+	onClick: [{ entityName: 'cables', actionId: 'toggleBox', values: {} }],
+	onRedCut: [{ entityName: 'cables', actionId: 'closeBox', values: {} }],
 	onGreenCut: null,
 	onBlueCut: null,
 	onBoxOpen: null,
-	onBoxClose: null
+	onBoxClose: null,
   }
 )
