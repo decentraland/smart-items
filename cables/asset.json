@@ -1,7 +1,8 @@
 {
   "name": "Cable Box",
-  "tags": ["button", "cables", "toggle"],
+  "tags": ["cables", "toggle"],
   "category": "decorations",
+  "model": "models/Cable_Box.glb",
   "parameters": [
 	{
 		"id": "greenCable",
@@ -36,7 +37,7 @@
 		"type": "actions"
 	},
 	{
-      "id": "openBoxOpen",
+      "id": "onBoxOpen",
       "label": "When Box Open",
       "type": "actions"
     },
@@ -56,11 +57,16 @@
       "id": "closeBox",
       "label": "Close Box",
       "parameters": []
+	},
+    {
+      "id": "toggleBox",
+      "label": "Toggle Box",
+      "parameters": []
     },
     {
       "id": "reset",
       "label": "Reset",
       "parameters": []
-    }
+	}
   ]
 }
