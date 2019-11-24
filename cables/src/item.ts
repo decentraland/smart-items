@@ -1,3 +1,6 @@
+import { CableBox } from './cables'
+
+
 export type Props = {
 	redCable: boolean
 	greenCable: boolean
@@ -22,15 +25,16 @@ export default class Cables implements IScript<Props> {
   closeClip = new AudioClip('sounds/Chest_Close.mp3')
   //cableClip = new AudioClip()
 
-  open: Record<string, boolean> = {}
-  redCableCut: Record<string, boolean> = {}
-  greenCableCut: Record<string, boolean> = {}
-  blueCableCut: Record<string, boolean> = {}
+//   open: Record<string, boolean> = {}
+//   redCableCut: Record<string, boolean> = {}
+//   greenCableCut: Record<string, boolean> = {}
+//   blueCableCut: Record<string, boolean> = {}
 
   init() {}
 
   toggleBox(entity: Entity, value: boolean, playSound = true) {
-    if (this.open[entity.name] === value) return
+	let boxState = entity.getComponent(CableBox)
+	if (boxState.doorOpen === value) return
 
     if (playSound) {
 	   const source = value? new AudioSource(this.openClip) : new AudioSource(this.closeClip)       
@@ -40,20 +44,22 @@ export default class Cables implements IScript<Props> {
     }
 
     const animator = entity.getComponent(Animator)
-	const openClip = animator.getClip('open')
-    const closeClip =  animator.getClip('close')
+	const openClip = new AnimationState('open', { looping: false })
+	const closeClip = new AnimationState('close', { looping: false })
+	animator.addClip(openClip)
+	animator.addClip(closeClip)
     openClip.stop()
     closeClip.stop()
     const clip = value ? openClip : closeClip
     clip.play()
 
-    this.open[entity.name] = value
+    boxState.doorOpen = value
   }
 
 
 
   toggleCable(entity: Entity, value: boolean, color: CableColors, playSound = true) {
-
+	let boxState = entity.getParent().getComponent(CableBox)
 	if (playSound) {
 		//   const source = new AudioSource(this.clip)
 		//   entity.addComponentOrReplace(source)
@@ -64,21 +70,24 @@ export default class Cables implements IScript<Props> {
 	
 	switch (color){
 		case  CableColors.Red:
-			if (this.redCableCut[entity.name] === value) return  
-			cableClip = animator.getClip('CableRedAction')
-			this.redCableCut[entity.name] = value
+			if (boxState.redCableCut === value) return  
+			cableClip = new AnimationState('CableRedAction', { looping: false })
+			animator.addClip(cableClip)
+			boxState.redCableCut = value
 			break
 		
 		case CableColors.Green:
-			if (this.greenCableCut[entity.name] === value) return
-			cableClip = animator.getClip('CableGreenAction')
-			this.greenCableCut[entity.name] = value
+			if (boxState.greenCableCut === value) return
+			cableClip = new AnimationState('CableGreenAction', { looping: false })
+			animator.addClip(cableClip)
+			boxState.greenCableCut = value
 			break
 
 		case CableColors.Blue:
-			if (this.blueCableCut[entity.name] === value) return
-			cableClip = animator.getClip('CableBlueAction')
-			this.blueCableCut[entity.name] = value
+			if (boxState.blueCableCut === value) return
+			cableClip = new AnimationState('CableBlueAction', { looping: false })
+			animator.addClip(cableClip)
+			boxState.blueCableCut = value
 			break
 	}
 
@@ -93,7 +102,13 @@ export default class Cables implements IScript<Props> {
   spawn(host: Entity, props: Props, channel: IChannel) {
     const box = new Entity()
 	box.setParent(host)
-	this.open[box.name] = false
+	let boxState = new CableBox(
+		channel,
+		props.redCable,
+		props.greenCable,
+		props.blueCable,
+	)
+	box.addComponent(boxState)
 
     const animator = new Animator()
 	const openClip = new AnimationState("open", {looping: false})
@@ -115,57 +130,51 @@ export default class Cables implements IScript<Props> {
       })
     )
 	const redCable = new Entity()
-	this.redCableCut[redCable.name] = false
+	redCable.setParent(box)
 	if (props.redCable){	
 		redCable.addComponent(new Transform({
-			position: new Vector3(-0.07,0.05,0),
-			scale: new Vector3(0.3, 0.3, 0.3)
+			position: new Vector3(-0.21,0.15,0)
 		}))
 		const redClip = new AnimationState("CableRedAction", {looping: false})
 		redCable.addComponent(new Animator()).addClip(redClip)
-		redCable.setParent(host)
 		redCable.addComponent(new GLTFShape("models/RedCable.glb"))
 		redCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-			if (this.redCableCut[redCable.name] === true) return
+			if (boxState.redCableCut === true) return
 			const action = channel.createAction('redCut', {})
 			channel.sendActions([action])
 		} ))	
 	}
 
 	const greenCable = new Entity()
-	this.greenCableCut[greenCable.name] = false
+	greenCable.setParent(box)
 	if (props.greenCable){
 		greenCable.addComponent(new Transform({
-			position: new Vector3(0,0.05,0),
-			scale: new Vector3(0.3, 0.3, 0.3)
+			position: new Vector3(0,0.15,0)
 		}))
 		const greenClip = new AnimationState("CableGreenAction", {looping: false})
 		greenCable.addComponent(new Animator()).addClip(greenClip)
-		greenCable.setParent(host)
 		greenCable.addComponent(new GLTFShape("models/GreenCable.glb"))
 		greenCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-			if (this.greenCableCut[greenCable.name] === true) return
+			if (boxState.greenCableCut === true) return
 			const action = channel.createAction('greenCut', {})
 			channel.sendActions([action])
 		} ))
 	}
 
 	const blueCable = new Entity()
-	this.blueCableCut[blueCable.name] = false
+	blueCable.setParent(box)
 	if (props.blueCable){
 		blueCable.addComponent(new Transform({
-			position: new Vector3(0.07,0.05,0),
-			scale: new Vector3(0.3, 0.3, 0.3)
+			position: new Vector3(0.21,0.15,0)
 		}))
 		const blueClip = new AnimationState("CableBlueAction", {looping: false})
 		blueCable.addComponent(new Animator()).addClip(blueClip)
-		blueCable.setParent(host)
 		blueCable.addComponent(new GLTFShape("models/BlueCable.glb"))
 		blueCable.addComponent(new OnPointerDown( e=> {
 			if (e.hit.length > 4) return
-			if (this.blueCableCut[blueCable.name] === true) return
+			if (boxState.blueCableCut === true) return
 			const action = channel.createAction('blueCut', {})
 			channel.sendActions([action])
 		} ))
@@ -201,7 +210,7 @@ export default class Cables implements IScript<Props> {
       }
 	})
 	channel.handleAction('toggleBox', ({ sender }) => {
-		let newState = !this.open[box.name]
+		let newState = !boxState.doorOpen
 		this.toggleBox(box, newState)
 		if (sender === channel.id) {
 		  if (newState){
@@ -246,10 +255,10 @@ export default class Cables implements IScript<Props> {
 	})
 	channel.reply<boolean[]>('isActive', () => 
 	[
-		this.open[box.name], 
-		this.redCableCut[redCable.name], 
-		this.greenCableCut[greenCable.name], 
-		this.blueCableCut[blueCable.name]
+		boxState.doorOpen, 
+		boxState.redCableCut, 
+		boxState.greenCableCut, 
+		boxState.blueCableCut
 	]
 	)
   }
