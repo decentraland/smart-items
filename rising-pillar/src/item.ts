@@ -78,12 +78,7 @@ export default class Pillar implements IScript<Props> {
 
     //auto start platform
     if (autoStart !== false) {
-      const goToTopAction: BaseAction<{}> = {
-        entityName: host.name,
-        actionId: 'rise',
-        values: {}
-      }
-      channel.sendActions([goToTopAction])
+	  const goToTopAction = channel.createAction('rise', {})
     }
   }
 }

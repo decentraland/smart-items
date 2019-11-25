@@ -30,12 +30,12 @@
 	},
     {
       "id": "onReachBottom",
-      "label": "On Reach Bottom",
+      "label": "When bottom reached",
       "type": "actions"
     },
     {
       "id": "onReachTop",
-      "label": "On Reach Top",
+      "label": "When top reached",
       "type": "actions"
     }
   ],
