@@ -24,7 +24,7 @@
     },
     {
       "id": "onThreshold",
-      "label": "When threshold reached",
+      "label": "When target value reached",
       "type": "actions",
       "default": ""
     }
