@@ -1,0 +1,47 @@
+{
+  "name": "NumPad",
+  "tags": ["numpad"],
+  "category": "decorations",
+  "model": "models/Num_Pad.glb",
+  "parameters": [
+    {
+      "id": "combination",
+      "label": "Correct combination",
+      "type": "integer",
+      "default": 123
+	},
+	{
+		"id": "blocked",
+		"label": "Blocked",
+		"type": "boolean",
+		"default": false
+	},
+    {
+      "id": "onSolve",
+      "label": "When solved",
+      "type": "actions"
+	},
+    {
+      "id": "onWrong",
+      "label": "When missed",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+	{
+		"id": "reset",
+		"label": "Reset",
+		"parameters": []
+	},
+	{
+      "id": "disable",
+      "label": "Disable",
+      "parameters": []
+	},
+	{
+		"id": "enable",
+		"label": "Enable",
+		"parameters": []
+	  }
+  ]
+}
