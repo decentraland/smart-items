@@ -1,10 +1,12 @@
 import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
-import PadLock, { Props } from './item'
+import NumPad, { Props } from './item'
 
-const padLock = new PadLock()
-const spawner = new Spawner<Props>(padLock)
+const numPad = new NumPad()
+const spawner = new Spawner<Props>(numPad)
 
-spawner.spawn('padLock', new Transform({ position: new Vector3(4, 1.7, 8) }), {
-  combination: 1234,
+spawner.spawn('numPad', new Transform({ position: new Vector3(4, 1.7, 8) }), {
+  combination: 123,
+  blocked: false,
+  onWrong: null,
   onSolve: null
 })

@@ -3,15 +3,15 @@ const panelPosition = new Vector2(12, -24);
 const buttonSize = new Vector2(55, 55);
 const buttonSpace = new Vector2(5, 5);
 
-const clearButtonT = new Texture("images/codepad/pwdpanel_clear.png")
-const closeButtonT = new Texture("images/codepad/button_close.png")
-const enterButtonT = new Texture("images/codepad/pwdpanel_enter.png")
-const inputBoxT = new Texture("images/codepad/pwdpanel_input.png")
-const numberButtonT = new Texture("images/codepad/pwdpanel_buttons.png")
-const panelBackgroundT = new Texture("images/codepad/pwdpanel_bg.png")
+const clearButtonT = new Texture("images/pwdpanel_clear.png")
+const closeButtonT = new Texture("images/button_close.png")
+const enterButtonT = new Texture("images/pwdpanel_enter.png")
+const inputBoxT = new Texture("images/pwdpanel_input.png")
+const numberButtonT = new Texture("images/pwdpanel_buttons.png")
+const panelBackgroundT = new Texture("images/pwdpanel_bg.png")
 
 
-export class Keypad {
+export class KeypadUI {
   // Expose the container for changing visibility
   public container: UIContainerRect;
 

@@ -1,4 +1,5 @@
 import { NumPadComponent } from './numpad'
+import { KeypadUI } from './ui'
 
 export type Props = {
   combination: number
@@ -7,64 +8,15 @@ export type Props = {
   onWrong?: Actions
 }
 
-export default class PadLock implements IScript<Props> {
+export default class NumPad implements IScript<Props> {
   pressClip = new AudioClip('sounds/NumpadPress.mp3')
+  canvas = new UICanvas()
 //   grantedClip
 //   deniedClip
   init() {}
 
-  scrambleWheels(entity: Entity) {
-    let wheels = entity.getComponent(PadLockComponent)
+ 
 
-    wheels.digit1 = Math.floor(Math.random() * 10)
-    wheels.digit2 = Math.floor(Math.random() * 10)
-    wheels.digit3 = Math.floor(Math.random() * 10)
-    wheels.digit4 = Math.floor(Math.random() * 10)
-
-    this.rotateWheels(entity)
-  }
-
-  rotateWheels(entity: Entity) {
-    let wheels = entity.getComponent(PadLockComponent)
-    //log(wheels.digit1, wheels.digit2, wheels.digit3, wheels.digit4)
-
-    const clip = this.spinClip
-    const source = new AudioSource(clip)
-    source.volume = 0.3
-    entity.addComponentOrReplace(source)
-    source.playOnce()
-
-    wheels.wheel1.getComponent(Transform).rotation = Quaternion.Euler(
-      wheels.digit1 * 36,
-      0,
-      0
-    )
-    wheels.wheel2.getComponent(Transform).rotation = Quaternion.Euler(
-      wheels.digit2 * 36,
-      0,
-      0
-    )
-    wheels.wheel3.getComponent(Transform).rotation = Quaternion.Euler(
-      wheels.digit3 * 36,
-      0,
-      0
-    )
-    wheels.wheel4.getComponent(Transform).rotation = Quaternion.Euler(
-      wheels.digit4 * 36,
-      0,
-      0
-    )
-
-    let nums =
-      wheels.digit1 * 1000 +
-      wheels.digit2 * 100 +
-      wheels.digit3 * 10 +
-      wheels.digit4
-    if (nums == wheels.combination) {
-      //log("GOT IT RIGHT!")
-      wheels.channel.sendActions(wheels.onSolve)
-    }
-  }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
     const numPad = new Entity()
@@ -77,15 +29,55 @@ export default class PadLock implements IScript<Props> {
     )
     numPad.addComponent(new GLTFShape('models/Num_Pad.glb'))
 
+	let ui = new KeypadUI(this.canvas)
+	ui.container.visible = false
 
     let padProperties = new NumPadComponent(
       channel,
 	  props.combination,
+	  ui,
 	  props.blocked,
       props.onSolve,
     )
 
-    numPad.addComponent(padProperties)
+	numPad.addComponent(padProperties)
+
+
+	
+	numPad.addComponent(new OnPointerDown( e => {
+		if (e.hit.length > 4) return
+		ui.container.visible = true
+	}))
+
+	// Wire up the keypad logic
+	ui.onInput = (value: number): void => {
+	  padProperties.currentInput += value;
+	  ui.display(padProperties.currentInput);
+	  //numPadLock.playButtonPressed();
+	};
+	ui.onReset = (): void => {
+	  padProperties.currentInput = "";
+	  ui.display(padProperties.currentInput);
+	  //numPadLock.playButtonPressed();
+	};
+	ui.onSubmit = (): void => {
+	  if (padProperties.currentInput == props.combination.toString()) {
+		// Correct!
+		ui.display("OK!", Color4.Green());
+		//numPadLock.playAccessGranted();
+		// PAUSE!
+		ui.container.visible = false;
+		channel.sendActions(props.onSolve)
+
+	  } else {
+		// The password is incorrect
+		ui.display("Err", Color4.Red());
+		//numPadLock.playAccessDenied();
+		padProperties.currentInput = ""
+		channel.sendActions(props.onWrong)
+	  }
+	}
+
 
     // handle actions
     channel.handleAction('enable', () => {

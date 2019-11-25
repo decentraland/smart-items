@@ -3,6 +3,7 @@ import { KeypadUI } from "./ui"
 @Component('org.decentraland.NumPad')
 export class NumPadComponent {
   combination: number = 123
+  currentInput: string = ""
   ui: KeypadUI
   solved: boolean = false
   blocked: boolean = false
