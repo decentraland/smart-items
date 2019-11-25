@@ -3,18 +3,18 @@ export class CableBox {
   redCable: boolean = true
   greenCable: boolean = true
   blueCable: boolean = true
-  redCableCut: boolean = false 
+  redCableCut: boolean = false
   greenCableCut: boolean = false
   blueCableCut: boolean = false
   doorOpen: boolean = false
   constructor(
-	public channel: IChannel,
-	redCable: boolean,
-	greenCable: boolean,
-	blueCable: boolean,
+    public channel: IChannel,
+    redCable: boolean,
+    greenCable: boolean,
+    blueCable: boolean
   ) {
-	  this.redCable = redCable
-	  this.greenCable = greenCable
-	  this.blueCable = blueCable
+    this.redCable = redCable
+    this.greenCable = greenCable
+    this.blueCable = blueCable
   }
 }

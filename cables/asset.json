@@ -4,53 +4,53 @@
   "category": "decorations",
   "model": "models/Cable_Box.glb",
   "parameters": [
-	{
-		"id": "redCable",
-		"label": "Red Cable",
-		"type": "boolean",
-		"default": true
-	},
-	{
-		"id": "greenCable",
-		"label": "Green Cable",
-		"type": "boolean",
-		"default": true
-	},
-	{
-		"id": "blueCable",
-		"label": "Blue Cable",
-		"type": "boolean",
-		"default": true
-	},
-	{
-		"id": "onClick",
-		"label": "When Clicked",
-		"type": "actions",
-		"default": "toggleBox"
-	},
-	{
-		"id": "onRedCut",
-		"label": "When Red Cut",
-		"type": "actions"
-	},
-	{
-		"id": "onGreenCut",
-		"label": "When Green Cut",
-		"type": "actions"
-	},
-	{
-		"id": "onBlueCut",
-		"label": "When Blue Cut",
-		"type": "actions"
-	},	
-	{
+    {
+      "id": "redCable",
+      "label": "Red Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "greenCable",
+      "label": "Green Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "blueCable",
+      "label": "Blue Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onClick",
+      "label": "When Box Clicked",
+      "type": "actions",
+      "default": "openBox"
+    },
+    {
+      "id": "onRedCut",
+      "label": "When Red Cut",
+      "type": "actions"
+    },
+    {
+      "id": "onGreenCut",
+      "label": "When Green Cut",
+      "type": "actions"
+    },
+    {
+      "id": "onBlueCut",
+      "label": "When Blue Cut",
+      "type": "actions"
+    },
+    {
       "id": "onBoxOpen",
-      "label": "When Box Open",
+      "label": "When Box Opens",
       "type": "actions"
     },
     {
       "id": "onBoxClose",
-      "label": "When Box Closed",
+      "label": "When Box Closes",
       "type": "actions"
     }
   ],
@@ -64,7 +64,7 @@
       "id": "closeBox",
       "label": "Close Box",
       "parameters": []
-	},
+    },
     {
       "id": "toggleBox",
       "label": "Toggle Box",
@@ -74,6 +74,6 @@
       "id": "reset",
       "label": "Reset",
       "parameters": []
-	}
+    }
   ]
 }
