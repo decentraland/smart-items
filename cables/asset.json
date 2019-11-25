@@ -1,0 +1,79 @@
+{
+  "name": "Cable Box",
+  "tags": ["cables", "toggle"],
+  "category": "decorations",
+  "model": "models/Cable_Box.glb",
+  "parameters": [
+    {
+      "id": "redCable",
+      "label": "Red Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "greenCable",
+      "label": "Green Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "blueCable",
+      "label": "Blue Cable",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onClick",
+      "label": "When Box Clicked",
+      "type": "actions",
+      "default": "openBox"
+    },
+    {
+      "id": "onRedCut",
+      "label": "When Red Cut",
+      "type": "actions"
+    },
+    {
+      "id": "onGreenCut",
+      "label": "When Green Cut",
+      "type": "actions"
+    },
+    {
+      "id": "onBlueCut",
+      "label": "When Blue Cut",
+      "type": "actions"
+    },
+    {
+      "id": "onBoxOpen",
+      "label": "When Box Opens",
+      "type": "actions"
+    },
+    {
+      "id": "onBoxClose",
+      "label": "When Box Closes",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "openBox",
+      "label": "Open Box",
+      "parameters": []
+    },
+    {
+      "id": "closeBox",
+      "label": "Close Box",
+      "parameters": []
+    },
+    {
+      "id": "toggleBox",
+      "label": "Toggle Box",
+      "parameters": []
+    },
+    {
+      "id": "reset",
+      "label": "Reset",
+      "parameters": []
+    }
+  ]
+}

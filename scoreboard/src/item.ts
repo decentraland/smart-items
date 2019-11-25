@@ -48,6 +48,7 @@ export default class ScoreBoard implements IScript<Props> {
 	let score = entity.getComponent(ScoreBoardComponent)
 	
 	score.currentValue = newValue
+	
 	const clip = this.activateClip
 	const source = new AudioSource(clip)
 	source.volume = 0.3
