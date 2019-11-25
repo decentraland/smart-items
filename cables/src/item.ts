@@ -21,9 +21,9 @@ export enum CableColors {
 
 
 export default class Cables implements IScript<Props> {
-  openClip = new AudioClip('sounds/Chest_Open.mp3')
-  closeClip = new AudioClip('sounds/Chest_Close.mp3')
-  //cableClip = new AudioClip()
+  openClip = new AudioClip('sounds/OpenChest.mp3')
+  closeClip = new AudioClip('sounds/CloseChest.mp3')
+  sparkSoundClip = new AudioClip('sounds/Sparks_FX_03.mp3')
 
 //   open: Record<string, boolean> = {}
 //   redCableCut: Record<string, boolean> = {}
@@ -39,7 +39,7 @@ export default class Cables implements IScript<Props> {
     if (playSound) {
 	   const source = value? new AudioSource(this.openClip) : new AudioSource(this.closeClip)       
 	   entity.addComponentOrReplace(source)
-	   source.volume = 0.3
+	   //source.volume = 0.3
        source.playing = true
     }
 
@@ -60,10 +60,10 @@ export default class Cables implements IScript<Props> {
 
   toggleCable(entity: Entity, value: boolean, color: CableColors, playSound = true) {
 	let boxState = entity.getParent().getComponent(CableBox)
-	if (playSound) {
-		//   const source = new AudioSource(this.clip)
-		//   entity.addComponentOrReplace(source)
-		//   source.playing = true
+	if (playSound && value) {
+		  const source = new AudioSource(this.sparkSoundClip)
+		  entity.addComponentOrReplace(source)
+		  source.playing = true
 	}
 	const animator = entity.getComponent(Animator)
 	let cableClip: AnimationState
@@ -92,7 +92,7 @@ export default class Cables implements IScript<Props> {
 	}
 
 	if (value){
-		cableClip.play()
+		cableClip.play()	
 	  } else {
 		cableClip.stop()
 	  }
@@ -119,8 +119,7 @@ export default class Cables implements IScript<Props> {
 	
 	box.addComponent(new GLTFShape('models/Cable_Box.glb'))
 	box.addComponent(new Transform({
-		position: new Vector3(0,0,0),
-		scale: new Vector3(0.3, 0.3, 0.3)
+		position: new Vector3(0,0,0)
 	}))
 
     box.addComponent(
@@ -133,7 +132,7 @@ export default class Cables implements IScript<Props> {
 	redCable.setParent(box)
 	if (props.redCable){	
 		redCable.addComponent(new Transform({
-			position: new Vector3(-0.21,0.15,0)
+			position: new Vector3(-0.21,0.15,-0.25)
 		}))
 		const redClip = new AnimationState("CableRedAction", {looping: false})
 		redCable.addComponent(new Animator()).addClip(redClip)
@@ -150,7 +149,7 @@ export default class Cables implements IScript<Props> {
 	greenCable.setParent(box)
 	if (props.greenCable){
 		greenCable.addComponent(new Transform({
-			position: new Vector3(0,0.15,0)
+			position: new Vector3(0,0.15,-0.25)
 		}))
 		const greenClip = new AnimationState("CableGreenAction", {looping: false})
 		greenCable.addComponent(new Animator()).addClip(greenClip)
@@ -167,7 +166,7 @@ export default class Cables implements IScript<Props> {
 	blueCable.setParent(box)
 	if (props.blueCable){
 		blueCable.addComponent(new Transform({
-			position: new Vector3(0.21,0.15,0)
+			position: new Vector3(0.21,0.15,-0.25)
 		}))
 		const blueClip = new AnimationState("CableBlueAction", {looping: false})
 		blueCable.addComponent(new Animator()).addClip(blueClip)
