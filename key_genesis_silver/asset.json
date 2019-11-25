@@ -1,0 +1,40 @@
+{
+  "name": "Silver Key",
+  "tags": ["key", "interactive"],
+  "category": "decorations",
+  "model": "models/Silver_Key_Genesis.glb",
+  "parameters": [
+    {
+      "id": "target",
+      "label": "Used on",
+      "type": "entity"
+    },
+    {
+      "id": "onUse",
+      "label": "When used",
+      "type": "actions"
+    },
+    {
+      "id": "onEquip",
+      "label": "When picked up",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "use",
+      "label": "Use",
+      "parameters": []
+    },
+    {
+      "id": "equip",
+      "label": "Pick up",
+      "parameters": []
+    },
+    {
+      "id": "unequip",
+      "label": "Drop",
+      "parameters": []
+    }
+  ]
+}

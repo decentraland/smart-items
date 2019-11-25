@@ -2,11 +2,11 @@
 export class ScoreBoardComponent {
   currentValue: number = 0
   enabled: boolean = true
-  digit1: PlaneShape
-  digit2: PlaneShape
-  digit3: PlaneShape
-  digit4: PlaneShape
-  digit5: PlaneShape
+  digit1: TextShape
+  digit2: TextShape
+  digit3: TextShape
+  digit4: TextShape
+  digit5: TextShape
   initialValue: number
   threshold: number
   onThreshold: Actions
@@ -18,10 +18,10 @@ export class ScoreBoardComponent {
 	threshold: number,
 	onThreshold: Actions,
 	enabled: boolean,
-	digit1: PlaneShape,
-	digit2: PlaneShape,
-	digit3: PlaneShape,
-	digit4: PlaneShape,
+	digit1: TextShape,
+	digit2: TextShape,
+	digit3: TextShape,
+	digit4: TextShape,
   ) {
 	  this.currentValue = currentValue
 	  this.initialValue = currentValue

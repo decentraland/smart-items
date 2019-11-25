@@ -7,7 +7,7 @@
     {
       "id": "text",
       "label": "Text",
-      "type": "text",
+      "type": "textarea",
       "default": "Some text"
     },
     {
