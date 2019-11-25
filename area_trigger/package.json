@@ -13,9 +13,7 @@
   "devDependencies": {
     "decentraland-ecs": "latest"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "printWidth": 140
+  "dependencies": {
+    "decentraland-builder-scripts": "^0.19.0"
   }
 }
