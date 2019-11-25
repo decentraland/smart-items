@@ -29,11 +29,22 @@ export default class Button implements IScript<Props> {
     const clip = value ? openClip : closeClip
     clip.play()
 
+    const collider = Object.keys(entity.children).map(
+      key => entity.children[key]
+    )[0]
+    if (collider) {
+      collider.addComponentOrReplace(
+        new Transform({
+          scale: value ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0)
+        })
+      )
+    }
+
     this.active[entity.name] = value
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
-    const door = new Entity(host.name + '-button')
+    const door = new Entity(host.name + '-door')
     door.setParent(host)
 
     const animator = new Animator()
@@ -51,6 +62,11 @@ export default class Button implements IScript<Props> {
         channel.sendActions(props.onClick)
       })
     )
+
+    // collider
+    const collider = new Entity(door.name + '-collider')
+    collider.setParent(door)
+    collider.addComponent(new GLTFShape('models/Door_SciFi_collider.glb'))
 
     this.active[door.name] = false
 
