@@ -22,8 +22,8 @@ export default class Button implements IScript<Props> {
     }
 
     const animator = entity.getComponent(Animator)
-    const openClip = animator.getClip('open')
-    const closeClip = animator.getClip('close')
+    const openClip = animator.getClip('Open')
+    const closeClip = animator.getClip('Close')
     openClip.stop()
     closeClip.stop()
     const clip = value ? openClip : closeClip
@@ -37,8 +37,8 @@ export default class Button implements IScript<Props> {
     door.setParent(host)
 
     const animator = new Animator()
-    const closeClip = new AnimationState('close', { looping: false })
-    const openClip = new AnimationState('open', { looping: false })
+    const closeClip = new AnimationState('Close', { looping: false })
+    const openClip = new AnimationState('Open', { looping: false })
     animator.addClip(closeClip)
     animator.addClip(openClip)
     door.addComponent(animator)

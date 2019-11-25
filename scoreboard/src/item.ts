@@ -39,7 +39,7 @@ export default class ScoreBoard implements IScript<Props> {
   updateBoard(entity: Entity, newValue: number, playSound = true) {
     let score = entity.getComponent(ScoreBoardComponent)
 
-    score.currentValue = newValue
+    score.currentValue = Math.max(0, newValue)
 
     if (playSound) {
       const clip = this.activateClip

@@ -35,7 +35,7 @@ export default class Button implements IScript<Props> {
     if (collider) {
       collider.addComponentOrReplace(
         new Transform({
-          scale: value ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0)
+          scale: value ? new Vector3(0, 0, 0) : new Vector3(1, 1, 1)
         })
       )
     }
