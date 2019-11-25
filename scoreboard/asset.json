@@ -24,15 +24,9 @@
     },
     {
       "id": "onThreshold",
-      "label": "When threshold reached",
+      "label": "When target value reached",
       "type": "actions",
       "default": ""
-    },
-    {
-      "id": "onClick",
-      "label": "When clicked",
-      "type": "actions",
-      "default": "increase"
     }
   ],
   "actions": [
