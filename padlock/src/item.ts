@@ -68,7 +68,7 @@ export default class PadLock implements IScript<Props> {
     padLock.setParent(host)
     padLock.addComponent(
       new Transform({
-        position: new Vector3(0, -0.1375, 0.01),
+        position: new Vector3(0, 0, 0.01),
         scale: new Vector3(0.8, 1, 1)
       })
     )
@@ -99,7 +99,7 @@ export default class PadLock implements IScript<Props> {
     wheel1.addComponent(
       new Transform({
         rotation: Quaternion.Euler(0, 0, 0),
-        position: new Vector3(0.15, 0, 0)
+        position: new Vector3(0.15, 0.1375, 0)
       })
     )
     wheel1.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
@@ -117,7 +117,7 @@ export default class PadLock implements IScript<Props> {
     wheel2.addComponent(
       new Transform({
         rotation: Quaternion.Euler(0, 0, 0),
-        position: new Vector3(0.05, 0, 0)
+        position: new Vector3(0.05, 0.1375, 0)
       })
     )
     wheel2.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
@@ -134,7 +134,7 @@ export default class PadLock implements IScript<Props> {
     wheel3.addComponent(
       new Transform({
         rotation: Quaternion.Euler(0, 0, 0),
-        position: new Vector3(-0.05, 0, 0)
+        position: new Vector3(-0.05, 0.1375, 0)
       })
     )
     wheel3.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
@@ -151,7 +151,7 @@ export default class PadLock implements IScript<Props> {
     wheel4.addComponent(
       new Transform({
         rotation: Quaternion.Euler(0, 0, 0),
-        position: new Vector3(-0.15, 0, 0)
+        position: new Vector3(-0.15, 0.1375, 0)
       })
     )
     wheel4.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
