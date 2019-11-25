@@ -1,8 +1,8 @@
 {
-  "name": "Trapdoor_scifi",
+  "name": "Trapdoor_pirates",
   "tags": ["door", "trap", "interactive"],
   "category": "decorations",
-  "model": "models/Grey_Trap_Door.glb",
+  "model": "models/Wooden_Trap_Door.glb",
   "parameters": [
     {
       "id": "onClick",

@@ -43,7 +43,7 @@ export type Props = {
 	  door.addComponent(animator)
 	  openClip.stop()
   
-	  door.addComponent(new GLTFShape('models/Grey_Trap_Door.glb'))
+	  door.addComponent(new GLTFShape('models/Wooden_Trap_Door.glb'))
   
 	  door.addComponent(
 		new OnPointerDown(e => {
