@@ -1,7 +1,6 @@
 import { ScoreBoardComponent } from './scoreboard'
 
 export type Props = {
-  onClick?: Actions
   initialVal: number,
   enabled: boolean,
   threshold: number,
@@ -99,11 +98,6 @@ export default class ScoreBoard implements IScript<Props> {
 		position: new Vector3(0, 0, 0) 
 	}))
 	board.addComponent(new GLTFShape('models/board/Scoreboard.glb'))
-
-	// handle click
-	board.addComponent(
-		new OnPointerDown(() => channel.sendActions(props.onClick))
-	)
 	
 	const digit1 = new Entity()
 	digit1.setParent(host)
