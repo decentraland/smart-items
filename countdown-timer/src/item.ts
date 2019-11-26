@@ -32,8 +32,8 @@ export default class Timer implements IScript<Props> {
     arrow.setParent(host)
     arrow.addComponent(
       new Transform({
-        rotation: Quaternion.Euler(0, 0, 0),
-        position: new Vector3(0, 0, 0)
+        rotation: Quaternion.Euler(90, 0, 0),
+        position: new Vector3(0, 1, 0)
       })
     )
 
@@ -53,17 +53,17 @@ export default class Timer implements IScript<Props> {
     //this.updateBoard(board, props.initialVal, false)
 
     // handle actions
-    channel.handleAction('addTime', e => {
-      timeData.currentTime + e.values['seconds']
+    type TimeValues = { seconds: number }
+    channel.handleAction<TimeValues>('addTime', e => {
+      timeData.currentTime += e.values.seconds
       if (timeData.currentTime > timeData.totalTime / 3) {
         timeData.thresHoldReached = false
       }
     })
-    channel.handleAction('subtractTime', e => {
-      timeData.currentTime - e.values['seconds']
+    channel.handleAction<TimeValues>('subtractTime', e => {
+      timeData.currentTime -= e.values.seconds
     })
     channel.handleAction('reset', () => {
-      if (!timeData.active) return
       timeData.active = false
       timeData.currentTime = timeData.totalTime
       timeData.thresHoldReached = false

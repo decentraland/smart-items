@@ -38,7 +38,7 @@ export class CountdownTimerSystem {
 
       let angle = (timer.currentTime / timer.totalTime) * -270 - 45
 
-      transform.rotation = Quaternion.Euler(0, angle, 0)
+      transform.rotation = Quaternion.Euler(90, angle, 0)
 
       if (!timer.thresHoldReached && timer.currentTime <= timer.totalTime / 3) {
         timer.channel.sendActions(timer.onThreshold)

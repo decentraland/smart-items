@@ -7,8 +7,7 @@ const spawner = new Spawner<Props>(scoreBoard)
 spawner.spawn(
   'scoreBoard',
   new Transform({
-    position: new Vector3(4, 2, 8),
-    rotation: Quaternion.Euler(90, 0, 0)
+    position: new Vector3(4, 1.5, 8)
   }),
   {
     totalTime: 60,
