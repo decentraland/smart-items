@@ -3,7 +3,6 @@ import { RisingPillarSystem, RisingPillar, Position } from './pillar'
 export type Props = {
   height?: number
   speed?: number
-  autoStart: boolean
   onReachBottom?: Actions
   onReachTop?: Actions
 }
@@ -11,7 +10,6 @@ export type Props = {
 export default class Pillar implements IScript<Props> {
   risingClip = new AudioClip('sounds/RisingPillar.mp3')
 
-	
   init() {
     engine.addSystem(new RisingPillarSystem())
   }
@@ -20,8 +18,8 @@ export default class Pillar implements IScript<Props> {
     const platform = entity.getComponent(RisingPillar)
     const isStart = platform.position === 'start'
 
-	const source = new AudioSource(this.risingClip)
-	source.volume = 1
+    const source = new AudioSource(this.risingClip)
+    source.volume = 1
     entity.addComponentOrReplace(source)
     // source.playing = true
 
@@ -47,7 +45,7 @@ export default class Pillar implements IScript<Props> {
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
-    const { height, speed, autoStart, onReachBottom, onReachTop } = props
+    const { height, speed, onReachBottom, onReachTop } = props
 
     const platform = new Entity('verticalPlatform')
     platform.setParent(host)
@@ -75,10 +73,5 @@ export default class Pillar implements IScript<Props> {
       'position',
       () => platform.getComponent(RisingPillar).position
     )
-
-    //auto start platform
-    if (autoStart !== false) {
-	  const goToTopAction = channel.createAction('rise', {})
-    }
   }
 }

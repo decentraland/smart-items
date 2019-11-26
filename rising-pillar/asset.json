@@ -8,8 +8,8 @@
       "id": "height",
       "label": "Height",
       "type": "slider",
-	  "default": 5,
-	  "max": 5.5,
+      "default": 5,
+      "max": 5.5,
       "min": 0,
       "step": 1
     },
@@ -21,13 +21,7 @@
       "max": 20,
       "min": 0,
       "step": 1
-	},
-	{
-	  "id": "autoStart",
-	  "label": "Auto Start",
-	  "type": "boolean",
-	  "default": false
-	},
+    },
     {
       "id": "onReachBottom",
       "label": "When bottom reached",
