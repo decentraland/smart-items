@@ -1,0 +1,30 @@
+{
+  "name": "Signpost Street Names",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/signpost/SignPost_Street_Names.glb",
+  "parameters": [
+    {
+      "id": "textTop",
+      "label": "Text Top Sign",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "textLower",
+      "label": "Text Lower Sign",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 12,
+      "max": 30,
+      "step": 0.5,
+      "default": 20
+    }
+  ],
+  "actions": []
+}
