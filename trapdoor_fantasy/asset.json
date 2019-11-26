@@ -2,7 +2,7 @@
   "name": "Trapdoor_fantasy",
   "tags": ["door", "trap", "interactive"],
   "category": "decorations",
-  "model": "models/Stone_Well_Trap_Door.glb",
+  "model": "models/Stone_Trap_Door.glb",
   "parameters": [
     {
       "id": "onClick",
