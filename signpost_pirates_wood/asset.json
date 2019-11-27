@@ -1,8 +1,8 @@
 {
-  "name": "Signpost",
+  "name": "Signpost Wood",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/signpost/SignPost.glb",
+  "model": "models/signpost/SignPost_wood.glb",
   "parameters": [
     {
       "id": "text",

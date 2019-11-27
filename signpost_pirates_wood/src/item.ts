@@ -10,7 +10,7 @@ export default class SignPost implements IScript<Props> {
     const sign = new Entity()
     sign.setParent(host)
 
-    sign.addComponent(new GLTFShape('models/signpost/SignPost.glb'))
+    sign.addComponent(new GLTFShape('models/signpost/SignPost_wood.glb'))
 
     let signText = new Entity()
     signText.setParent(host)
@@ -26,8 +26,8 @@ export default class SignPost implements IScript<Props> {
 
     signText.addComponent(
       new Transform({
-        position: new Vector3(-0.172, 1.6, -0.2),
-        rotation: Quaternion.Euler(5, 90, 0),
+        position: new Vector3(0, 1, 0.33),
+        rotation: Quaternion.Euler(0, 180, 0),
         scale: new Vector3(0.05, 0.05, 0.05)
       })
     )

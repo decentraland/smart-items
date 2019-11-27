@@ -17,6 +17,7 @@ async function build() {
   const total = list.length
   for (const dir of list) {
     console.log(`[${count}/${total}] Building ${dir}...`)
+    await execute(dir, 'npm', ['install'])
     await execute(dir, 'dcl', ['pack'])
     count++
   }
