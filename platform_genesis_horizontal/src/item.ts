@@ -45,19 +45,20 @@ export default class Door implements IScript<Props> {
   spawn(host: Entity, props: Props, channel: IChannel) {
     const { distance, speed, autoStart, onReachStart, onReachEnd } = props
 
-    const platform = new Entity('HorizontalPlatform')
+    const platform = new Entity(host.name + '-platform')
     platform.setParent(host)
     platform.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    platform.addComponent(new GLTFShape('models/Platform.glb'))
+    platform.addComponent(new GLTFShape('models/Platform_Genesis.glb'))
     platform.addComponent(
       new HorizontalPlatform(channel, distance, speed, onReachStart, onReachEnd)
     )
 
     // add animation
     const animator = new Animator()
-    const clip = new AnimationState('LightAction', { looping: true })
+    const clip = new AnimationState('main', { looping: true })
     animator.addClip(clip)
     platform.addComponent(animator)
+    clip.play()
 
     // handle actions
     channel.handleAction('goToEnd', () => this.move(platform, 'end'))

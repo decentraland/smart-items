@@ -1,8 +1,8 @@
 {
-  "name": "Vertical Platform",
-  "tags": ["platform", "vertical", "interactive"],
+  "name": "Horizontal Platform",
+  "tags": ["platform", "horizontal", "interactive"],
   "category": "decorations",
-  "model": "models/Vertical_Platform.glb",
+  "model": "models/Horizontal_Platform_Genesis.glb",
   "parameters": [
     {
       "id": "distance",
