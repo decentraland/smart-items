@@ -1,6 +1,6 @@
 export type Position = 'start' | 'end'
 
-@Component('org.decentraland.VerticalPlatform')
+@Component('org.decentraland.VerticalPlatformGenesis')
 export class VerticalPlatform {
   transition: number = -1
   delay: number = -1 // this is a delay to stop the animation, to prevent a flickr in the transition
