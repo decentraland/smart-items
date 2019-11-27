@@ -1,4 +1,8 @@
-import { VerticalPlatformSystem, VerticalPlatform, Position } from './platform'
+import {
+  HorizontalPlatformSystem,
+  HorizontalPlatform,
+  Position
+} from './platform'
 
 export type Props = {
   distance?: number
@@ -10,11 +14,11 @@ export type Props = {
 
 export default class Door implements IScript<Props> {
   init() {
-    engine.addSystem(new VerticalPlatformSystem())
+    engine.addSystem(new HorizontalPlatformSystem())
   }
 
   move(entity: Entity, newPosition?: Position, useTransition = true) {
-    const platform = entity.getComponent(VerticalPlatform)
+    const platform = entity.getComponent(HorizontalPlatform)
     const isStart = platform.position === 'start'
 
     // compute new value
@@ -44,17 +48,10 @@ export default class Door implements IScript<Props> {
     const platform = new Entity(host.name + '-platform')
     platform.setParent(host)
     platform.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    platform.addComponent(new GLTFShape('models/Platform_Pirates.glb'))
+    platform.addComponent(new GLTFShape('models/Platform_Pirates_Alt.glb'))
     platform.addComponent(
-      new VerticalPlatform(channel, distance, speed, onReachStart, onReachEnd)
+      new HorizontalPlatform(channel, distance, speed, onReachStart, onReachEnd)
     )
-
-    // add animation
-    const animator = new Animator()
-    const clip = new AnimationState('main', { looping: true })
-    animator.addClip(clip)
-    platform.addComponent(animator)
-    clip.play()
 
     // handle actions
     channel.handleAction('goToEnd', () => this.move(platform, 'end'))
@@ -66,7 +63,7 @@ export default class Door implements IScript<Props> {
     )
     channel.reply<Position>(
       'position',
-      () => platform.getComponent(VerticalPlatform).position
+      () => platform.getComponent(HorizontalPlatform).position
     )
 
     // auto start platform

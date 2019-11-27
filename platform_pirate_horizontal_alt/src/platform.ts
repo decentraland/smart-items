@@ -1,7 +1,7 @@
 export type Position = 'start' | 'end'
 
-@Component('org.decentraland.VerticalPlatformPirates')
-export class VerticalPlatform {
+@Component('org.decentraland.HorizontalPlatformPiratesAlt')
+export class HorizontalPlatform {
   transition: number = -1
   delay: number = -1 // this is a delay to stop the animation, to prevent a flickr in the transition
   position: Position = 'start'
@@ -16,14 +16,14 @@ export class VerticalPlatform {
 
 const startPosition = new Vector3(0, 0, 0)
 
-export class VerticalPlatformSystem {
-  group = engine.getComponentGroup(VerticalPlatform)
+export class HorizontalPlatformSystem {
+  group = engine.getComponentGroup(HorizontalPlatform)
   update(dt: number) {
     for (const entity of this.group.entities) {
-      const platform = entity.getComponent(VerticalPlatform)
+      const platform = entity.getComponent(HorizontalPlatform)
       const transform = entity.getComponent(Transform)
 
-      const endPosition = new Vector3(0, platform.distance, 0)
+      const endPosition = new Vector3(0, 0, -platform.distance)
 
       const isStart = platform.position === 'start'
 
