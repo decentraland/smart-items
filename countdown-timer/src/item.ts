@@ -88,8 +88,5 @@ export default class Timer implements IScript<Props> {
     channel.reply<CountdownTimerComponent>('value', () => {
       return board.getComponent(CountdownTimerComponent)
     })
-
-    if (props.active) {
-    }
   }
 }
