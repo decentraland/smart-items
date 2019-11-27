@@ -48,7 +48,7 @@ export default class Button implements IScript<Props> {
     siren.addComponent(animator)
     deactivateClip.play()
 
-    siren.addComponent(new GLTFShape('models/Siren_Pirates.glb'))
+    siren.addComponent(new GLTFShape('models/Parrot.glb'))
 
     siren.addComponent(
       new OnPointerDown(() => {
