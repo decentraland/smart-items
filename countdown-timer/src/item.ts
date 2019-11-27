@@ -7,9 +7,11 @@ export type Props = {
   onTimeUp: Actions
 }
 
-export default class Timer implements IScript<Props> {
-  //activateClip = new AudioClip('sounds/NumpadPress.mp3')
+type TimeValues = {
+  seconds: number
+}
 
+export default class Timer implements IScript<Props> {
   numberMaterial: Material
 
   init() {
@@ -50,10 +52,13 @@ export default class Timer implements IScript<Props> {
 
     board.addComponent(timeData)
 
-    //this.updateBoard(board, props.initialVal, false)
-
     // handle actions
-    type TimeValues = { seconds: number }
+    const reset = () => {
+      timeData.active = false
+      timeData.currentTime = timeData.totalTime
+      timeData.thresHoldReached = false
+    }
+
     channel.handleAction<TimeValues>('addTime', e => {
       timeData.currentTime += e.values.seconds
       if (timeData.currentTime > timeData.totalTime / 3) {
@@ -63,12 +68,9 @@ export default class Timer implements IScript<Props> {
     channel.handleAction<TimeValues>('subtractTime', e => {
       timeData.currentTime -= e.values.seconds
     })
-    channel.handleAction('reset', () => {
-      timeData.active = false
-      timeData.currentTime = timeData.totalTime
-      timeData.thresHoldReached = false
-    })
+    channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
+      reset()
       timeData.active = true
     })
     channel.handleAction('pause', () => {
@@ -86,5 +88,8 @@ export default class Timer implements IScript<Props> {
     channel.reply<CountdownTimerComponent>('value', () => {
       return board.getComponent(CountdownTimerComponent)
     })
+
+    if (props.active) {
+    }
   }
 }
