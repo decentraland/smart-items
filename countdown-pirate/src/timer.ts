@@ -1,4 +1,4 @@
-@Component('org.decentraland.ScoreBoard')
+@Component('org.decentraland.CountDownPirate')
 export class CountdownTimerComponent {
   totalTime: number = 0
   currentTime: number = 0
@@ -25,7 +25,7 @@ export class CountdownTimerComponent {
   }
 }
 
-export class CountdownTimerSystem {
+export class PirateCountdownTimerSystem {
   group = engine.getComponentGroup(CountdownTimerComponent)
   update(dt: number) {
     for (const entity of this.group.entities) {

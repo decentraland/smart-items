@@ -1,4 +1,4 @@
-import { CountdownTimerComponent, CountdownTimerSystem } from './timer'
+import { CountdownTimerComponent, PirateCountdownTimerSystem } from './timer'
 
 export type Props = {
   totalTime: number
@@ -17,7 +17,7 @@ export default class Timer implements IScript<Props> {
   numberMaterial: Material
 
   init() {
-    engine.addSystem(new CountdownTimerSystem())
+    engine.addSystem(new PirateCountdownTimerSystem())
   }
 
   updateBoard(entity: Entity, newValue: number, playSound = true) {}

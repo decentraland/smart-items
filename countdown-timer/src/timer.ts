@@ -1,4 +1,4 @@
-@Component('org.decentraland.ScoreBoard')
+@Component('org.decentraland.Countdown')
 export class CountdownTimerComponent {
   totalTime: number = 0
   currentTime: number = 0
