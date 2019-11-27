@@ -2,7 +2,6 @@
   "name": "Signpost Tree",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/signpost/SignPost_tree.glb",
   "parameters": [
     {
       "id": "text",

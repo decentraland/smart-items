@@ -2,7 +2,7 @@
   "name": "Signpost Root",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/signpost/SignPost_root.glb",
+  "model": "models/signpost/Signpost_Root.glb",
   "parameters": [
     {
       "id": "text",
