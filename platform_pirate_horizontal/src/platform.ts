@@ -31,19 +31,11 @@ export class HorizontalPlatformSystem {
       const end = !isStart ? endPosition : startPosition
       const speed = platform.speed / 20
 
-      const animator = entity.getComponent(Animator)
-      const clip = animator.getClip('LightAction')
-
       if (platform.transition >= 0 && platform.transition < 1) {
         platform.transition += dt * speed
         transform.position.copyFrom(
           Vector3.Lerp(start, end, platform.transition)
         )
-
-        if (!clip.playing) {
-          clip.stop()
-          clip.play()
-        }
       } else if (platform.transition >= 1) {
         platform.transition = -1
         platform.delay = 0
@@ -59,7 +51,6 @@ export class HorizontalPlatformSystem {
         platform.delay += dt
       } else if (platform.delay >= 1) {
         platform.delay = -1
-        clip.stop()
       }
     }
   }
