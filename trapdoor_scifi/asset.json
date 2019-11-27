@@ -1,14 +1,9 @@
 {
-  "name": "Trapdoor_scifi",
+  "name": "Metal Trapdoor",
   "tags": ["door", "trap", "interactive"],
   "category": "decorations",
   "model": "models/Grey_Trap_Door.glb",
   "parameters": [
-    {
-      "id": "onClick",
-      "label": "When clicked",
-      "type": "actions"
-    },
     {
       "id": "onOpen",
       "label": "When opened",

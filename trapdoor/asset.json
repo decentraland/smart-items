@@ -5,11 +5,6 @@
   "model": "models/Trap_Door.glb",
   "parameters": [
     {
-      "id": "onClick",
-      "label": "When clicked",
-      "type": "actions"
-    },
-    {
       "id": "onOpen",
       "label": "When opened",
       "type": "actions"
