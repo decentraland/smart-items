@@ -1,8 +1,8 @@
 {
-  "name": "Signpost",
+  "name": "Square Signpost",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/signpost/SignPost.glb",
+  "model": "models/signpost/SignPost_Square.glb",
   "parameters": [
     {
       "id": "text",
