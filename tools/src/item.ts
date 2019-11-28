@@ -11,6 +11,7 @@ type DelayValues = {
 type PrintValues = {
   message: string
   duration: number
+  multiplayer: boolean
 }
 
 const getEntityByName = (name: string) =>
@@ -109,7 +110,12 @@ export default class Tools implements IScript<Props> {
     })
 
     channel.handleAction<PrintValues>('print', action => {
-      const { message, duration } = action.values
+      const { message, duration, multiplayer } = action.values
+
+      if (!multiplayer && action.sender !== channel.id) {
+        // if not multiplayer and not ours prevent showing the message
+        return
+      }
 
       const text = new UIText(this.getContainer())
       text.value = message

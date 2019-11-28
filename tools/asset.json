@@ -189,6 +189,12 @@
           "label": "Duration in seconds",
           "type": "integer",
           "default": 5
+        },
+        {
+          "id": "multiplayer",
+          "label": "Show to everyone",
+          "type": "boolean",
+          "default": false
         }
       ]
     }
