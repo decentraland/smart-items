@@ -23,7 +23,6 @@ export default class PadLock implements IScript<Props> {
 
   rotateWheels(entity: Entity) {
     let wheels = entity.getComponent(PadLockComponent)
-    //log(wheels.digit1, wheels.digit2, wheels.digit3, wheels.digit4)
 
     const clip = this.spinClip
     const source = new AudioSource(clip)
@@ -58,16 +57,7 @@ export default class PadLock implements IScript<Props> {
       wheels.digit3 * 10 +
       wheels.digit4
 
-    log(
-      nums,
-      wheels.combination,
-      wheels.digit1,
-      wheels.digit2,
-      wheels.digit3,
-      wheels.digit4
-    )
     if (nums == wheels.combination) {
-      //log("GOT IT RIGHT!")
       wheels.channel.sendActions(wheels.onSolve)
     }
   }
