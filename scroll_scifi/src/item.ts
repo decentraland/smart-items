@@ -7,7 +7,7 @@ export default class Button implements IScript<Props> {
   instances: [Entity, Props][] = []
   clip = new AudioClip('sounds/open.mp3')
   canvas = new UICanvas()
-  texture = new Texture('images/scroll.png')
+  texture = new Texture('images/Tablet.png')
   image = new UIImage(this.canvas, this.texture)
   message = new UIText(this.canvas)
 
@@ -20,7 +20,7 @@ export default class Button implements IScript<Props> {
     this.message.hAlign = 'center'
     this.message.hTextAlign = 'center'
     this.message.adaptWidth = true
-    this.message.color = new Color4(0, 0, 0, 1)
+    this.message.color = Color4.FromHexString('#29fbffff')
     this.message.visible = false
 
     this.image.width = width
@@ -85,7 +85,7 @@ export default class Button implements IScript<Props> {
     const scroll = new Entity()
     scroll.setParent(host)
 
-    scroll.addComponent(new GLTFShape('models/Scroll.glb'))
+    scroll.addComponent(new GLTFShape('models/Tablet.glb'))
 
     this.instances.push([scroll, props])
 
