@@ -74,8 +74,8 @@ export default class Timer implements IScript<Props> {
     })
     channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
-      timeData.active = true
       reset()
+      timeData.active = true
     })
     channel.handleAction('pause', () => {
       timeData.active = false

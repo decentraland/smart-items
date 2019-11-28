@@ -38,7 +38,7 @@ export class PirateCountdownTimerSystem {
 
       log(timer.currentTime)
 
-      let angle = (timer.currentTime / timer.totalTime) * -270 - 135
+      let angle = (timer.currentTime / timer.totalTime) * -360
 
       transform.rotation = Quaternion.Euler(0, 0, angle)
 

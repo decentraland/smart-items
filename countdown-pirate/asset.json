@@ -2,7 +2,7 @@
   "name": "Countdown Timer",
   "tags": ["scoreboard", "counter", "interactive"],
   "category": "decorations",
-  "model": "models/Countdown__Timer_Pirate.glb",
+  "model": "models/Countdown_Timer_Pirate.glb",
   "parameters": [
     {
       "id": "totalTime",
@@ -18,7 +18,7 @@
     },
     {
       "id": "onThreshold",
-      "label": "When in red area",
+      "label": "When near end",
       "type": "actions",
       "default": ""
     },

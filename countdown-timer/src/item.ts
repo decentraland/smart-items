@@ -53,6 +53,12 @@ export default class Timer implements IScript<Props> {
     //this.updateBoard(board, props.initialVal, false)
 
     // handle actions
+    const reset = () => {
+      timeData.active = false
+      timeData.currentTime = timeData.totalTime
+      timeData.thresHoldReached = false
+    }
+
     type TimeValues = { seconds: number }
     channel.handleAction<TimeValues>('addTime', e => {
       timeData.currentTime += e.values.seconds
@@ -63,12 +69,9 @@ export default class Timer implements IScript<Props> {
     channel.handleAction<TimeValues>('subtractTime', e => {
       timeData.currentTime -= e.values.seconds
     })
-    channel.handleAction('reset', () => {
-      timeData.active = false
-      timeData.currentTime = timeData.totalTime
-      timeData.thresHoldReached = false
-    })
+    channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
+      reset()
       timeData.active = true
     })
     channel.handleAction('pause', () => {
