@@ -1,6 +1,6 @@
 export type Position = 'start' | 'end'
 
-@Component('org.decentraland.RisingPillarSciFi')
+@Component('org.decentraland.RisingPillarFantasy')
 export class RisingPillar {
   transition: number = -1
   delay: number = -1 // this is a delay to stop the animation, to prevent a flickr in the transition
@@ -16,7 +16,7 @@ export class RisingPillar {
 
 const startPosition = new Vector3(0, 0, 0)
 
-export class RisingPillarSystem {
+export class RisingPillarFantasySystem {
   group = engine.getComponentGroup(RisingPillar)
   update(dt: number) {
     for (const entity of this.group.entities) {

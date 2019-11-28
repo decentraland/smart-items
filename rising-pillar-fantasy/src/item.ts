@@ -1,4 +1,4 @@
-import { RisingPillarSystem, RisingPillar, Position } from './pillar'
+import { RisingPillar, Position, RisingPillarFantasySystem } from './pillar'
 
 export type Props = {
   height?: number
@@ -11,12 +11,12 @@ export default class Pillar implements IScript<Props> {
   risingClip = new AudioClip('sounds/RisingPillar.mp3')
 
   init() {
-    engine.addSystem(new RisingPillarSystem())
+    engine.addSystem(new RisingPillarFantasySystem())
   }
 
   move(entity: Entity, newPosition?: Position, useTransition = true) {
-    const pillar = entity.getComponent(RisingPillar)
-    const isStart = pillar.position === 'start'
+    const platform = entity.getComponent(RisingPillar)
+    const isStart = platform.position === 'start'
 
     const source = new AudioSource(this.risingClip)
     source.volume = 1
@@ -26,21 +26,21 @@ export default class Pillar implements IScript<Props> {
     // compute new value
     if (newPosition === 'end') {
       if (!isStart) return
-      pillar.position = 'end'
+      platform.position = 'end'
     } else if (newPosition === 'start') {
       if (isStart) return
-      pillar.position = 'start'
+      platform.position = 'start'
     }
 
     // start transition
     if (useTransition) {
-      if (pillar.transition === -1) {
-        pillar.transition = 0
+      if (platform.transition === -1) {
+        platform.transition = 0
       } else {
-        pillar.transition = 1 - pillar.transition
+        platform.transition = 1 - platform.transition
       }
     } else {
-      pillar.transition = 1
+      platform.transition = 1
     }
   }
 
@@ -50,7 +50,7 @@ export default class Pillar implements IScript<Props> {
     const pillar = new Entity(host.name + '-rising-pillar')
     pillar.setParent(host)
     pillar.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    pillar.addComponent(new GLTFShape('models/Rising_Pillar_SciFi.glb'))
+    pillar.addComponent(new GLTFShape('models/Rising_Pillar_Temple.glb'))
     pillar.addComponent(
       new RisingPillar(channel, height, speed, onReachBottom, onReachTop)
     )
