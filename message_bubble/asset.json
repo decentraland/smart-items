@@ -1,0 +1,46 @@
+{
+  "name": "Signpost Tree",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/bubble/MessageBubble.glb",
+  "parameters": [
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 12,
+      "max": 60,
+      "step": 0.5,
+      "default": 30
+    }
+  ],
+  "actions": [
+    {
+      "id": "open",
+      "label": "Open",
+      "parameters": []
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "parameters": []
+    },
+    {
+      "id": "changeText",
+      "label": "Change Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
