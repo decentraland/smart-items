@@ -20,5 +20,17 @@
       "default": 20
     }
   ],
-  "actions": []
+  "actions": [
+    {
+      "id": "changeText",
+      "label": "Change Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
 }
