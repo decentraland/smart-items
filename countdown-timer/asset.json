@@ -11,8 +11,8 @@
       "default": 60
     },
     {
-      "id": "activated",
-      "label": "Activated",
+      "id": "active",
+      "label": "Auto Start",
       "type": "boolean",
       "default": true
     },
@@ -32,7 +32,7 @@
   "actions": [
     {
       "id": "activate",
-      "label": "Activate",
+      "label": "Start",
       "parameters": []
     },
     {
