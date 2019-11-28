@@ -1,0 +1,196 @@
+{
+  "name": "Tools",
+  "tags": ["tools"],
+  "category": "decorations",
+  "model": "models/tools.glb",
+  "parameters": [],
+  "actions": [
+    {
+      "id": "move",
+      "label": "Move Item",
+      "parameters": [
+        {
+          "id": "target",
+          "label": "Item",
+          "type": "entity"
+        },
+        {
+          "id": "x",
+          "label": "X",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "y",
+          "label": "Y",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "z",
+          "label": "Z",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "speed",
+          "label": "Speed",
+          "type": "slider",
+          "step": 1,
+          "min": 1,
+          "max": 20,
+          "default": 10
+        },
+        {
+          "id": "relative",
+          "label": "Relative",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "id": "onComplete",
+          "label": "When transition finished",
+          "type": "actions"
+        }
+      ]
+    },
+    {
+      "id": "rotate",
+      "label": "Rotate Item",
+      "parameters": [
+        {
+          "id": "target",
+          "label": "Item",
+          "type": "entity"
+        },
+        {
+          "id": "x",
+          "label": "X",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "y",
+          "label": "Y",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "z",
+          "label": "Z",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "speed",
+          "label": "Speed",
+          "type": "slider",
+          "step": 1,
+          "min": 1,
+          "max": 20,
+          "default": 10
+        },
+        {
+          "id": "onComplete",
+          "label": "When transition finished",
+          "type": "actions"
+        }
+      ]
+    },
+    {
+      "id": "scale",
+      "label": "Scale Item",
+      "parameters": [
+        {
+          "id": "target",
+          "label": "Item",
+          "type": "entity"
+        },
+        {
+          "id": "x",
+          "label": "X",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "y",
+          "label": "Y",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "z",
+          "label": "Z",
+          "type": "float",
+          "default": 0
+        },
+        {
+          "id": "speed",
+          "label": "Speed",
+          "type": "slider",
+          "step": 1,
+          "min": 1,
+          "max": 20,
+          "default": 10
+        },
+        {
+          "id": "onComplete",
+          "label": "When transition finished",
+          "type": "actions"
+        }
+      ]
+    },
+    {
+      "id": "delay",
+      "label": "Delay",
+      "parameters": [
+        {
+          "id": "timeout",
+          "label": "Delay in seconds",
+          "type": "integer",
+          "default": 5
+        },
+        {
+          "id": "onTimeout",
+          "label": "After delay",
+          "type": "actions"
+        }
+      ]
+    },
+    {
+      "id": "interval",
+      "label": "Interval",
+      "parameters": [
+        {
+          "id": "timeout",
+          "label": "Interval in seconds",
+          "type": "integer",
+          "default": 2
+        },
+        {
+          "id": "onTimeout",
+          "label": "On every interval",
+          "type": "actions"
+        }
+      ]
+    },
+    {
+      "id": "print",
+      "label": "Print Message",
+      "parameters": [
+        {
+          "id": "message",
+          "label": "Message",
+          "type": "textarea",
+          "default": "Some Text"
+        },
+        {
+          "id": "duration",
+          "label": "Duration in seconds",
+          "type": "integer",
+          "default": 5
+        }
+      ]
+    }
+  ]
+}

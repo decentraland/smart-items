@@ -1,0 +1,70 @@
+{
+  "name": "Signpost Directions",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/signpost/SignPost_Wood_Triple.glb",
+  "parameters": [
+    {
+      "id": "textTop",
+      "label": "Text Top Sign",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "textMiddle",
+      "label": "Text Middle Sign",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "textLower",
+      "label": "Text Lower Sign",
+      "type": "textarea",
+      "default": "Some text"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 12,
+      "max": 30,
+      "step": 0.5,
+      "default": 20
+    }
+  ],
+  "actions": [
+    {
+      "id": "changeTopText",
+      "label": "Change Top Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "changeMiddleText",
+      "label": "Change Middle Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "changeLowerText",
+      "label": "Change Lower Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

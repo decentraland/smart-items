@@ -6,6 +6,7 @@ const { spawn } = require('child_process')
 const list = fs
   .readdirSync(path.resolve('.'))
   .filter(dir => fs.existsSync(path.resolve(`${dir}/asset.json`)))
+  .filter(dir => dir.startsWith('platform'))
 
 const ITEMS_DIRECTORY = 'items'
 
@@ -17,6 +18,7 @@ async function build() {
   const total = list.length
   for (const dir of list) {
     console.log(`[${count}/${total}] Building ${dir}...`)
+    await execute(dir, 'npm', ['install'])
     await execute(dir, 'dcl', ['pack'])
     count++
   }
