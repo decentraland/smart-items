@@ -1,4 +1,4 @@
-@Component('org.decentraland.CountDown')
+@Component('org.decentraland.CountDownSciFi')
 export class CountdownTimerComponent {
   totalTime: number = 0
   currentTime: number = 0
@@ -25,7 +25,7 @@ export class CountdownTimerComponent {
   }
 }
 
-export class CountdownTimerSystem {
+export class CountdownTimerSciFiSystem {
   group = engine.getComponentGroup(CountdownTimerComponent)
   update(dt: number) {
     for (const entity of this.group.entities) {
@@ -36,9 +36,11 @@ export class CountdownTimerSystem {
         timer.currentTime -= dt
       }
 
-      let angle = (timer.currentTime / timer.totalTime) * -270 - 45
+      log(timer.currentTime)
 
-      transform.rotation = Quaternion.Euler(90, angle, 0)
+      let angle = (timer.currentTime / timer.totalTime) * -270 - 135
+
+      transform.rotation = Quaternion.Euler(0, 0, angle)
 
       if (!timer.thresHoldReached && timer.currentTime <= timer.totalTime / 3) {
         timer.channel.sendActions(timer.onThreshold)
