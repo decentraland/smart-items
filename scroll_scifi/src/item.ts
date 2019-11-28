@@ -20,7 +20,7 @@ export default class Button implements IScript<Props> {
     this.message.hAlign = 'center'
     this.message.hTextAlign = 'center'
     this.message.adaptWidth = true
-    this.message.color = Color4.FromHexString('#29fbffff')
+    this.message.color = Color4.FromHexString('#a3fffcff')
     this.message.visible = false
 
     this.image.width = width
