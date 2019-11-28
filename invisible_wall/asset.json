@@ -1,0 +1,25 @@
+{
+  "name": "Invisible Wall",
+  "tags": ["invisible", "wall"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "enabled",
+      "label": "Enabled",
+      "type": "boolean",
+      "default": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable",
+      "label": "Enable",
+      "parameters": []
+    },
+    {
+      "id": "disable",
+      "label": "Disable",
+      "parameters": []
+    }
+  ]
+}

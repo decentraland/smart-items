@@ -1,6 +1,6 @@
 {
-  "name": "Area Trigger",
-  "tags": ["area", "trigger"],
+  "name": "Click Area",
+  "tags": ["click", "area"],
   "category": "decorations",
   "parameters": [
     {
@@ -10,13 +10,8 @@
       "default": true
     },
     {
-      "id": "onEnter",
-      "label": "When Player Enters",
-      "type": "actions"
-    },
-    {
-      "id": "onLeave",
-      "label": "When Player Leaves",
+      "id": "onClick",
+      "label": "When Clicked",
       "type": "actions"
     }
   ],
