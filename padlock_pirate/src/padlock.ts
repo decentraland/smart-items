@@ -1,4 +1,4 @@
-@Component('org.decentraland.PadLock')
+@Component('org.decentraland.PadLockPirate')
 export class PadLockComponent {
   combination: number = 111
   onSolve: Actions
