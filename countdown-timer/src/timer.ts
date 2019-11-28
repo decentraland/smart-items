@@ -1,4 +1,4 @@
-@Component('org.decentraland.Countdown')
+@Component('org.decentraland.CountDown')
 export class CountdownTimerComponent {
   totalTime: number = 0
   currentTime: number = 0

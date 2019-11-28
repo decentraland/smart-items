@@ -1,4 +1,4 @@
-@Component('org.decentraland.CounterSciFi')
+@Component('org.decentraland.CountDownSciFi')
 export class CountdownTimerComponent {
   totalTime: number = 0
   currentTime: number = 0
