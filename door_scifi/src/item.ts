@@ -55,13 +55,7 @@ export default class Button implements IScript<Props> {
     door.addComponent(animator)
     openClip.stop()
 
-    door.addComponent(new GLTFShape('models/Door_SciFi.glb'))
-
-    door.addComponent(
-      new OnPointerDown(() => {
-        channel.sendActions(props.onClick)
-      })
-    )
+    door.addComponent(new GLTFShape('models/Door_SciFi_Vertical.glb'))
 
     // collider
     const collider = new Entity(door.name + '-collider')

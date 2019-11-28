@@ -4,12 +4,6 @@
   "category": "structures",
   "parameters": [
     {
-      "id": "onClick",
-      "label": "When clicked",
-      "type": "actions",
-      "default": "toggle"
-    },
-    {
       "id": "onOpen",
       "label": "When opened",
       "type": "actions"
