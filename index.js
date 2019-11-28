@@ -6,7 +6,7 @@ const { spawn } = require('child_process')
 const list = fs
   .readdirSync(path.resolve('.'))
   .filter(dir => fs.existsSync(path.resolve(`${dir}/asset.json`)))
-  .filter(dir => dir.startsWith('platform'))
+// .filter(dir => dir.startsWith('platform'))
 
 const ITEMS_DIRECTORY = 'items'
 
