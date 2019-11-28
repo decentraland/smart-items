@@ -47,7 +47,7 @@ export default class Pillar implements IScript<Props> {
   spawn(host: Entity, props: Props, channel: IChannel) {
     const { height, speed, onReachBottom, onReachTop } = props
 
-    const pillar = new Entity('risingPillar')
+    const pillar = new Entity(host.name + '-rising-pillar')
     pillar.setParent(host)
     pillar.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
     pillar.addComponent(new GLTFShape('models/Rising_Pillar_SciFi.glb'))
@@ -59,12 +59,6 @@ export default class Pillar implements IScript<Props> {
     source.volume = 1
     source.playing = false
     pillar.addComponentOrReplace(source)
-
-    // // add animation
-    // const animator = new Animator()
-    // const clip = new AnimationState('LightAction', { looping: true })
-    // animator.addClip(clip)
-    // platform.addComponent(animator)
 
     // handle actions
     channel.handleAction('rise', () => this.move(pillar, 'end'))
