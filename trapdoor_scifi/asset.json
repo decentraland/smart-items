@@ -1,0 +1,35 @@
+{
+  "name": "Metal Trapdoor",
+  "tags": ["door", "trap", "interactive"],
+  "category": "decorations",
+  "model": "models/Grey_Trap_Door.glb",
+  "parameters": [
+    {
+      "id": "onOpen",
+      "label": "When opened",
+      "type": "actions"
+    },
+    {
+      "id": "onClose",
+      "label": "When closed",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "open",
+      "label": "Open",
+      "parameters": []
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Open or close",
+      "parameters": []
+    }
+  ]
+}
