@@ -7,6 +7,11 @@ export type Props = {
   onThreshold: Actions
 }
 
+type ScoreBoardSync = {
+  enabled: boolean
+  currentValue: number
+}
+
 export default class ScoreBoard implements IScript<Props> {
   activateClip = new AudioClip('sounds/NumpadPress.mp3')
 
@@ -194,12 +199,13 @@ export default class ScoreBoard implements IScript<Props> {
     })
 
     // sync initial values
-    channel.request<ScoreBoardComponent>('value', count => {
+    channel.request<ScoreBoardSync>('value', count => {
       score.enabled = count.enabled
       this.updateBoard(board, count.currentValue, false)
     })
-    channel.reply<ScoreBoardComponent>('value', () => {
-      return board.getComponent(ScoreBoardComponent)
+    channel.reply<ScoreBoardSync>('value', () => {
+      const { enabled, currentValue } = board.getComponent(ScoreBoardComponent)
+      return { enabled, currentValue }
     })
   }
 }

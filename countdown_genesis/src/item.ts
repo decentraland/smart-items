@@ -11,6 +11,11 @@ type TimeValues = {
   seconds: number
 }
 
+type CountdownSync = {
+  active: boolean
+  currentTime: number
+}
+
 export default class Timer implements IScript<Props> {
   numberMaterial: Material
 
@@ -81,12 +86,15 @@ export default class Timer implements IScript<Props> {
     })
 
     // sync initial values
-    channel.request<CountdownTimerComponent>('value', count => {
+    channel.request<CountdownSync>('countdown', count => {
       timeData.active = count.active
       timeData.currentTime = count.currentTime
     })
-    channel.reply<CountdownTimerComponent>('value', () => {
-      return board.getComponent(CountdownTimerComponent)
+    channel.reply<CountdownSync>('countdown', () => {
+      const { active, currentTime } = board.getComponent(
+        CountdownTimerComponent
+      )
+      return { active, currentTime }
     })
   }
 }

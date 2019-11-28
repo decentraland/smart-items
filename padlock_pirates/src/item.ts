@@ -181,15 +181,18 @@ export default class PadLock implements IScript<Props> {
     })
 
     // sync initial values
-    channel.request<PadLockComponent>('value', wheels => {
-      lockProperties.digit1 = wheels.digit1
-      lockProperties.digit2 = wheels.digit2
-      lockProperties.digit3 = wheels.digit3
-      lockProperties.digit4 = wheels.digit4
+    channel.request<number[]>('value', ([digit1, digit2, digit3, digit4]) => {
+      lockProperties.digit1 = digit1
+      lockProperties.digit2 = digit2
+      lockProperties.digit3 = digit3
+      lockProperties.digit4 = digit4
       this.rotateWheels(padLock)
     })
-    channel.reply<PadLockComponent>('value', () => {
-      return padLock.getComponent(PadLockComponent)
+    channel.reply<number[]>('value', () => {
+      const { digit1, digit2, digit3, digit4 } = padLock.getComponent(
+        PadLockComponent
+      )
+      return [digit1, digit2, digit3, digit4]
     })
   }
 }
