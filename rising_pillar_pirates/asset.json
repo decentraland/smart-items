@@ -2,14 +2,14 @@
   "name": "Rising pillar",
   "tags": ["platform", "pillar", "vertical", "interactive"],
   "category": "decorations",
-  "model": "models/Rising_Pillar_Column.glb",
+  "model": "models/Rising_Pillar.glb",
   "parameters": [
     {
       "id": "height",
       "label": "Height",
       "type": "slider",
       "default": 5,
-      "max": 8,
+      "max": 5.5,
       "min": 0,
       "step": 0.5
     },

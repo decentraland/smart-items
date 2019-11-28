@@ -1,4 +1,4 @@
-import { RisingPillar, Position, RisingPillarGenesisSystem } from './pillar'
+import { RisingPillarSystem, RisingPillar, Position } from './pillar'
 
 export type Props = {
   height?: number
@@ -11,7 +11,7 @@ export default class Pillar implements IScript<Props> {
   risingClip = new AudioClip('sounds/RisingPillar.mp3')
 
   init() {
-    engine.addSystem(new RisingPillarGenesisSystem())
+    engine.addSystem(new RisingPillarSystem())
   }
 
   move(entity: Entity, newPosition?: Position, useTransition = true) {
@@ -45,7 +45,7 @@ export default class Pillar implements IScript<Props> {
     const pillar = new Entity(host.name + '-rising-pillar')
     pillar.setParent(host)
     pillar.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    pillar.addComponent(new GLTFShape('models/Rising_Pillar_Column.glb'))
+    pillar.addComponent(new GLTFShape('models/Rising_Pillar.glb'))
     pillar.addComponent(
       new RisingPillar(channel, height, speed, onReachBottom, onReachTop)
     )
@@ -53,11 +53,6 @@ export default class Pillar implements IScript<Props> {
     source.volume = 1
     source.playing = false
     pillar.addComponentOrReplace(source)
-
-    const base = new Entity(host.name + '-rising-pillar-base')
-    base.setParent(host)
-    base.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    base.addComponent(new GLTFShape('models/RisingPillarGenesisBase.glb'))
 
     // handle actions
     channel.handleAction('rise', () => this.move(pillar, 'end'))
