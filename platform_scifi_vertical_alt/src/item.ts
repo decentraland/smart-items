@@ -44,7 +44,7 @@ export default class Door implements IScript<Props> {
     const platform = new Entity(host.name + '-platform')
     platform.setParent(host)
     platform.addComponent(new Transform({ position: new Vector3(0, 0, 0) }))
-    platform.addComponent(new GLTFShape('models/Platform_Fantasy_Alt.glb'))
+    platform.addComponent(new GLTFShape('models/Platform_SciFi_Alt.glb'))
     platform.addComponent(
       new VerticalPlatform(channel, distance, speed, onReachStart, onReachEnd)
     )
