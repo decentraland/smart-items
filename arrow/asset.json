@@ -1,13 +1,17 @@
 {
-  "name": "Police Siren",
-  "tags": ["police", "siren"],
+  "name": "Indicator Arrow",
+  "tags": [
+    "arrow",
+    "indicator",
+    "help"
+  ],
   "category": "decorations",
   "parameters": [
     {
       "id": "active",
       "label": "Auto start",
       "type": "boolean",
-      "default": false
+      "default": true
     }
   ],
   "actions": [
