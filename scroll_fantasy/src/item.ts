@@ -32,6 +32,7 @@ export default class Button implements IScript<Props> {
     this.image.sourceLeft = 0
     this.image.sourceHeight = 500
     this.image.sourceWidth = 500
+    this.image.positionY = 50
     this.image.isPointerBlocker = true
     this.image.visible = false
     this.image.onClick = new OnClick(() => this.hide())
@@ -85,7 +86,7 @@ export default class Button implements IScript<Props> {
     const scroll = new Entity()
     scroll.setParent(host)
 
-    scroll.addComponent(new GLTFShape('models/Scroll.glb'))
+    scroll.addComponent(new GLTFShape('models/Magical_Scroll.glb'))
 
     this.instances.push([scroll, props])
 

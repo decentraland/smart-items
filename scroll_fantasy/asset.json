@@ -2,7 +2,7 @@
   "name": "Scroll",
   "tags": ["scroll", "interactive"],
   "category": "decorations",
-  "model": "models/Scroll.glb",
+  "model": "models/Magical_Scroll.glb",
   "parameters": [
     {
       "id": "text",
