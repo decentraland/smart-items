@@ -3,11 +3,15 @@ export class MessageBubbleComponent {
   transition: number = -1
   isOpen: boolean = false
   text: string
-  constructor(public channel: IChannel, text: string) {}
+  rotation: Quaternion
+  constructor(public channel: IChannel, text: string, rotation: Quaternion) {
+    this.text = text
+    this.rotation = rotation
+  }
 }
 
 const openBubble = new Vector3(2, 2, 2)
-const closedBubble = new Vector3(0.3, 0.3, 0.3)
+const closedBubble = new Vector3(0.25, 0.25, 0.25)
 
 export class BubbleSystem {
   group = engine.getComponentGroup(MessageBubbleComponent)
@@ -33,6 +37,8 @@ export class BubbleSystem {
         // } else if (!openable.isOpen && openable.onClose) {
         //   openable.channel.sendActions(openable.onClose)
         // }
+      } else if (!openable.isOpen) {
+        transform.rotate(new Vector3(0, 1, 0), 1)
       }
     }
   }

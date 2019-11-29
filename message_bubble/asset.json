@@ -2,7 +2,7 @@
   "name": "Message Bubble",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/bubble/MessageBubble.glb",
+  "model": "models/bubble/Message_Bubble.glb",
   "parameters": [
     {
       "id": "text",
@@ -17,7 +17,7 @@
       "min": 12,
       "max": 60,
       "step": 0.5,
-      "default": 30
+      "default": 20
     }
   ],
   "actions": [

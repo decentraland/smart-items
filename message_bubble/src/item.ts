@@ -26,6 +26,8 @@ export default class MessageBubble implements IScript<Props> {
       source.playing = true
     }
 
+    bubble.getComponent(Transform).rotation = bubbleData.rotation.clone()
+
     bubbleData.isOpen = value
     bubbleData.transition = 0
 
@@ -46,30 +48,35 @@ export default class MessageBubble implements IScript<Props> {
     bubble.addComponent(
       new Transform({
         position: new Vector3(0, 0, 0),
-        scale: new Vector3(0.3, 0.3, 0.3)
+        scale: new Vector3(0.25, 0.25, 0.25)
       })
     )
 
-    let bubbleData = new MessageBubbleComponent(channel, props.text)
+    let bubbleData = new MessageBubbleComponent(
+      channel,
+      props.text,
+      bubble.getComponent(Transform).rotation.clone()
+    )
     bubble.addComponent(bubbleData)
 
     let signText = new Entity()
     signText.setParent(bubble)
-    let text = new TextShape('')
+    let text = new TextShape(props.text)
     text.fontSize = props.fontSize
-    text.color = Color3.FromHexString('#8cfdff')
-    text.outlineWidth = 0.4
-    text.outlineColor = Color3.FromHexString('#8cfdff')
+    text.color = Color3.FromHexString('#242424')
+    // text.outlineWidth = 0.4
+    // text.outlineColor = Color3.FromHexString('#8cfdff')
 
     text.width = 20
     text.height = 10
     text.hTextAlign = 'center'
+    text.value = ''
 
     signText.addComponent(text)
 
     signText.addComponent(
       new Transform({
-        position: new Vector3(0.2, 0.475, -0.04),
+        position: new Vector3(0.25, 0.45, -0.01),
         rotation: Quaternion.Euler(0, 0, 0),
         scale: new Vector3(0.05, 0.05, 0.05)
       })
