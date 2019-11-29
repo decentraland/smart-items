@@ -1,7 +1,11 @@
 {
   "name": "Vertical Magic Rock",
-  "tags": ["platform", "vertical", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "platform",
+    "vertical",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Vertical_Platform_Fantasy_Alt.glb",
   "parameters": [
     {

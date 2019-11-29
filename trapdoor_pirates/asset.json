@@ -1,7 +1,11 @@
 {
   "name": "Wooden Trapdoor",
-  "tags": ["door", "trap", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "door",
+    "trap",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Wooden_Trap_Door.glb",
   "parameters": [
     {

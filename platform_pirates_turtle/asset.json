@@ -1,7 +1,11 @@
 {
   "name": "Turtle",
-  "tags": ["platform", "horizontal", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Turtle.glb",
   "parameters": [
     {

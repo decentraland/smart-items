@@ -4,8 +4,10 @@ export type Props = {
   fontSize?: number
 }
 
+type ChangeTextType = { newText: string }
+
 export default class SignPost implements IScript<Props> {
-  init() {}
+  init() { }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
     const sign = new Entity()
@@ -82,12 +84,17 @@ export default class SignPost implements IScript<Props> {
       })
     )
 
-    type ChangeTextType = { newText: string }
     channel.handleAction<ChangeTextType>('changeTopText', action => {
       text1.value = action.values.newText
     })
     channel.handleAction<ChangeTextType>('changeLowerText', action => {
       text2.value = action.values.newText
     })
+
+    channel.request<string[]>('getText', signText => {
+      text1.value = signText[0]
+      text2.value = signText[1]
+    })
+    channel.reply<string[]>('getText', () => [text1.value, text2.value])
   }
 }

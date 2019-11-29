@@ -1,7 +1,11 @@
 {
   "name": "Metal Trapdoor",
-  "tags": ["door", "trap", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "door",
+    "trap",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Grey_Trap_Door.glb",
   "parameters": [
     {

@@ -1,7 +1,11 @@
 {
   "name": "Stone Trapdoor",
-  "tags": ["door", "trap", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "door",
+    "trap",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Stone_Trap_Door.glb",
   "parameters": [
     {

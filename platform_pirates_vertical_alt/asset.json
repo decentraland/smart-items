@@ -1,7 +1,11 @@
 {
   "name": "Vertical Platform",
-  "tags": ["platform", "vertical", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "platform",
+    "vertical",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Vertical_Platform_Pirates_Alt.glb",
   "parameters": [
     {
