@@ -1,6 +1,11 @@
 {
-  "name": "Rising pillar",
-  "tags": ["platform", "pillar", "vertical", "interactive"],
+  "name": "Rising Pillar",
+  "tags": [
+    "platform",
+    "pillar",
+    "vertical",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Rising_Pillar_Column.glb",
   "parameters": [
