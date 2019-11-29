@@ -1,11 +1,13 @@
-const callbacks: Record<string, Function> = {}
+const callbacks: Record<string, Function[]> = {}
 
 export class DelaySystem {
   update(dt: number) {
     for (const timestamp in callbacks) {
       if (+timestamp < Date.now()) {
-        const callback = callbacks[timestamp]
-        callback()
+        const callbackArray = callbacks[timestamp]
+        for (const callback of callbackArray) {
+          callback()
+        }
         delete callbacks[timestamp]
       }
     }
@@ -13,5 +15,9 @@ export class DelaySystem {
 }
 
 export function setTimeout(callback: Function, timeout: number) {
-  callbacks[Date.now() + timeout] = callback
+  const key = Date.now() + timeout
+  if (!(key in callbacks)) {
+    callbacks[key] = []
+  }
+  callbacks[key].push(callback)
 }
