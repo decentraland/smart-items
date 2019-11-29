@@ -1,0 +1,76 @@
+{
+  "name": "Countdown Timer",
+  "tags": ["scoreboard", "counter", "interactive"],
+  "category": "decorations",
+  "model": "models/Countdown_Timer_Magical.glb",
+  "parameters": [
+    {
+      "id": "totalTime",
+      "label": "Total seconds",
+      "type": "integer",
+      "default": 60
+    },
+    {
+      "id": "active",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onThreshold",
+      "label": "When near end",
+      "type": "actions",
+      "default": ""
+    },
+    {
+      "id": "onTimeUp",
+      "label": "When time is up",
+      "type": "actions",
+      "default": ""
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Start",
+      "parameters": []
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "parameters": []
+    },
+    {
+      "id": "reset",
+      "label": "Reset",
+      "parameters": []
+    },
+    {
+      "id": "toggleActivate",
+      "label": "Activate or Pause",
+      "parameters": []
+    },
+    {
+      "id": "addTime",
+      "label": "Add time",
+      "parameters": [
+        {
+          "id": "seconds",
+          "label": "Seconds",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "id": "subtractTime",
+      "label": "Subtract time",
+      "parameters": [
+        {
+          "id": "seconds",
+          "label": "Seconds",
+          "type": "integer"
+        }
+      ]
+    }
+  ]
+}
