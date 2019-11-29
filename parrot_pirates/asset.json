@@ -1,7 +1,9 @@
 {
   "name": "Parrot",
-  "tags": ["parrot"],
-  "category": "decorations",
+  "tags": [
+    "parrot"
+  ],
+  "category": "nature",
   "parameters": [
     {
       "id": "onActivate",

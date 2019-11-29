@@ -1,7 +1,11 @@
 {
   "name": "Trapdoor",
-  "tags": ["door", "trap", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "door",
+    "trap",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Trap_Door.glb",
   "parameters": [
     {

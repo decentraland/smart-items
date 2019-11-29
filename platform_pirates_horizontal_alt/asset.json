@@ -1,7 +1,11 @@
 {
   "name": "Horizontal Platform",
-  "tags": ["platform", "horizontal", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Horizontal_Platform_Pirates_Alt.glb",
   "parameters": [
     {

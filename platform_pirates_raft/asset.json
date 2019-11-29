@@ -1,7 +1,11 @@
 {
   "name": "Raft",
-  "tags": ["platform", "horizontal", "interactive"],
-  "category": "decorations",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
+  "category": "structures",
   "model": "models/Raft.glb",
   "parameters": [
     {
