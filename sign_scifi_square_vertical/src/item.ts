@@ -38,5 +38,8 @@ export default class SignPost implements IScript<Props> {
     channel.handleAction<ChangeTextType>('changeText', action => {
       text.value = action.values.newText
     })
+
+    channel.request<string>('getText', signText => (text.value = signText))
+    channel.reply<string>('getText', () => text.value)
   }
 }

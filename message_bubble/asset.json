@@ -1,5 +1,5 @@
 {
-  "name": "Signpost Tree",
+  "name": "Message Bubble",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
   "model": "models/bubble/MessageBubble.glb",
