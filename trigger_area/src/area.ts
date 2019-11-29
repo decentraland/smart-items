@@ -20,9 +20,9 @@ export class TriggerableAreaSystem implements ISystem {
       const { position, rotation, scale } = transform
 
       if (triggerableArea.enabled) {
-        const radius = Math.max(scale.x, scale.z)
+        const radius = Math.max(Math.max(Math.abs(scale.x), Math.abs(scale.z)), Math.abs(scale.y))
         const distance = Vector3.DistanceSquared(position, Camera.instance.position)
-        if (distance > radius * radius) continue
+        if (distance > (radius + Camera.instance.playerHeight) * (radius + Camera.instance.playerHeight)) continue
 
         const transformCache = `${position} ${rotation} ${scale}`
         const inverseMatrix = Matrix.Invert(Matrix.Compose(Vector3.One(), rotation, position))
