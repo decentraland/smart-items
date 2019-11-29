@@ -14,7 +14,7 @@
       "id": "active",
       "label": "Auto Start",
       "type": "boolean",
-      "default": true
+      "default": false
     },
     {
       "id": "onThreshold",

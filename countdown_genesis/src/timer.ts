@@ -4,6 +4,7 @@ export class CountdownTimerComponent {
   currentTime: number = 0
   active: boolean = true
   thresHoldReached: boolean = false
+  endReached: boolean = false
   arrow: Entity
   onTimeUp: Actions
   onThreshold: Actions
@@ -45,8 +46,9 @@ export class CountdownTimerSystem {
         timer.thresHoldReached = true
       }
 
-      if (timer.currentTime <= 0) {
+      if (timer.currentTime <= 0 && !timer.endReached) {
         timer.active = false
+        timer.endReached
         timer.channel.sendActions(timer.onTimeUp)
       }
     }

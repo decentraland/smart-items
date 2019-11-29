@@ -36,8 +36,6 @@ export class CountdownTimerSciFiSystem {
         timer.currentTime -= dt
       }
 
-      log(timer.currentTime)
-
       let angle = (timer.currentTime / timer.totalTime) * -270 - 135
 
       transform.rotation = Quaternion.Euler(0, 0, angle)

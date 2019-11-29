@@ -11,6 +11,7 @@ export default class Button implements IScript<Props> {
   inventory: IInventory
 
   clip = new AudioClip('sounds/use.mp3')
+  equipClip = new AudioClip('sounds/KeyEquip.mp3')
   canvas = new UICanvas()
   container = new UIContainerStack(this.canvas)
   texture = new Texture('images/Key.png')
@@ -94,6 +95,9 @@ export default class Button implements IScript<Props> {
       new OnPointerDown(() => {
         const equipAction = channel.createAction('equip', {})
         channel.sendActions([equipAction])
+        const source = new AudioSource(this.equipClip)
+        key.addComponentOrReplace(source)
+        source.playing = true
       })
     )
 

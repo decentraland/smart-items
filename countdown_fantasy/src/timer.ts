@@ -4,6 +4,7 @@ export class CountdownTimerComponent {
   currentTime: number = 0
   active: boolean = true
   thresHoldReached: boolean = false
+  endReached: boolean = false
   arrow: Entity
   onTimeUp: Actions
   onThreshold: Actions
@@ -40,7 +41,6 @@ export class FantasyCountdownTimerSystem {
       let size = ratio * 2
 
       let pos = 4 - ratio * 4
-      log(pos)
 
       transform.scale = new Vector3(1.2, size, 2)
       transform.position.y = pos
@@ -48,13 +48,12 @@ export class FantasyCountdownTimerSystem {
       if (!timer.thresHoldReached && timer.currentTime <= timer.totalTime / 3) {
         timer.channel.sendActions(timer.onThreshold)
         timer.thresHoldReached = true
-        log('THRESHOLD')
       }
 
-      if (timer.currentTime <= 0) {
+      if (timer.currentTime <= 0 && !timer.endReached) {
         timer.active = false
+        timer.endReached
         timer.channel.sendActions(timer.onTimeUp)
-        log('END')
       }
     }
   }

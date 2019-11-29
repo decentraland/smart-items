@@ -7,6 +7,7 @@ export type Props = {
 
 export default class PadLock implements IScript<Props> {
   spinClip = new AudioClip('sounds/Button_Press.mp3')
+  solveClip = new AudioClip('sounds/Resolve.mp3')
 
   init() {}
 
@@ -24,12 +25,6 @@ export default class PadLock implements IScript<Props> {
   rotateWheels(entity: Entity) {
     let wheels = entity.getComponent(PadLockComponent)
     //log(wheels.digit1, wheels.digit2, wheels.digit3, wheels.digit4)
-
-    const clip = this.spinClip
-    const source = new AudioSource(clip)
-    source.volume = 0.3
-    entity.addComponentOrReplace(source)
-    source.playOnce()
 
     wheels.wheel1.getComponent(Transform).rotation = Quaternion.Euler(
       wheels.digit1 * 36,
@@ -59,7 +54,18 @@ export default class PadLock implements IScript<Props> {
       wheels.digit4
     if (nums == wheels.combination) {
       //log("GOT IT RIGHT!")
+      const clip = this.solveClip
+      const source = new AudioSource(clip)
+      source.volume = 1
+      entity.addComponentOrReplace(source)
+      source.playOnce()
       wheels.channel.sendActions(wheels.onSolve)
+    } else {
+      const clip = this.spinClip
+      const source = new AudioSource(clip)
+      source.volume = 0.3
+      entity.addComponentOrReplace(source)
+      source.playOnce()
     }
   }
 
