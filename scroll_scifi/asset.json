@@ -1,6 +1,9 @@
 {
-  "name": "Scroll",
-  "tags": ["scroll", "interactive"],
+  "name": "Tablet",
+  "tags": [
+    "tablet",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Tablet.glb",
   "parameters": [
