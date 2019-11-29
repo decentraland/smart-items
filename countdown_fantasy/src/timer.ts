@@ -52,7 +52,7 @@ export class FantasyCountdownTimerSystem {
 
       if (timer.currentTime <= 0 && !timer.endReached) {
         timer.active = false
-        timer.endReached
+        timer.endReached = true
         timer.channel.sendActions(timer.onTimeUp)
       }
     }
