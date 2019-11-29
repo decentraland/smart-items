@@ -4,7 +4,7 @@ export type Props = {
   initialVal: number
   enabled: boolean
   threshold: number
-  onThreshold: Actions
+  onThreshold?: Actions
 }
 
 type ScoreBoardSync = {
@@ -98,8 +98,8 @@ export default class ScoreBoard implements IScript<Props> {
     digit1.setParent(host)
     digit1.addComponent(
       new Transform({
-        rotation: Quaternion.Euler(90, 0, 180),
-        position: new Vector3(-0.6, 0.05, 0.06),
+        rotation: Quaternion.Euler(0, 180, 0),
+        position: new Vector3(-0.6, 0.5, 0.06),
         scale: new Vector3(0.8, 0.8, 0.8)
       })
     )
@@ -114,8 +114,8 @@ export default class ScoreBoard implements IScript<Props> {
     digit2.setParent(host)
     digit2.addComponent(
       new Transform({
-        rotation: Quaternion.Euler(90, 0, 180),
-        position: new Vector3(-0.2, 0.05, 0.06),
+        rotation: Quaternion.Euler(0, 180, 0),
+        position: new Vector3(-0.2, 0.5, 0.06),
         scale: new Vector3(0.8, 0.8, 0.8)
       })
     )
@@ -130,8 +130,8 @@ export default class ScoreBoard implements IScript<Props> {
     digit3.setParent(host)
     digit3.addComponent(
       new Transform({
-        rotation: Quaternion.Euler(90, 0, 180),
-        position: new Vector3(0.2, 0.05, 0.06),
+        rotation: Quaternion.Euler(0, 180, 0),
+        position: new Vector3(0.2, 0.5, 0.06),
         scale: new Vector3(0.8, 0.8, 0.8)
       })
     )
@@ -146,8 +146,8 @@ export default class ScoreBoard implements IScript<Props> {
     digit4.setParent(host)
     digit4.addComponent(
       new Transform({
-        rotation: Quaternion.Euler(90, 0, 180),
-        position: new Vector3(0.6, 0.05, 0.06),
+        rotation: Quaternion.Euler(0, 180, 0),
+        position: new Vector3(0.6, 0.5, 0.06),
         scale: new Vector3(0.8, 0.8, 0.8)
       })
     )
