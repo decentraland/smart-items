@@ -4,7 +4,7 @@ export type Props = {
   initialVal: number
   enabled: boolean
   threshold: number
-  onThreshold: Actions
+  onThreshold?: Actions
 }
 
 type ScoreBoardSync = {
