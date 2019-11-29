@@ -147,7 +147,7 @@
         {
           "id": "timeout",
           "label": "Delay in seconds",
-          "type": "integer",
+          "type": "float",
           "default": 5
         },
         {
@@ -164,7 +164,7 @@
         {
           "id": "timeout",
           "label": "Interval in seconds",
-          "type": "integer",
+          "type": "float",
           "default": 2
         },
         {
