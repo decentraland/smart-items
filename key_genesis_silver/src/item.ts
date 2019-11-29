@@ -118,8 +118,8 @@ export default class Button implements IScript<Props> {
           this.unequip(key)
         }
         // we remove the key from the scene for everybody
-        this.show(key)
       }
+      this.show(key)
     })
 
     channel.handleAction('use', action => {
