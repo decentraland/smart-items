@@ -1,0 +1,26 @@
+{
+  "name": "Indicator Arrow",
+  "model": "models/Ambient_Sound.glb",
+  "tags": ["arrow", "indicator", "help"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "active",
+      "label": "Auto start",
+      "type": "boolean",
+      "default": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}
