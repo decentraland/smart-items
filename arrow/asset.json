@@ -9,7 +9,7 @@
   "parameters": [
     {
       "id": "active",
-      "label": "Auto start",
+      "label": "Visible",
       "type": "boolean",
       "default": true
     }
@@ -17,12 +17,12 @@
   "actions": [
     {
       "id": "activate",
-      "label": "Activate",
+      "label": "Show",
       "parameters": []
     },
     {
       "id": "deactivate",
-      "label": "Deactivate",
+      "label": "Hide",
       "parameters": []
     }
   ]

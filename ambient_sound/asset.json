@@ -1,13 +1,25 @@
 {
   "name": "Ambient Sound",
   "model": "models/Ambient_Sound.glb",
-  "tags": ["sound", "ambient", "atmosphere"],
+  "tags": [
+    "sound",
+    "ambient",
+    "atmosphere"
+  ],
   "category": "decorations",
   "parameters": [
     {
       "id": "sound",
       "label": "Sound",
-      "type": "string",
+      "type": "options",
+      "options": [
+        "Birds",
+        "City",
+        "Factory",
+        "Field",
+        "Swamp",
+        "Town"
+      ],
       "default": true
     },
     {
