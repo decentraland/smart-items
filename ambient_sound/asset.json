@@ -1,12 +1,24 @@
 {
-  "name": "Indicator Arrow",
+  "name": "Ambient Sound",
   "model": "models/Ambient_Sound.glb",
-  "tags": ["arrow", "indicator", "help"],
+  "tags": ["sound", "ambient", "atmosphere"],
   "category": "decorations",
   "parameters": [
     {
+      "id": "sound",
+      "label": "Sound",
+      "type": "string",
+      "default": true
+    },
+    {
       "id": "active",
       "label": "Auto start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "loop",
+      "label": "Loop sound",
       "type": "boolean",
       "default": true
     }
@@ -14,12 +26,12 @@
   "actions": [
     {
       "id": "activate",
-      "label": "Activate",
+      "label": "Play",
       "parameters": []
     },
     {
       "id": "deactivate",
-      "label": "Deactivate",
+      "label": "Stop",
       "parameters": []
     }
   ]
