@@ -13,12 +13,30 @@
       "label": "Sound",
       "type": "options",
       "options": [
-        "Birds",
-        "City",
-        "Factory",
-        "Field",
-        "Swamp",
-        "Town"
+        {
+          "value": "Birds",
+          "label": "Birds"
+        },
+        {
+          "value": "City",
+          "label": "City"
+        },
+        {
+          "value": "Factory",
+          "label": "Factory"
+        },
+        {
+          "value": "Field",
+          "label": "Field"
+        },
+        {
+          "value": "Swamp",
+          "label": "Swamp"
+        },
+        {
+          "value": "Town",
+          "label": "Town"
+        }
       ],
       "default": true
     },
