@@ -16,7 +16,7 @@ export default class Button implements IScript<Props> {
     if (value) {
       const source = new AudioSource(this.clip)
       entity.addComponentOrReplace(source)
-      source.loop = true
+      source.loop = false
       source.playing = true
     } else {
       const source = entity.getComponent(AudioSource)
@@ -27,7 +27,7 @@ export default class Button implements IScript<Props> {
 
     const animator = entity.getComponent(Animator)
     const activateClip = animator.getClip('trigger')
-    const deactivateClip = animator.getClip('deactivate')
+    const deactivateClip = animator.getClip('main')
     activateClip.stop()
     deactivateClip.stop()
     const clip = value ? activateClip : deactivateClip
@@ -41,8 +41,8 @@ export default class Button implements IScript<Props> {
     siren.setParent(host)
 
     const animator = new Animator()
-    const deactivateClip = new AnimationState('deactivate', { looping: true })
-    const activateClip = new AnimationState('trigger', { looping: true })
+    const deactivateClip = new AnimationState('main', { looping: false })
+    const activateClip = new AnimationState('trigger', { looping: false })
     animator.addClip(deactivateClip)
     animator.addClip(activateClip)
     siren.addComponent(animator)
