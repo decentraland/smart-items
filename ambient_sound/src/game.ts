@@ -1,13 +1,13 @@
 import { Spawner } from '../node_modules/decentraland-builder-scripts/spawner'
-import Arrow, { Props } from './item'
+import Ambient, { Props } from './item'
 
-const arrow = new Arrow()
-const spawner = new Spawner<Props>(arrow)
+const sound = new Ambient()
+const spawner = new Spawner<Props>(sound)
 
 spawner.spawn(
-  'arrow',
+  'sound',
   new Transform({
-    position: new Vector3(4, 0, 8)
+    position: new Vector3(4, 2, 8)
   }),
-  { active: true }
+  { active: true, loop: true, sound: 'Birds' }
 )
