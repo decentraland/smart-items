@@ -42,7 +42,7 @@ export default class Arrow implements IScript<Props> {
       clip.play()
     }
 
-    this.active[siren.name] = false
+    this.active[siren.name] = props.active
 
     // handle actions
     channel.handleAction('activate', ({ sender }) => {
