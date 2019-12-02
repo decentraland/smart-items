@@ -1,10 +1,6 @@
 {
   "name": "Horizontal Circular Platform",
-  "tags": [
-    "platform",
-    "horizontal",
-    "interactive"
-  ],
+  "tags": ["platform", "horizontal", "interactive"],
   "category": "structures",
   "model": "models/Horizontal_Platform_SciFi_Alt.glb",
   "parameters": [
@@ -18,7 +14,7 @@
       "id": "speed",
       "label": "Speed",
       "type": "slider",
-      "default": 5,
+      "default": 3,
       "max": 20,
       "min": 0,
       "step": 1
