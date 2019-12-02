@@ -38,7 +38,7 @@
           "label": "Town"
         }
       ],
-      "default": true
+      "default": "Birds"
     },
     {
       "id": "active",
