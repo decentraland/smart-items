@@ -10,6 +10,11 @@ export type Tween = {
   onComplete: Actions
 }
 
+@Component('org.decentraland.Syncable')
+export class Syncable {
+
+}
+
 @Component('org.decentraland.Tweenable')
 export class Tweenable {
   transition: number = 0
@@ -56,9 +61,10 @@ const offsetFactory = (tweenable: Tweenable, relative: Vector3) => (
 }
 
 export class TweenSystem {
-  group = engine.getComponentGroup(Tweenable)
+  syncableGroup = engine.getComponentGroup(Syncable)
+  tweenableGroup = engine.getComponentGroup(Tweenable)
   update(dt: number) {
-    for (const entity of this.group.entities) {
+    for (const entity of this.tweenableGroup.entities) {
       const tweenable = entity.getComponent(Tweenable)
       const transform = entity.getComponent(Transform)
 

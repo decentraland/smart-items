@@ -1,4 +1,4 @@
-import { TweenSystem, Tweenable, Tween } from './tween'
+import { TweenSystem, Tweenable, Tween, Syncable, TweenType } from './tween'
 import { setTimeout, DelaySystem } from './delay'
 
 export type Props = {}
@@ -14,6 +14,36 @@ type PrintValues = {
   multiplayer: boolean
 }
 
+type SyncEntity = {
+  entityName: string
+  transform: {
+    position: [number, number, number],
+    rotation: [number, number, number, number],
+    scale: [number, number, number]
+  },
+  tween?: {
+    transition: number
+    type: TweenType
+    x: number
+    y: number
+    z: number
+    speed: number
+    relative: boolean
+    onComplete: Actions
+    origin: Vector3
+  }
+}
+
+const syncv = (vector: Vector3, values: [number, number, number]) => {
+  const [x, y, z] = values
+  vector.set(x, y, z)
+}
+
+const syncq = (quaternion: Quaternion, values: [number, number, number, number]) => {
+  const [x, y, z, w] = values
+  quaternion.set(x, y, z, w)
+}
+
 const getEntityByName = (name: string) =>
   Object.keys(engine.entities)
     .map(key => engine.entities[key])
@@ -22,6 +52,9 @@ const getEntityByName = (name: string) =>
 export default class Tools implements IScript<Props> {
   canvas = new UICanvas()
   container: UIContainerStack
+
+  tweenSystem = new TweenSystem()
+  delaySystem = new DelaySystem()
 
   getContainer = () => {
     if (!this.container) {
@@ -36,8 +69,12 @@ export default class Tools implements IScript<Props> {
     return this.container
   }
   init() {
-    engine.addSystem(new DelaySystem())
-    engine.addSystem(new TweenSystem())
+    engine.addSystem(this.tweenSystem)
+    engine.addSystem(this.delaySystem)
+  }
+
+  getEntities() {
+    return this.tweenSystem.syncableGroup.entities as Entity[]
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
@@ -54,6 +91,7 @@ export default class Tools implements IScript<Props> {
           origin
         })
         entity.addComponentOrReplace(tweenable)
+        entity.addComponentOrReplace(new Syncable())
       }
     })
 
@@ -70,6 +108,7 @@ export default class Tools implements IScript<Props> {
           origin
         })
         entity.addComponentOrReplace(tweenable)
+        entity.addComponentOrReplace(new Syncable())
       }
     })
 
@@ -85,6 +124,7 @@ export default class Tools implements IScript<Props> {
           origin
         })
         entity.addComponentOrReplace(tweenable)
+        entity.addComponentOrReplace(new Syncable())
       }
     })
 
@@ -129,6 +169,46 @@ export default class Tools implements IScript<Props> {
         text.visible = false
         text.height = 0
       }, duration * 1000)
+    })
+
+    // sync initial values
+    channel.request<SyncEntity[]>('syncEntities', syncEntities => {
+      for (const syncEntity of syncEntities) {
+        const { entityName, transform, tween } = syncEntity
+        const entity = getEntityByName(entityName)
+        if (entity) {
+          const original = entity.getComponent(Transform)
+          syncv(original.position, transform.position)
+          syncq(original.rotation, transform.rotation)
+          syncv(original.scale, transform.scale)
+          if (tween) {
+            const tweenable = new Tweenable({
+              ...tween,
+              channel
+            })
+            entity.addComponentOrReplace(tweenable)
+          }
+        }
+      }
+    })
+    channel.reply<SyncEntity[]>('syncEntities', () => {
+      const entities = this.getEntities()
+      return entities.map(entity => {
+        const transform = entity.getComponent(Transform)
+        const syncEntity: SyncEntity = {
+          entityName: entity.name,
+          transform: {
+            position: [transform.position.x, transform.position.y, transform.position.z],
+            rotation: [transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w],
+            scale: [transform.scale.x, transform.scale.y, transform.scale.z],
+          }
+        }
+        if (entity.hasComponent(Tweenable)) {
+          const { channel: _, ...tween } = entity.getComponent(Tweenable)
+          syncEntity.tween = tween
+        }
+        return syncEntity
+      })
     })
   }
 }

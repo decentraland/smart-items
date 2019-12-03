@@ -9,7 +9,7 @@ toolsSpawner.spawn('tools', new Transform(), {})
 const box = new Entity('box')
 engine.addEntity(box)
 box.addComponent(new BoxShape())
-box.addComponent(new Transform({ position: new Vector3(4, 0, 4) }))
+box.addComponent(new Transform({ position: new Vector3(4, 4, 4) }))
 box.addComponent(
   new OnPointerDown(() => {
     const bus = new MessageBus()
