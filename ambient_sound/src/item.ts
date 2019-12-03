@@ -46,6 +46,7 @@ export default class Ambient implements IScript<Props> {
 
     const soundComponent = new AudioSource(this.songs[props.sound])
     soundComponent.loop = props.loop
+    soundComponent.audioClip.loop = props.loop
 
     source.addComponent(soundComponent)
 
