@@ -4,7 +4,7 @@ export type Props = {
 }
 
 export default class Button implements IScript<Props> {
-  clip = new AudioClip('sounds/siren.mp3')
+  clip = new AudioClip('sounds/bell.mp3')
 
   active: Record<string, boolean> = {}
 
