@@ -57,7 +57,12 @@ export default class Pillar implements IScript<Props> {
     // handle actions
     channel.handleAction('rise', () => this.move(pillar, 'end'))
     channel.handleAction('hide', () => this.move(pillar, 'start'))
-
+    channel.handleAction('toggle', () =>
+      this.move(
+        pillar,
+        pillar.getComponent(RisingPillar).position == 'start' ? 'end' : 'start'
+      )
+    )
     // sync initial values
     channel.request<Position>('position', position =>
       this.move(pillar, position, false)

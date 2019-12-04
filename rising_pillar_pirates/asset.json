@@ -1,11 +1,6 @@
 {
   "name": "Rising Pillar",
-  "tags": [
-    "platform",
-    "pillar",
-    "vertical",
-    "interactive"
-  ],
+  "tags": ["platform", "pillar", "vertical", "interactive"],
   "category": "structures",
   "model": "models/Rising_Pillar.glb",
   "parameters": [
@@ -47,6 +42,11 @@
     {
       "id": "hide",
       "label": "Hide",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Rise or Hide",
       "parameters": []
     }
   ]
