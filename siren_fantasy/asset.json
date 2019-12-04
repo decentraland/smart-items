@@ -1,0 +1,29 @@
+{
+  "name": "Bell",
+  "tags": ["bell", "church", "siren"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When deactivated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}
