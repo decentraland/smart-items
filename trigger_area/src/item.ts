@@ -34,6 +34,10 @@ export default class Button implements IScript<Props> {
       }
     }
 
+    // sync initial values
+    channel.request<boolean>('enabled', enabled => (trigger.enabled = enabled))
+    channel.reply<boolean>('enabled', () => trigger.enabled)
+
     host.addComponent(trigger)
   }
 }

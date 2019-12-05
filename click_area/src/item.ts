@@ -27,6 +27,12 @@ export default class Button implements IScript<Props> {
       this.active[host.name] = false
     })
 
+    // sync initial values
+    channel.request<boolean>('enabled', enabled => {
+      this.active[host.name] = enabled
+    })
+    channel.reply<boolean>('enabled', () => this.active[host.name])
+
     const ent = new Entity()
     ent.setParent(host)
     ent.addComponent(shape)
