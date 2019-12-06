@@ -94,7 +94,6 @@ export default class Timer implements IScript<Props> {
     })
     channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
-      reset()
       timeData.active = true
       audio.playing = true
     })
@@ -103,7 +102,7 @@ export default class Timer implements IScript<Props> {
       audio.playing = false
     })
     channel.handleAction('toggleActivate', () => {
-      timeData.active != timeData.active
+      timeData.active = !timeData.active
       audio.playing = timeData.active
     })
 

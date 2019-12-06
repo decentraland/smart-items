@@ -33,7 +33,7 @@ export default class Timer implements IScript<Props> {
     board.addComponent(
       new Transform({
         position: new Vector3(0, 0, 0),
-        scale: new Vector3(2, 2, 2)
+        scale: new Vector3(1, 1, 1)
       })
     )
     board.addComponent(new GLTFShape('models/Countdown_Pirate_Board.glb'))
@@ -43,8 +43,8 @@ export default class Timer implements IScript<Props> {
     arrow.addComponent(
       new Transform({
         rotation: Quaternion.Euler(90, 0, 0),
-        position: new Vector3(0, 0.5, 0.01),
-        scale: new Vector3(2, 2, 2)
+        position: new Vector3(0, 0.25, 0.01),
+        scale: new Vector3(1, 1, 1)
       })
     )
 
@@ -91,7 +91,6 @@ export default class Timer implements IScript<Props> {
     })
     channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
-      reset()
       timeData.active = true
       audio.playing = true
     })
@@ -100,7 +99,7 @@ export default class Timer implements IScript<Props> {
       audio.playing = false
     })
     channel.handleAction('toggleActivate', () => {
-      timeData.active != timeData.active
+      timeData.active = !timeData.active
       audio.playing = timeData.active
     })
 

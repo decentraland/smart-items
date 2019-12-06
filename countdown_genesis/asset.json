@@ -47,7 +47,7 @@
     },
     {
       "id": "toggleActivate",
-      "label": "Activate or Pause",
+      "label": "Start or Pause",
       "parameters": []
     },
     {

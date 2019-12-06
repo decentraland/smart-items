@@ -79,14 +79,13 @@ export default class Timer implements IScript<Props> {
     })
     channel.handleAction('reset', () => reset())
     channel.handleAction('activate', () => {
-      reset()
       timeData.active = true
     })
     channel.handleAction('pause', () => {
       timeData.active = false
     })
     channel.handleAction('toggleActivate', () => {
-      timeData.active != timeData.active
+      timeData.active = !timeData.active
     })
 
     // sync initial values
