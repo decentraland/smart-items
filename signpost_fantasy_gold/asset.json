@@ -1,10 +1,6 @@
 {
-  "name": "Signpost Tree",
-  "tags": [
-    "signpost",
-    "text",
-    "interactive"
-  ],
+  "name": "Signpost Golden",
+  "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/SignPost_Golden.glb",
   "parameters": [

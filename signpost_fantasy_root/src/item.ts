@@ -6,13 +6,13 @@ export type Props = {
 type ChangeTextType = { newText: string }
 
 export default class SignPost implements IScript<Props> {
-  init() { }
+  init() {}
 
   spawn(host: Entity, props: Props, channel: IChannel) {
     const sign = new Entity()
     sign.setParent(host)
 
-    sign.addComponent(new GLTFShape('models/signpost/SignPost_root.glb'))
+    sign.addComponent(new GLTFShape('models/signpost/SignPost_Root.glb'))
 
     let signText = new Entity()
     signText.setParent(host)
