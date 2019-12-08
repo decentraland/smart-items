@@ -1,11 +1,7 @@
 {
   "name": "Ambient Sound",
   "model": "models/Ambient_Sound.glb",
-  "tags": [
-    "sound",
-    "ambient",
-    "atmosphere"
-  ],
+  "tags": ["sound", "ambient", "atmosphere"],
   "category": "decorations",
   "parameters": [
     {
@@ -14,8 +10,8 @@
       "type": "options",
       "options": [
         {
-          "value": "Birds",
-          "label": "Birds"
+          "value": "Lava",
+          "label": "Lava"
         },
         {
           "value": "City",

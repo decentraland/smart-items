@@ -5,7 +5,7 @@ export type Props = {
 }
 
 export enum soundList {
-  'Birds',
+  'Lava',
   'City',
   'Factory',
   'Field',
@@ -18,7 +18,7 @@ export default class Ambient implements IScript<Props> {
   songs: Record<string, AudioClip> = {}
 
   init() {
-    this.songs['Birds'] = new AudioClip('sounds/Birds.mp3')
+    this.songs['Lava'] = new AudioClip('sounds/Lava.mp3')
     this.songs[`City`] = new AudioClip('sounds/City.mp3')
     this.songs[`Factory`] = new AudioClip('sounds/Factory.mp3')
     this.songs[`Field`] = new AudioClip('sounds/Field.mp3')

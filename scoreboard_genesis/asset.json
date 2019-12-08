@@ -33,12 +33,26 @@
     {
       "id": "increase",
       "label": "Increase",
-      "parameters": []
+      "parameters": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "integer",
+          "default": 1
+        }
+      ]
     },
     {
       "id": "decrease",
       "label": "Decrease",
-      "parameters": []
+      "parameters": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "integer",
+          "default": 1
+        }
+      ]
     },
     {
       "id": "reset",
