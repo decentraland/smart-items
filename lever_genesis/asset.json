@@ -1,6 +1,9 @@
 {
+  "id": "553f975d-5b42-491f-9788-1a90def3f97c",
   "name": "Toy Lever",
-  "tags": ["lever"],
+  "tags": [
+    "lever"
+  ],
   "category": "decorations",
   "parameters": [
     {

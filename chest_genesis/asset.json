@@ -1,6 +1,9 @@
 {
+  "id": "dd9fb5a1-7530-4e07-ac3f-3e50572c239f",
   "name": "Chest",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

@@ -1,6 +1,10 @@
 {
+  "id": "d6043ef0-5f53-4dd0-8956-d1819c4c5046",
   "name": "Silver Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Silver_Key_Genesis.glb",
   "parameters": [

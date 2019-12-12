@@ -1,6 +1,9 @@
 {
+  "id": "4bf77c44-42db-4134-90f0-06da4202ff04",
   "name": "SciFi Lever Console",
-  "tags": ["lever"],
+  "tags": [
+    "lever"
+  ],
   "model": "models/Lever_Console.glb",
   "category": "decorations",
   "parameters": [

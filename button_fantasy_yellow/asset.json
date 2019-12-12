@@ -1,6 +1,9 @@
 {
+  "id": "1889bcdc-5608-48fa-9158-b0a56f0afa8b",
   "name": "Yellow Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

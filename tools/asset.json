@@ -1,6 +1,9 @@
 {
+  "id": "683aa047-8043-40f8-8d31-beb7ab1b138c",
   "name": "Tools",
-  "tags": ["tools"],
+  "tags": [
+    "tools"
+  ],
   "category": "decorations",
   "model": "models/tools.glb",
   "parameters": [],

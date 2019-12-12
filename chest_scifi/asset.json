@@ -1,6 +1,9 @@
 {
+  "id": "6d694c78-6dd5-4a4d-acee-21dbf67dd464",
   "name": "SciFi Chest",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

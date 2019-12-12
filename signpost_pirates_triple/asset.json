@@ -1,6 +1,11 @@
 {
+  "id": "96575108-339b-4a4e-9b45-a7ffb3330ecf",
   "name": "Signpost Directions",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/signpost/SignPost_Wood_Triple.glb",
   "parameters": [

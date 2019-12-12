@@ -1,6 +1,10 @@
 {
+  "id": "0dc18897-c8fb-4673-8c39-5f7879a84379",
   "name": "Cable Box",
-  "tags": ["cables", "toggle"],
+  "tags": [
+    "cables",
+    "toggle"
+  ],
   "category": "decorations",
   "model": "models/Cable_Box.glb",
   "parameters": [

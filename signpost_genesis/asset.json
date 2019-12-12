@@ -1,6 +1,11 @@
 {
+  "id": "1ab788bf-107d-4b91-881e-48dfb1d46284",
   "name": "Signpost",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/signpost/SignPost.glb",
   "parameters": [

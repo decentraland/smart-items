@@ -1,6 +1,11 @@
 {
+  "id": "1d45dc17-42d2-4d02-af19-f5528f395b13",
   "name": "Scoreboard",
-  "tags": ["scoreboard", "counter", "interactive"],
+  "tags": [
+    "scoreboard",
+    "counter",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/board/Scoreboard.glb",
   "parameters": [

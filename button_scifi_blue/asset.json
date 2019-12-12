@@ -1,6 +1,9 @@
 {
+  "id": "51ff7609-407f-481d-991b-8449ef59b390",
   "name": "Blue Light Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

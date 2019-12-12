@@ -1,6 +1,9 @@
 {
+  "id": "accdfb9c-30e5-483b-8754-1809e1f1e743",
   "name": "Pink Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

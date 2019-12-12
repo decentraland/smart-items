@@ -1,6 +1,11 @@
 {
+  "id": "0b040512-6190-4ba3-bdc5-a97464f635f3",
   "name": "Metal Case",
-  "tags": ["metal", "case", "box"],
+  "tags": [
+    "metal",
+    "case",
+    "box"
+  ],
   "category": "decorations",
   "parameters": [
     {

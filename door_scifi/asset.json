@@ -1,6 +1,9 @@
 {
+  "id": "f7573b6c-f5d3-403c-ad74-2657adbe4a54",
   "name": "Vertical Hallway Door",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

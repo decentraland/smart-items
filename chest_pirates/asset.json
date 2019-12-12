@@ -1,6 +1,9 @@
 {
+  "id": "f8a9d193-46ca-49d5-9c4a-9de3d48eea61",
   "name": "Treasure Chest",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

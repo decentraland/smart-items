@@ -1,6 +1,11 @@
 {
+  "id": "689705e0-fff4-4b3a-b31a-98d8cc3230b8",
   "name": "Signpost Tree",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

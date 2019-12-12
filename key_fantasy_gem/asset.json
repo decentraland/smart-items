@@ -1,6 +1,10 @@
 {
+  "id": "637c0746-3aa0-4e08-8dc0-3aa1f15eeb84",
   "name": "Fantasy Gem Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

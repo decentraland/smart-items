@@ -1,6 +1,11 @@
 {
+  "id": "34bc4fd3-d422-4ffb-b0e5-0fb6a8d0ff8d",
   "name": "Turtle",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Turtle.glb",
   "parameters": [

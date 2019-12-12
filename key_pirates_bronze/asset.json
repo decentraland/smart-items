@@ -1,6 +1,10 @@
 {
+  "id": "91202d69-c9bc-49a9-8120-8b550dc7b5fa",
   "name": "Pirate Bronze Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

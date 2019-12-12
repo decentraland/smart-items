@@ -1,6 +1,10 @@
 {
+  "id": "18d6cc5f-e136-4e55-b1a9-14d451b7df54",
   "name": "Blue Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

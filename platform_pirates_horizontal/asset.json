@@ -1,6 +1,11 @@
 {
+  "id": "9845778b-d877-4c06-a32a-75131a4ca6c4",
   "name": "Horizontal Platform",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Horizontal_Platform_Pirates.glb",
   "parameters": [

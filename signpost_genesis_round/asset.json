@@ -1,6 +1,11 @@
 {
+  "id": "6f54ea17-43bc-4b1e-a8c1-c9b24ff6e038",
   "name": "Round Signpost",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/signpost/SignPost_Circle.glb",
   "parameters": [

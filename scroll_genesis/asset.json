@@ -1,6 +1,10 @@
 {
+  "id": "221ca611-e905-43e8-ab98-f627c4287e74",
   "name": "Scroll",
-  "tags": ["scroll", "interactive"],
+  "tags": [
+    "scroll",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Scroll.glb",
   "parameters": [

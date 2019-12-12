@@ -1,6 +1,11 @@
 {
+  "id": "e948f0c2-0adc-406b-a2a4-76939071faa5",
   "name": "Countdown Timer",
-  "tags": ["scoreboard", "counter", "interactive"],
+  "tags": [
+    "scoreboard",
+    "counter",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Countdown_Timer.glb",
   "parameters": [

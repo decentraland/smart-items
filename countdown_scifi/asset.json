@@ -1,6 +1,11 @@
 {
+  "id": "a91b2938-246c-4178-a869-588377ad4fb8",
   "name": "Countdown Timer",
-  "tags": ["scoreboard", "counter", "interactive"],
+  "tags": [
+    "scoreboard",
+    "counter",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/Countdown_Timer_SciFi.glb",
   "parameters": [

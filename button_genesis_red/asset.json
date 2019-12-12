@@ -1,6 +1,9 @@
 {
+  "id": "89d3e0e7-b9cd-406e-bd95-8abba3b37cc6",
   "name": "Red Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

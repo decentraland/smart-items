@@ -1,5 +1,6 @@
 {
-  "name": "Signpost Tree",
+  "id": "78307e67-f567-45a0-9a3c-461616088eab",
+  "name": "Signpost",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/SignPost_tree2.glb",

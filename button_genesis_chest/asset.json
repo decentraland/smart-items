@@ -1,6 +1,9 @@
 {
+  "id": "0b8f3b57-a7f3-48aa-a88a-41098f264566",
   "name": "Button Chest",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "decorations",
   "parameters": [
     {

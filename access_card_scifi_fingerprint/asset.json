@@ -1,6 +1,10 @@
 {
+  "id": "274df603-dd2b-4a32-b2a0-c4ad758cb037",
   "name": "Fingerprint Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

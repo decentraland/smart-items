@@ -1,6 +1,10 @@
 {
+  "id": "7402ef02-fc7f-4e19-b44a-4613ee2526c5",
   "name": "Fantasy Iron Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

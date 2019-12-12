@@ -1,6 +1,10 @@
 {
+  "id": "9d1d8101-5c1f-4a92-9603-b8e01b06bb48",
   "name": "Head Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

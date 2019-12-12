@@ -1,6 +1,11 @@
 {
+  "id": "c5bcfd25-77a5-4186-a1fc-3525a7130daa",
   "name": "Horizontal Platform",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Horizontal_Platform_SciFi.glb",
   "parameters": [

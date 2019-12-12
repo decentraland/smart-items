@@ -1,6 +1,10 @@
 {
+  "id": "2b9d39a4-980f-489b-8e0b-46f72552ea47",
   "name": "Red Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

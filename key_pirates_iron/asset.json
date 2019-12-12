@@ -1,6 +1,10 @@
 {
+  "id": "ebfc8f37-d1cf-44a2-bca0-3bf62de01cbc",
   "name": "Pirate Iron Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

@@ -1,6 +1,10 @@
 {
+  "id": "a0159567-eeea-4bad-b9a9-cbdeb33c5fa8",
   "name": "Fantasy Diamond Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

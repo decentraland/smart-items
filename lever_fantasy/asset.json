@@ -1,6 +1,9 @@
 {
+  "id": "649d5d96-18be-4f89-b592-f2dfce64b7fe",
   "name": "Fantasy Lever",
-  "tags": ["lever"],
+  "tags": [
+    "lever"
+  ],
   "category": "decorations",
   "parameters": [
     {

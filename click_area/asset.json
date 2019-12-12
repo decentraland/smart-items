@@ -1,6 +1,10 @@
 {
+  "id": "846479b0-75d3-450d-bbd6-7e6b3355a7a2",
   "name": "Click Area",
-  "tags": ["click", "area"],
+  "tags": [
+    "click",
+    "area"
+  ],
   "category": "decorations",
   "parameters": [
     {

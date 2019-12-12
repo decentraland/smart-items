@@ -1,6 +1,11 @@
 {
+  "id": "17ac4bbb-6fd5-4c55-a586-b08644a1a059",
   "name": "Horizontal Platform",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Horizontal_Platform_Genesis.glb",
   "parameters": [

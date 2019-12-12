@@ -1,6 +1,11 @@
 {
+  "id": "f5c1fc52-2cd3-40b2-862a-c6ceaf66aa1e",
   "name": "Raft",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Raft.glb",
   "parameters": [

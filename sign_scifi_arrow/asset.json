@@ -1,6 +1,7 @@
 {
-  "name": "Signpost Arrow",
-  "tags": ["signpost", "text", "interactive"],
+  "id": "28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d",
+  "name": "Sign Arrow",
+  "tags": ["sign", "arrow", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/Sign_Arrow.glb",
   "parameters": [

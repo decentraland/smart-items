@@ -1,6 +1,11 @@
 {
+  "id": "03099c99-49ff-4880-9e80-095273bb08f6",
   "name": "Horizontal Circular Platform",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Horizontal_Platform_SciFi_Alt.glb",
   "parameters": [

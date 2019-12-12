@@ -1,6 +1,9 @@
 {
+  "id": "3a93eb8e-b89a-449e-b44e-98e754d9e3cd",
   "name": "Danger Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

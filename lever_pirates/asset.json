@@ -1,6 +1,9 @@
 {
+  "id": "37e449e5-9298-41b6-8c9a-a6d12b45bdd2",
   "name": "Pirate Lever",
-  "tags": ["lever"],
+  "tags": [
+    "lever"
+  ],
   "category": "decorations",
   "parameters": [
     {

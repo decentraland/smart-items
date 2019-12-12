@@ -1,6 +1,10 @@
 {
+  "id": "64c448a3-f69c-4bce-b9f4-5bb5f0669084",
   "name": "Golden Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

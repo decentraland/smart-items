@@ -1,5 +1,6 @@
 {
-  "name": "Signpost Rectangle",
+  "id": "a5c32dfc-27c5-416b-bfbb-f66f871c8ea7",
+  "name": "Sign Rectangle",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/Sign_Square_Vertical.glb",

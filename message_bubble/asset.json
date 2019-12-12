@@ -1,6 +1,11 @@
 {
+  "id": "e7a6c753-ea84-4c8e-bb94-4523407a5d55",
   "name": "Message Bubble",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/bubble/Message_Bubble.glb",
   "parameters": [

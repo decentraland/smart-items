@@ -1,6 +1,9 @@
 {
+  "id": "e915cdb6-03e6-43e2-81fb-58ad8603f68c",
   "name": "Iron Fence Door",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

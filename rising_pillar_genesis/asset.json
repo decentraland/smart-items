@@ -1,6 +1,12 @@
 {
+  "id": "f5cee346-5a00-4292-8431-10f956e53481",
   "name": "Rising Pillar",
-  "tags": ["platform", "pillar", "vertical", "interactive"],
+  "tags": [
+    "platform",
+    "pillar",
+    "vertical",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Rising_Pillar_Column.glb",
   "parameters": [

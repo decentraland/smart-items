@@ -1,6 +1,9 @@
 {
+  "id": "bb11e1cf-bed2-4ce8-be37-fe8bf953346d",
   "name": "Ship's Wheel",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

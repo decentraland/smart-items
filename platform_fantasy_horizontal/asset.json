@@ -1,6 +1,11 @@
 {
+  "id": "980f1bd9-0738-4620-9930-ad56fed98751",
   "name": "Horizontal Magic Rock",
-  "tags": ["platform", "horizontal", "interactive"],
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive"
+  ],
   "category": "structures",
   "model": "models/Horizontal_Platform_Fantasy.glb",
   "parameters": [

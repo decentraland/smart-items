@@ -1,6 +1,9 @@
 {
+  "id": "ed36149f-76c5-45c4-a678-d4b31c4ed9ca",
   "name": "Wooden Door",
-  "tags": ["door"],
+  "tags": [
+    "door"
+  ],
   "category": "structures",
   "parameters": [
     {

@@ -1,6 +1,7 @@
 {
-  "name": "Signpost Circle",
-  "tags": ["signpost", "text", "interactive"],
+  "id": "80e32415-fcd9-40d2-a322-f046d8249eb4",
+  "name": "Sign Circle",
+  "tags": ["sign", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/Sign_Circle.glb",
   "parameters": [

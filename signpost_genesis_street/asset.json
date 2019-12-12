@@ -1,6 +1,11 @@
 {
+  "id": "f4d78d36-228b-4623-8984-8a68986dbf6a",
   "name": "Signpost Street Names",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/signpost/SignPost_Street_Names.glb",
   "parameters": [

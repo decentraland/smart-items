@@ -1,6 +1,10 @@
 {
+  "id": "267c8583-606f-4b5a-a00d-b5f7f993766e",
   "name": "Yellow Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

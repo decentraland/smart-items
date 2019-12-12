@@ -1,6 +1,10 @@
 {
+  "id": "a56ac3e0-aef8-48b9-b55b-844b3fa77056",
   "name": "Face Access Card",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

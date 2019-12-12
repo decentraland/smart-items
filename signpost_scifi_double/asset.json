@@ -1,6 +1,11 @@
 {
+  "id": "89375bda-dab8-49b5-bb44-6d94bab2d1b4",
   "name": "Signpost Directions",
-  "tags": ["signpost", "text", "interactive"],
+  "tags": [
+    "signpost",
+    "text",
+    "interactive"
+  ],
   "category": "decorations",
   "model": "models/signpost/SignPost_Neon_Double.glb",
   "parameters": [

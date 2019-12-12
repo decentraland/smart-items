@@ -1,6 +1,9 @@
 {
+  "id": "76d3a347-02b1-4c74-bbf3-7787ede6a3b1",
   "name": "Green Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

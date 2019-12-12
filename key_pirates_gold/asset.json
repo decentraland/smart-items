@@ -1,6 +1,10 @@
 {
+  "id": "c1ca6a27-0ef7-4b02-96e6-93b441d65b8a",
   "name": "Pirate Golden Key",
-  "tags": ["key", "interactive"],
+  "tags": [
+    "key",
+    "interactive"
+  ],
   "category": "decorations",
   "parameters": [
     {

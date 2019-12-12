@@ -1,6 +1,6 @@
 {
-  "name": "Police Siren",
-  "tags": ["police", "siren"],
+  "name": "Futuristic Siren",
+  "tags": ["futuristic", "siren"],
   "category": "decorations",
   "model": "models/Futuristic_Siren.glb",
   "parameters": [

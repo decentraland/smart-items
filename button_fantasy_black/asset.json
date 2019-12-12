@@ -1,6 +1,9 @@
 {
+  "id": "2e1c4446-c99a-4698-9e13-819d232ca849",
   "name": "Black Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

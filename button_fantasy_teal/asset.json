@@ -1,6 +1,9 @@
 {
+  "id": "6f5c4b28-f27c-4d30-836e-c6fd0b687727",
   "name": "Teal Button",
-  "tags": ["button"],
+  "tags": [
+    "button"
+  ],
   "category": "decorations",
   "parameters": [
     {

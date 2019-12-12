@@ -1,6 +1,10 @@
 {
+  "id": "63cf389e-d14f-4b1a-8bd3-abccb5682255",
   "name": "Police Siren",
-  "tags": ["police", "siren"],
+  "tags": [
+    "police",
+    "siren"
+  ],
   "category": "decorations",
   "parameters": [
     {
