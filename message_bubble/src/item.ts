@@ -97,6 +97,7 @@ export default class MessageBubble implements IScript<Props> {
     })
     channel.handleAction<ChangeTextType>('changeText', action => {
       text.value = action.values.newText
+      bubbleData.text = action.values.newText
     })
 
     channel.request<string>('getText', signText => (bubbleData.text = signText))
