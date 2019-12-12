@@ -16,16 +16,6 @@ export default class Button implements IScript<Props> {
     const shape = ent.getComponent(BoxShape)
     this.active[host.name] = enabled
     shape.withCollisions = enabled
-
-    if (enabled) {
-      ent.addComponent(
-        new OnPointerDown(() => {
-          /* noop */
-        })
-      )
-    } else {
-      ent.removeComponent(OnPointerDown)
-    }
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
