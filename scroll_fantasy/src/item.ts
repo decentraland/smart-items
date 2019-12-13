@@ -10,6 +10,7 @@ export default class Button implements IScript<Props> {
   texture = new Texture('images/scroll.png')
   image = new UIImage(this.canvas, this.texture)
   message = new UIText(this.canvas)
+  openTime = 0
 
   init() {
     const width = 700
@@ -37,30 +38,21 @@ export default class Button implements IScript<Props> {
     this.image.visible = false
     this.image.onClick = new OnClick(() => this.hide())
 
-    const handler = (event: LocalActionButtonEvent) => {
-      if (this.isOpen()) {
+    const handleClose = (_: LocalActionButtonEvent) => {
+      const currentTime = +Date.now()
+      const isOpen = this.message.visible && this.image.visible
+      if (isOpen && currentTime - this.openTime > 100) {
         this.hide()
-      } else if (event.hit) {
-        const entity = engine.entities[event.hit.entityId]
-        for (const [scroll, props] of this.instances) {
-          if (scroll === entity) {
-            this.open(scroll, props.text, props.fontSize)
-          }
-        }
       }
     }
 
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, true, handler)
-    Input.instance.subscribe(
-      'BUTTON_DOWN',
-      ActionButton.SECONDARY,
-      true,
-      handler
-    )
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, handler)
+    Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, true, handleClose)
+    Input.instance.subscribe('BUTTON_DOWN', ActionButton.SECONDARY, true, handleClose)
+    Input.instance.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, handleClose)
   }
 
   open(entity: Entity, text = '', fontSize = 36) {
+    this.openTime = +Date.now()
     const source = new AudioSource(this.clip)
     entity.addComponentOrReplace(source)
     source.playing = true
@@ -68,8 +60,7 @@ export default class Button implements IScript<Props> {
     this.message.value = text
     this.message.fontSize = fontSize
     this.message.visible = true
-    this.message.paddingBottom =
-      50 - ((text.split('\n').length - 1) / 2) * fontSize
+    this.message.paddingBottom = 50 - ((text.split('\n').length - 1) / 2) * fontSize
     this.image.visible = true
   }
 
@@ -78,15 +69,12 @@ export default class Button implements IScript<Props> {
     this.image.visible = false
   }
 
-  isOpen() {
-    return this.message.visible && this.image.visible
-  }
-
   spawn(host: Entity, props: Props, channel: IChannel) {
     const scroll = new Entity()
     scroll.setParent(host)
 
     scroll.addComponent(new GLTFShape('models/Magical_Scroll.glb'))
+    scroll.addComponent(new OnClick(() => this.open(scroll, props.text, props.fontSize)))
 
     this.instances.push([scroll, props])
 
