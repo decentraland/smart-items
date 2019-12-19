@@ -1,11 +1,7 @@
 {
   "id": "3f3fe65b-c648-44bc-8781-c2a40bc95bb4",
   "name": "Signpost Root",
-  "tags": [
-    "signpost",
-    "text",
-    "interactive"
-  ],
+  "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
   "model": "models/signpost/Signpost_Root.glb",
   "parameters": [

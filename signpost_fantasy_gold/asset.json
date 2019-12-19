@@ -3,7 +3,7 @@
   "name": "Signpost Golden",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/signpost/SignPost_Golden.glb",
+  "model": "models/signpost/Signpost_Golden.glb",
   "parameters": [
     {
       "id": "text",

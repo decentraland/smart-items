@@ -1,9 +1,7 @@
 {
   "id": "acbd6376-6c33-46b8-abb2-22c083540e9e",
   "name": "Padlock Roman Numbers",
-  "tags": [
-    "padlock"
-  ],
+  "tags": ["padlock"],
   "category": "decorations",
   "model": "models/padlock/Padlock_Roman_Numbers.glb",
   "parameters": [

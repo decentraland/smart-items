@@ -12,7 +12,7 @@ export default class SignPost implements IScript<Props> {
     const sign = new Entity()
     sign.setParent(host)
 
-    sign.addComponent(new GLTFShape('models/signpost/SignPost_Root.glb'))
+    sign.addComponent(new GLTFShape('models/signpost/Signpost_Root.glb'))
 
     let signText = new Entity()
     signText.setParent(host)
