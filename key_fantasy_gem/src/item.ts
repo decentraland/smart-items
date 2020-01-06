@@ -91,10 +91,13 @@ export default class Button implements IScript<Props> {
 
     key.addComponent(new GLTFShape('models/Gem_Key_Fantasy.glb'))
     key.addComponent(
-      new OnPointerDown(() => {
+           new OnPointerDown(() => {
         const equipAction = channel.createAction('equip', {})
         channel.sendActions([equipAction])
-      })
+      }, {
+		button: ActionButton.POINTER,
+		 hoverText: "Pick up", distance: 6,
+		})
     )
 
     this.targets[props.target] = [key, channel]

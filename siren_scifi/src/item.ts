@@ -51,14 +51,21 @@ export default class Button implements IScript<Props> {
     siren.addComponent(new GLTFShape('models/Futuristic_Siren.glb'))
 
     siren.addComponent(
-      new OnPointerDown(() => {
-        const value = !this.active[siren.name]
-        const action = channel.createAction(
-          value ? 'activate' : 'deactivate',
-          {}
-        )
-        channel.sendActions([action])
-      })
+      new OnPointerDown(
+        () => {
+          const value = !this.active[siren.name]
+          const action = channel.createAction(
+            value ? 'activate' : 'deactivate',
+            {}
+          )
+          channel.sendActions([action])
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Activate',
+          distance: 6
+        }
+      )
     )
 
     this.active[siren.name] = false

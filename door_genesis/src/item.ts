@@ -2,6 +2,7 @@ export type Props = {
   onClick?: Actions
   onOpen?: Actions
   onClose?: Actions
+ onClickText?: string
 }
 
 export default class Button implements IScript<Props> {
@@ -49,7 +50,12 @@ export default class Button implements IScript<Props> {
     door.addComponent(
       new OnPointerDown(() => {
         channel.sendActions(props.onClick)
-      })
+      },
+        {
+          button: ActionButton.POINTER,
+          hoverText: props.onClickText,
+          distance: 6
+        }))
     )
 
     this.active[door.name] = false

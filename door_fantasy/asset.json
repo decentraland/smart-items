@@ -1,9 +1,7 @@
 {
   "id": "ed36149f-76c5-45c4-a678-d4b31c4ed9ca",
   "name": "Wooden Door",
-  "tags": [
-    "door"
-  ],
+  "tags": ["door"],
   "category": "structures",
   "parameters": [
     {
@@ -11,6 +9,12 @@
       "label": "When clicked",
       "type": "actions",
       "default": "toggle"
+    },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
     },
     {
       "id": "onOpen",

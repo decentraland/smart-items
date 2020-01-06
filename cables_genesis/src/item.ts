@@ -122,10 +122,16 @@ export default class Cables implements IScript<Props> {
     )
 
     box.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length > 4) return
-        channel.sendActions(props.onClick)
-      })
+      new OnPointerDown(
+        e => {
+          channel.sendActions(props.onClick)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Open/Close',
+          distance: 4
+        }
+      )
     )
     const redCable = new Entity()
     redCable.setParent(box)
@@ -139,12 +145,18 @@ export default class Cables implements IScript<Props> {
       redCable.addComponent(new Animator()).addClip(redClip)
       redCable.addComponent(new GLTFShape('models/RedCable.glb'))
       redCable.addComponent(
-        new OnPointerDown(e => {
-          if (e.hit.length > 4) return
-          if (boxState.redCableCut === true) return
-          const action = channel.createAction('redCut', {})
-          channel.sendActions([action])
-        })
+        new OnPointerDown(
+          e => {
+            if (boxState.redCableCut === true) return
+            const action = channel.createAction('redCut', {})
+            channel.sendActions([action])
+          },
+          {
+            button: ActionButton.POINTER,
+            hoverText: 'Cut',
+            distance: 4
+          }
+        )
       )
     }
 
@@ -162,12 +174,18 @@ export default class Cables implements IScript<Props> {
       greenCable.addComponent(new Animator()).addClip(greenClip)
       greenCable.addComponent(new GLTFShape('models/GreenCable.glb'))
       greenCable.addComponent(
-        new OnPointerDown(e => {
-          if (e.hit.length > 4) return
-          if (boxState.greenCableCut === true) return
-          const action = channel.createAction('greenCut', {})
-          channel.sendActions([action])
-        })
+        new OnPointerDown(
+          e => {
+            if (boxState.greenCableCut === true) return
+            const action = channel.createAction('greenCut', {})
+            channel.sendActions([action])
+          },
+          {
+            button: ActionButton.POINTER,
+            hoverText: 'Cut',
+            distance: 4
+          }
+        )
       )
     }
 
@@ -183,12 +201,18 @@ export default class Cables implements IScript<Props> {
       blueCable.addComponent(new Animator()).addClip(blueClip)
       blueCable.addComponent(new GLTFShape('models/BlueCable.glb'))
       blueCable.addComponent(
-        new OnPointerDown(e => {
-          if (e.hit.length > 4) return
-          if (boxState.blueCableCut === true) return
-          const action = channel.createAction('blueCut', {})
-          channel.sendActions([action])
-        })
+        new OnPointerDown(
+          e => {
+            if (boxState.blueCableCut === true) return
+            const action = channel.createAction('blueCut', {})
+            channel.sendActions([action])
+          },
+          {
+            button: ActionButton.POINTER,
+            hoverText: 'Cut',
+            distance: 4
+          }
+        )
       )
     }
 

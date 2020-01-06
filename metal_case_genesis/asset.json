@@ -11,6 +11,12 @@
       "default": "toggle"
     },
     {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
+    },
+    {
       "id": "onOpen",
       "label": "When opened",
       "type": "actions"

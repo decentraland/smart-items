@@ -82,10 +82,16 @@ export default class MessageBubble implements IScript<Props> {
     )
 
     bubble.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length < 8)
+      new OnPointerDown(
+        e => {
           this.toggle(bubble, text, !bubbleData.isOpen, true)
-      })
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Open/Close',
+          distance: 8
+        }
+      )
     )
 
     // handle actions

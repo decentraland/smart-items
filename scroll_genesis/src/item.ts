@@ -46,9 +46,24 @@ export default class Button implements IScript<Props> {
       }
     }
 
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, true, handleClose)
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.SECONDARY, true, handleClose)
-    Input.instance.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, handleClose)
+    Input.instance.subscribe(
+      'BUTTON_DOWN',
+      ActionButton.PRIMARY,
+      true,
+      handleClose
+    )
+    Input.instance.subscribe(
+      'BUTTON_DOWN',
+      ActionButton.SECONDARY,
+      true,
+      handleClose
+    )
+    Input.instance.subscribe(
+      'BUTTON_DOWN',
+      ActionButton.POINTER,
+      true,
+      handleClose
+    )
   }
 
   open(entity: Entity, text = '', fontSize = 36) {
@@ -60,7 +75,8 @@ export default class Button implements IScript<Props> {
     this.message.value = text
     this.message.fontSize = fontSize
     this.message.visible = true
-    this.message.paddingBottom = 50 - ((text.split('\n').length - 1) / 2) * fontSize
+    this.message.paddingBottom =
+      50 - ((text.split('\n').length - 1) / 2) * fontSize
     this.image.visible = true
   }
 
@@ -78,7 +94,18 @@ export default class Button implements IScript<Props> {
     scroll.setParent(host)
 
     scroll.addComponent(new GLTFShape('models/Scroll.glb'))
-    scroll.addComponent(new OnClick(() => this.open(scroll, props.text, props.fontSize)))
+    scroll.addComponent(
+      new OnPointerDown(
+        () => {
+          this.open(scroll, props.text, props.fontSize)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Read',
+          distance: 6
+        }
+      )
+    )
 
     this.instances.push([scroll, props])
 
