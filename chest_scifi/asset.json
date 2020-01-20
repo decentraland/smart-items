@@ -1,9 +1,7 @@
 {
   "id": "6d694c78-6dd5-4a4d-acee-21dbf67dd464",
   "name": "SciFi Chest",
-  "tags": [
-    "door"
-  ],
+  "tags": ["door"],
   "category": "structures",
   "parameters": [
     {
@@ -11,6 +9,12 @@
       "label": "When clicked",
       "type": "actions",
       "default": "toggle"
+    },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
     },
     {
       "id": "onOpen",

@@ -2,6 +2,7 @@ export type Props = {
   onClick?: Actions
   onOpen?: Actions
   onClose?: Actions
+  onClickText?: string
 }
 
 export default class Button implements IScript<Props> {

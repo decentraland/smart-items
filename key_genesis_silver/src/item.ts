@@ -92,13 +92,20 @@ export default class Button implements IScript<Props> {
 
     key.addComponent(new GLTFShape('models/Silver_Key_Genesis.glb'))
     key.addComponent(
-      new OnPointerDown(() => {
-        const equipAction = channel.createAction('equip', {})
-        channel.sendActions([equipAction])
-        const source = new AudioSource(this.equipClip)
-        key.addComponentOrReplace(source)
-        source.playing = true
-      })
+      new OnPointerDown(
+        () => {
+          const equipAction = channel.createAction('equip', {})
+          channel.sendActions([equipAction])
+          const source = new AudioSource(this.equipClip)
+          key.addComponentOrReplace(source)
+          source.playing = true
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Pick up',
+          distance: 6
+        }
+      )
     )
 
     this.targets[props.target] = [key, channel]

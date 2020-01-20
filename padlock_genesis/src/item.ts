@@ -111,12 +111,17 @@ export default class PadLock implements IScript<Props> {
     wheel1.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
 
     wheel1.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length > 3) return
-
-        lockProperties.digit1 = (lockProperties.digit1 + 1) % 10
-        this.rotateWheels(padLock)
-      })
+      new OnPointerDown(
+        e => {
+          lockProperties.digit1 = (lockProperties.digit1 + 1) % 10
+          this.rotateWheels(padLock)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Spin',
+          distance: 4
+        }
+      )
     )
 
     wheel2.setParent(host)
@@ -128,12 +133,17 @@ export default class PadLock implements IScript<Props> {
     )
     wheel2.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
     wheel2.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length > 3) return
-
-        lockProperties.digit2 = (lockProperties.digit2 + 1) % 10
-        this.rotateWheels(padLock)
-      })
+      new OnPointerDown(
+        e => {
+          lockProperties.digit2 = (lockProperties.digit2 + 1) % 10
+          this.rotateWheels(padLock)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Spin',
+          distance: 4
+        }
+      )
     )
 
     wheel3.setParent(host)
@@ -145,12 +155,17 @@ export default class PadLock implements IScript<Props> {
     )
     wheel3.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
     wheel3.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length > 3) return
-
-        lockProperties.digit3 = (lockProperties.digit3 + 1) % 10
-        this.rotateWheels(padLock)
-      })
+      new OnPointerDown(
+        e => {
+          lockProperties.digit3 = (lockProperties.digit3 + 1) % 10
+          this.rotateWheels(padLock)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Spin',
+          distance: 4
+        }
+      )
     )
 
     wheel4.setParent(host)
@@ -162,12 +177,17 @@ export default class PadLock implements IScript<Props> {
     )
     wheel4.addComponent(new GLTFShape('models/padlock/PadlockRullet.glb'))
     wheel4.addComponent(
-      new OnPointerDown(e => {
-        if (e.hit.length > 3) return
-
-        lockProperties.digit4 = (lockProperties.digit4 + 1) % 10
-        this.rotateWheels(padLock)
-      })
+      new OnPointerDown(
+        e => {
+          lockProperties.digit4 = (lockProperties.digit4 + 1) % 10
+          this.rotateWheels(padLock)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Spin',
+          distance: 4
+        }
+      )
     )
 
     this.scrambleWheels(padLock)

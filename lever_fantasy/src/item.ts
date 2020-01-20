@@ -45,14 +45,21 @@ export default class Button implements IScript<Props> {
     button.addComponent(new GLTFShape('models/Lever_Fantasy.glb'))
 
     button.addComponent(
-      new OnPointerDown(() => {
-        const value = !this.active[button.name]
-        const action = channel.createAction(
-          value ? 'activate' : 'deactivate',
-          {}
-        )
-        channel.sendActions([action])
-      })
+      new OnPointerDown(
+        () => {
+          const value = !this.active[button.name]
+          const action = channel.createAction(
+            value ? 'activate' : 'deactivate',
+            {}
+          )
+          channel.sendActions([action])
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Activate',
+          distance: 6
+        }
+      )
     )
 
     this.active[button.name] = false

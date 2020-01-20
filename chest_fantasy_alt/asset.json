@@ -1,10 +1,7 @@
 {
   "id": "0d3f124a-901f-4895-a045-a4c80c05ea26",
   "name": "Chest",
-  "tags": [
-    "chest",
-    "interactive"
-  ],
+  "tags": ["chest", "interactive"],
   "category": "decorations",
   "model": "models/chest.glb",
   "parameters": [
@@ -13,6 +10,12 @@
       "label": "When clicked",
       "type": "actions",
       "default": "toggle"
+    },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
     },
     {
       "id": "onOpen",

@@ -1,9 +1,7 @@
 {
   "id": "ce058a68-1635-472c-b4b5-4bc9f4b4277f",
   "name": "Old Wooden Door",
-  "tags": [
-    "door"
-  ],
+  "tags": ["door"],
   "category": "structures",
   "parameters": [
     {
@@ -11,6 +9,12 @@
       "label": "When clicked",
       "type": "actions",
       "default": "toggle"
+    },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
     },
     {
       "id": "onOpen",

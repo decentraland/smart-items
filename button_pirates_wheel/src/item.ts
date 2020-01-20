@@ -30,10 +30,17 @@ export default class Button implements IScript<Props> {
     button.addComponent(animator)
 
     button.addComponent(
-      new OnPointerDown(() => {
-        this.play(button)
-        channel.sendActions(props.onClick)
-      })
+      new OnPointerDown(
+        () => {
+          this.play(button)
+          channel.sendActions(props.onClick)
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Press',
+          distance: 6
+        }
+      )
     )
   }
 }

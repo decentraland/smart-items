@@ -4,6 +4,7 @@ export type Props = {
   onClick?: Actions
   onOpen?: Actions
   onClose?: Actions
+  onClickText?: string
 }
 
 const offsetX = 0.4

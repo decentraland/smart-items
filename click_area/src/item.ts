@@ -1,6 +1,8 @@
 export type Props = {
   enabled: boolean
   onClick?: Actions
+  button?: ActionButton
+  onClickText?: string
 }
 
 export default class Button implements IScript<Props> {
@@ -42,8 +44,13 @@ export default class Button implements IScript<Props> {
       new OnPointerDown(() => {
         if (this.active[host.name]) {
           channel.sendActions(props.onClick)
+        },
+        {
+          button: props.button ,
+          hoverText: props.onClickText,
+          distance: 6
         }
-      })
+      )
     )
   }
 }
