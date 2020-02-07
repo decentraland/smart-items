@@ -11,15 +11,10 @@
       "default": true
     },
     {
-      "id": "onClick",
-      "label": "When Clicked",
-      "type": "actions"
-    },
-    {
       "id": "onClickText",
       "label": "Hover text",
-      "type": "string",
-      "default": "Ineract"
+      "type": "text",
+      "default": "Interact"
     },
     {
       "id": "button",
@@ -40,6 +35,11 @@
         }
       ],
       "default": "Click"
+    },
+    {
+      "id": "onClick",
+      "label": "When Clicked",
+      "type": "actions"
     }
   ],
   "actions": [

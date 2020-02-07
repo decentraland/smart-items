@@ -6,16 +6,16 @@
   "model": "models/chest.glb",
   "parameters": [
     {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "text",
+      "default": "Open/Close"
+    },
+    {
       "id": "onClick",
       "label": "When clicked",
       "type": "actions",
       "default": "toggle"
-    },
-    {
-      "id": "onClickText",
-      "label": "Hover text",
-      "type": "string",
-      "default": "Open/Close"
     },
     {
       "id": "onOpen",
