@@ -18,24 +18,12 @@ export default class Ambient implements IScript<Props> {
   songs: Record<string, AudioClip> = {}
 
   init() {
-    this.songs['Birds'] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/Birds.mp3'
-    )
-    this.songs[`City`] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/City.mp3'
-    )
-    this.songs[`Factory`] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/Factory.mp3'
-    )
-    this.songs[`Field`] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/Field.mp3'
-    )
-    this.songs[`Swamp`] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/Swamp.mp3'
-    )
-    this.songs[`Town`] = new AudioClip(
-      'c5cbd030-54d0-4f28-9158-d27401c691b1/sounds/Town.mp3'
-    )
+    this.songs['Birds'] = new AudioClip('sounds/Birds.mp3')
+    this.songs[`City`] = new AudioClip('sounds/City.mp3')
+    this.songs[`Factory`] = new AudioClip('sounds/Factory.mp3')
+    this.songs[`Field`] = new AudioClip('sounds/Field.mp3')
+    this.songs[`Swamp`] = new AudioClip('sounds/Swamp.mp3')
+    this.songs[`Town`] = new AudioClip('sounds/Town.mp3')
   }
 
   toggle(entity: Entity, value: boolean) {
