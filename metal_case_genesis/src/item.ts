@@ -64,13 +64,17 @@ export default class Button implements IScript<Props> {
 
     // handle actions
     channel.handleAction('open', ({ sender }) => {
-      this.toggle(door, true)
+	  if(!this.active[door.name]){
+		this.toggle(door, true)
+	  }    
       if (sender === channel.id) {
         channel.sendActions(props.onOpen)
       }
     })
     channel.handleAction('close', ({ sender }) => {
-      this.toggle(door, false)
+		if(this.active[door.name]){
+			this.toggle(door, false)
+		  } 		
       if (sender === channel.id) {
         channel.sendActions(props.onClose)
       }
