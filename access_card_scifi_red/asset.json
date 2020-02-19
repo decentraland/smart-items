@@ -13,6 +13,12 @@
       "type": "entity"
     },
     {
+      "id": "respawns",
+      "label": "Respawn on use",
+      "type": "boolean",
+      "default": true
+    },
+    {
       "id": "onUse",
       "label": "When used",
       "type": "actions"
@@ -37,6 +43,11 @@
     {
       "id": "unequip",
       "label": "Drop",
+      "parameters": []
+    },
+    {
+      "id": "respawn",
+      "label": "Respawn",
       "parameters": []
     }
   ]

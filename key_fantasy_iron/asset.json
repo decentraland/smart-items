@@ -1,16 +1,19 @@
 {
   "id": "7402ef02-fc7f-4e19-b44a-4613ee2526c5",
   "name": "Fantasy Iron Key",
-  "tags": [
-    "key",
-    "interactive"
-  ],
+  "tags": ["key", "interactive"],
   "category": "decorations",
   "parameters": [
     {
       "id": "target",
       "label": "Used on",
       "type": "entity"
+    },
+    {
+      "id": "respawns",
+      "label": "Respawn on use",
+      "type": "boolean",
+      "default": true
     },
     {
       "id": "onUse",
@@ -37,6 +40,11 @@
     {
       "id": "unequip",
       "label": "Drop",
+      "parameters": []
+    },
+    {
+      "id": "respawn",
+      "label": "Respawn",
       "parameters": []
     }
   ]

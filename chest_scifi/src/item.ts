@@ -2,7 +2,7 @@ export type Props = {
   onClick?: Actions
   onOpen?: Actions
   onClose?: Actions
- onClickText?: string
+  onClickText?: string
 }
 
 export default class Button implements IScript<Props> {
@@ -48,31 +48,33 @@ export default class Button implements IScript<Props> {
     door.addComponent(new GLTFShape('models/Chest_SciFi.glb'))
 
     door.addComponent(
-      new OnPointerDown(() => {
-        channel.sendActions(props.onClick)
-      },
+      new OnPointerDown(
+        () => {
+          channel.sendActions(props.onClick)
+        },
         {
           button: ActionButton.POINTER,
           hoverText: props.onClickText,
           distance: 6
-        }))
+        }
+      )
     )
 
     this.active[door.name] = false
 
     // handle actions
     channel.handleAction('open', ({ sender }) => {
-	  if(!this.active[door.name]){
-		this.toggle(door, true)
-	  }    
+      if (!this.active[door.name]) {
+        this.toggle(door, true)
+      }
       if (sender === channel.id) {
         channel.sendActions(props.onOpen)
       }
     })
     channel.handleAction('close', ({ sender }) => {
-		if(this.active[door.name]){
-			this.toggle(door, false)
-		  } 		
+      if (this.active[door.name]) {
+        this.toggle(door, false)
+      }
       if (sender === channel.id) {
         channel.sendActions(props.onClose)
       }

@@ -10,7 +10,8 @@ spawner.spawn(
     position: new Vector3(4, 2, 8)
   }),
   {
-    target: 'pepe'
+    target: 'pepe',
+    respawns: true
   }
 )
 
@@ -19,7 +20,7 @@ spawner.spawn(
   new Transform({
     position: new Vector3(4, 1, 8)
   }),
-  {}
+  { target: 'pepe2', respawns: false }
 )
 
 const a = new Entity('pepe')

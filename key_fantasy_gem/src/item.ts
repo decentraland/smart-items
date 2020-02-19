@@ -2,7 +2,23 @@ export type Props = {
   target?: string
   onEquip?: Actions
   onUse?: Actions
+  respawns?: boolean
 }
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "string",
+      "default": "Open/Close"
+    },
+    {
+      "id": "onOpen",
+      "label": "When opened",
+      "type": "actions"
+    },
+    {
+      "id": "onClose",
+      "label": "When closed",
+      "type": "actions"
+    }
 
 export default class Button implements IScript<Props> {
   hiddenKeys: Entity[] = []
@@ -122,7 +138,9 @@ export default class Button implements IScript<Props> {
         }
         // we remove the key from the scene for everybody
       }
-      this.show(key)
+      if (props.respawns == true) {
+        this.show(key)
+      }
     })
 
     channel.handleAction('use', action => {
@@ -130,6 +148,14 @@ export default class Button implements IScript<Props> {
         const unequipAction = channel.createAction('unequip', {})
         channel.sendActions([unequipAction, ...(props.onUse || [])])
       }
+    })
+
+    channel.handleAction('respawn', action => {
+      if (this.isEquipped(key) && action.sender === channel.id) {
+        const unequipAction = channel.createAction('unequip', {})
+        channel.sendActions([unequipAction, ...(props.onUse || [])])
+      }
+      this.show(key)
     })
   }
 }

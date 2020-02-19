@@ -2,6 +2,7 @@ export type Props = {
   target?: string
   onEquip?: Actions
   onUse?: Actions
+  respawns?: boolean
 }
 
 export default class Button implements IScript<Props> {
@@ -91,13 +92,17 @@ export default class Button implements IScript<Props> {
 
     key.addComponent(new GLTFShape('models/Blue_Access_Card.glb'))
     key.addComponent(
-           new OnPointerDown(() => {
-        const equipAction = channel.createAction('equip', {})
-        channel.sendActions([equipAction])
-      }, {
-		button: ActionButton.POINTER,
-		 hoverText: "Pick up", distance: 6,
-		})
+      new OnPointerDown(
+        () => {
+          const equipAction = channel.createAction('equip', {})
+          channel.sendActions([equipAction])
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Pick up',
+          distance: 6
+        }
+      )
     )
 
     this.targets[props.target] = [key, channel]
@@ -122,7 +127,9 @@ export default class Button implements IScript<Props> {
         }
         // we remove the key from the scene for everybody
       }
-      this.show(key)
+      if (props.respawns == false) {
+        this.show(key)
+      }
     })
 
     channel.handleAction('use', action => {
@@ -130,6 +137,14 @@ export default class Button implements IScript<Props> {
         const unequipAction = channel.createAction('unequip', {})
         channel.sendActions([unequipAction, ...(props.onUse || [])])
       }
+    })
+
+    channel.handleAction('respawn', action => {
+      if (this.isEquipped(key) && action.sender === channel.id) {
+        const unequipAction = channel.createAction('unequip', {})
+        channel.sendActions([unequipAction, ...(props.onUse || [])])
+      }
+      this.show(key)
     })
   }
 }

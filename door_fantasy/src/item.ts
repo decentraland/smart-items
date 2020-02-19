@@ -56,7 +56,6 @@ export default class Button implements IScript<Props> {
           hoverText: props.onClickText,
           distance: 6
         }))
-    )
 
     this.active[door.name] = false
 
