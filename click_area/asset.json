@@ -22,19 +22,23 @@
       "type": "options",
       "options": [
         {
-          "value": "ActionButton.POINTER",
+          "value": "POINTER",
           "label": "Click"
         },
         {
-          "value": "ActionButton.PRIMARY",
+          "value": "PRIMARY",
           "label": "Primary Button"
         },
         {
-          "value": "ActionButton.SECONDARY",
+          "value": "SECONDARY",
           "label": "Secondary Button"
         }
       ],
+<<<<<<< Updated upstream
       "default": "Click"
+=======
+      "default": "POINTER"
+>>>>>>> Stashed changes
     },
     {
       "id": "onClick",

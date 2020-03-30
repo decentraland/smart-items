@@ -5,13 +5,20 @@ export type Props = {
   onClickText?: string
 }
 
+declare enum ActionButton {
+  POINTER = 'POINTER',
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+  ANY = 'ANY'
+}
+
 export default class Button implements IScript<Props> {
   active: Record<string, boolean> = {}
   material: BasicMaterial
 
   init() {
     this.material = new BasicMaterial()
-    this.material.texture = new Texture('models/transparent.png')
+    this.material.texture = new Texture('models/transparent-texture.png')
     this.material.alphaTest = 1
   }
 

@@ -107,13 +107,17 @@ export default class Button implements IScript<Props> {
 
     key.addComponent(new GLTFShape('models/Face_Access_Card.glb'))
     key.addComponent(
-           new OnPointerDown(() => {
-        const equipAction = channel.createAction('equip', {})
-        channel.sendActions([equipAction])
-      }, {
-		button: ActionButton.POINTER,
-		 hoverText: "Pick up", distance: 6,
-		})
+      new OnPointerDown(
+        () => {
+          const equipAction = channel.createAction('equip', {})
+          channel.sendActions([equipAction])
+        },
+        {
+          button: ActionButton.POINTER,
+          hoverText: 'Pick up',
+          distance: 6
+        }
+      )
     )
 
     this.targets[props.target] = [key, channel]

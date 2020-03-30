@@ -1,0 +1,42 @@
+{
+  "name": "QR Donations Note",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/QR_Note.glb",
+  "parameters": [
+    {
+      "id": "publicKey",
+      "label": "Ethereum Public Key",
+      "type": "text",
+      "default": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "text",
+      "default": "Make a donation"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 6,
+      "max": 10,
+      "step": 0.5,
+      "default": 9
+    }
+  ],
+  "actions": [
+    {
+      "id": "changeText",
+      "label": "Change Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

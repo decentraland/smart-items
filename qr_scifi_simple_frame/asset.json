@@ -1,0 +1,14 @@
+{
+  "name": "QR Scifi simple frame",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/QR_SciFi_Frame.glb",
+  "parameters": [
+    {
+      "id": "publicKey",
+      "label": "Ethereum Public Key",
+      "type": "text",
+      "default": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}
