@@ -34,11 +34,7 @@
           "label": "Secondary Button"
         }
       ],
-<<<<<<< Updated upstream
-      "default": "Click"
-=======
       "default": "POINTER"
->>>>>>> Stashed changes
     },
     {
       "id": "onClick",

@@ -48,12 +48,14 @@ export default class Button implements IScript<Props> {
     ent.addComponent(this.material)
     ent.addComponent(new Transform({ position: new Vector3(0, 0.5, 0) }))
     ent.addComponent(
-      new OnPointerDown(() => {
-        if (this.active[host.name]) {
-          channel.sendActions(props.onClick)
+      new OnPointerDown(
+        () => {
+          if (this.active[host.name]) {
+            channel.sendActions(props.onClick)
+          }
         },
         {
-          button: props.button ,
+          button: props.button,
           hoverText: props.onClickText,
           distance: 6
         }
