@@ -1,0 +1,25 @@
+{
+  "name": "Indicator Arrow Green",
+  "tags": ["arrow", "indicator", "help"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "active",
+      "label": "Visible",
+      "type": "boolean",
+      "default": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Show",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Hide",
+      "parameters": []
+    }
+  ]
+}
