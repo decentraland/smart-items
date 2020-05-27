@@ -1,0 +1,14 @@
+{
+  "name": "QR Table card 2",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/QR_TableCard_02.glb",
+  "parameters": [
+    {
+      "id": "publicKey",
+      "label": "Ethereum Public Key",
+      "type": "text",
+      "default": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}

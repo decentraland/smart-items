@@ -1,0 +1,42 @@
+{
+  "name": "QR Donations Poster",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/QR_Poster.glb",
+  "parameters": [
+    {
+      "id": "publicKey",
+      "label": "Ethereum Public Key",
+      "type": "text",
+      "default": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "textarea",
+      "default": "Make a donation"
+    },
+    {
+      "id": "fontSize",
+      "label": "Font Size",
+      "type": "slider",
+      "min": 5,
+      "max": 15,
+      "step": 0.5,
+      "default": 9
+    }
+  ],
+  "actions": [
+    {
+      "id": "changeText",
+      "label": "Change Text",
+      "parameters": [
+        {
+          "id": "newText",
+          "label": "New Text",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
