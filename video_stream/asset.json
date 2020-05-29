@@ -1,11 +1,11 @@
 {
-  "name": "Radio",
-  "tags": ["sound", "music", "streaming", "ambient"],
+  "name": "Video stream",
+  "tags": ["sound", "video", "movie", "music", "streaming", "ambient"],
   "category": "decorations",
   "parameters": [
     {
       "id": "station",
-      "label": "Preset Radio Stations",
+      "label": "Preset Stream Channels",
       "type": "options",
       "options": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "id": "customStation",
-      "label": "Custom Radio URL",
+      "label": "Custom Channel URL",
       "type": "text"
     },
     {
@@ -41,7 +41,7 @@
       "id": "onClickText",
       "label": "Hover text",
       "type": "text",
-      "default": "Radio On/Off"
+      "default": "Start stream"
     },
     {
       "id": "onClick",

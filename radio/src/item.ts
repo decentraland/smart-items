@@ -63,18 +63,20 @@ export default class Button implements IScript<Props> {
       this.station = defaultStation
     }
 
-    button.addComponent(
-      new OnPointerDown(
-        () => {
-          channel.sendActions(props.onClick)
-        },
-        {
-          button: ActionButton.POINTER,
-          hoverText: props.onClickText,
-          distance: 6,
-        }
+    if (props.onClick) {
+      button.addComponent(
+        new OnPointerDown(
+          () => {
+            channel.sendActions(props.onClick)
+          },
+          {
+            button: ActionButton.POINTER,
+            hoverText: props.onClickText,
+            distance: 6,
+          }
+        )
       )
-    )
+    }
 
     if (props.startOn) {
       this.toggle(button, true, true)
