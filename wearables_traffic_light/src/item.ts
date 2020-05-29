@@ -2,9 +2,9 @@ import { WearablesChecker, WearablesCheckerSystem } from './area'
 import { getUserData } from '@decentraland/Identity'
 
 export type Props = {
-  collection?: String
-  category?: String
-  wearable?: String
+  collection?: string
+  category?: string
+  wearable?: string
   onEnter?: Actions
   onPass?: Actions
   onReject?: Actions
@@ -29,9 +29,9 @@ type ChangeTextType = { newText: string }
 
 export default class Button implements IScript<Props> {
   hasData: boolean = false
-  playerData: String[] = []
+  playerData: string[] = []
   wearablesIndex = []
-  wearablesByFullName: String[] = []
+  wearablesByFullName: string[] = []
   thumbnail: string
   userId: string
   init() {

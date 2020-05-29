@@ -1,0 +1,76 @@
+{
+  "name": "Radio",
+  "tags": ["sound", "music", "streaming", "ambient"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "station",
+      "label": "Preset Radio Stations",
+      "type": "options",
+      "options": [
+        {
+          "value": "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
+          "label": "Rave"
+        },
+        {
+          "value": "https://dclcoreradio.com/dclradio.ogg",
+          "label": "Interviews"
+        },
+        {
+          "value": "https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e",
+          "label": "Delta"
+        },
+        {
+          "value": "https://edge.singsingmusic.net/MC2.mp3",
+          "label": "Signs"
+        }
+      ]
+    },
+    {
+      "id": "customStation",
+      "label": "Custom Radio URL",
+      "type": "string"
+    },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "text",
+      "default": "Radio On/Off"
+    },
+    {
+      "id": "onClick",
+      "label": "When clicked",
+      "type": "actions",
+      "default": "toggle"
+    },
+    {
+      "id": "onActivate",
+      "label": "When clicked",
+      "type": "actions",
+      "default": "toggle"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When clicked",
+      "type": "actions",
+      "default": "toggle"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Turn On",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Turn Off",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Turn On or Off",
+      "parameters": []
+    }
+  ]
+}
