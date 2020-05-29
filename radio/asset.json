@@ -29,7 +29,13 @@
     {
       "id": "customStation",
       "label": "Custom Radio URL",
-      "type": "string"
+      "type": "text"
+    },
+    {
+      "id": "startOn",
+      "label": "Start On",
+      "type": "boolean",
+      "default": "false"
     },
     {
       "id": "onClickText",
@@ -45,15 +51,13 @@
     },
     {
       "id": "onActivate",
-      "label": "When clicked",
-      "type": "actions",
-      "default": "toggle"
+      "label": "When turned on",
+      "type": "actions"
     },
     {
       "id": "onDeactivate",
-      "label": "When clicked",
-      "type": "actions",
-      "default": "toggle"
+      "label": "When turned off",
+      "type": "actions"
     }
   ],
   "actions": [

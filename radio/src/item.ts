@@ -5,6 +5,7 @@ export type Props = {
   station?: string
   customStation?: string
   onClickText: string
+  startOn: boolean
 }
 
 let defaultStation = 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3'
@@ -54,8 +55,6 @@ export default class Button implements IScript<Props> {
     animator.addClip(lightClip)
     button.addComponent(animator)
 
-    this.active[button.name] = false
-
     if (props.customStation) {
       this.station = props.customStation
     } else if (props.station) {
@@ -76,6 +75,13 @@ export default class Button implements IScript<Props> {
         }
       )
     )
+
+    if (props.startOn) {
+      this.toggle(button, true, true)
+      this.active[button.name] = true
+    } else {
+      this.active[button.name] = false
+    }
 
     // handle actions
     channel.handleAction('activate', ({ sender }) => {

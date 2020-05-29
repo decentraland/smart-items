@@ -12,6 +12,7 @@ spawner.spawn(
   {
     onClickText: 'Radio On/Off',
     customStation: 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3',
+    startOn: true,
     onClick: [
       {
         actionId: 'toggle',
