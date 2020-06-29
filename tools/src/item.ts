@@ -14,13 +14,21 @@ type PrintValues = {
   multiplayer: boolean
 }
 
+type AnimationValues = {
+  target: string
+  animation: string
+  animAction: string
+  speed: number
+  loop: boolean
+}
+
 type SyncEntity = {
   entityName: string
   transform: {
-    position: [number, number, number],
-    rotation: [number, number, number, number],
+    position: [number, number, number]
+    rotation: [number, number, number, number]
     scale: [number, number, number]
-  },
+  }
   tween?: {
     transition: number
     type: TweenType
@@ -39,15 +47,18 @@ const syncv = (vector: Vector3, values: [number, number, number]) => {
   vector.set(x, y, z)
 }
 
-const syncq = (quaternion: Quaternion, values: [number, number, number, number]) => {
+const syncq = (
+  quaternion: Quaternion,
+  values: [number, number, number, number]
+) => {
   const [x, y, z, w] = values
   quaternion.set(x, y, z, w)
 }
 
 const getEntityByName = (name: string) =>
   Object.keys(engine.entities)
-    .map(key => engine.entities[key])
-    .filter(entity => (entity as Entity).name === name)[0]
+    .map((key) => engine.entities[key])
+    .filter((entity) => (entity as Entity).name === name)[0]
 
 export default class Tools implements IScript<Props> {
   canvas = new UICanvas()
@@ -79,7 +90,7 @@ export default class Tools implements IScript<Props> {
 
   spawn(host: Entity, props: Props, channel: IChannel) {
     // handle actions
-    channel.handleAction<Tween>('move', action => {
+    channel.handleAction<Tween>('move', (action) => {
       const { target, ...tween } = action.values
       const entity = getEntityByName(target)
       if (entity) {
@@ -88,14 +99,14 @@ export default class Tools implements IScript<Props> {
           ...tween,
           type: 'move',
           channel,
-          origin
+          origin,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
       }
     })
 
-    channel.handleAction<Tween>('rotate', action => {
+    channel.handleAction<Tween>('rotate', (action) => {
       const { target, ...tween } = action.values
       const entity = getEntityByName(target)
       if (entity) {
@@ -105,14 +116,14 @@ export default class Tools implements IScript<Props> {
           ...tween,
           type: 'rotate',
           channel,
-          origin
+          origin,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
       }
     })
 
-    channel.handleAction<Tween>('scale', action => {
+    channel.handleAction<Tween>('scale', (action) => {
       const { target, ...tween } = action.values
       const entity = getEntityByName(target)
       if (entity) {
@@ -121,14 +132,50 @@ export default class Tools implements IScript<Props> {
           ...tween,
           type: 'scale',
           channel,
-          origin
+          origin,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
       }
     })
 
-    channel.handleAction<DelayValues>('delay', action => {
+    channel.handleAction<AnimationValues>('animate', (action) => {
+      const { target, animation, animAction, speed, loop } = action.values
+      const entity = getEntityByName(target)
+      if (entity) {
+        let animator: Animator
+
+        if (entity.hasComponent(Animator)) {
+          animator = entity.getComponent(Animator)
+        } else {
+          animator = new Animator()
+          entity.addComponent(animator)
+        }
+
+        switch (animAction) {
+          case 'play':
+            let animClip = new AnimationState(animation, {
+              looping: loop,
+              speed: speed,
+            })
+            animator.addClip(animClip)
+            animClip.stop()
+            animClip.play()
+            break
+          case 'stop':
+            animator.getClip(animation).stop()
+            break
+          case 'pause':
+            animator.getClip(animation).pause()
+            break
+          case 'reset':
+            animator.getClip(animation).reset()
+            break
+        }
+      }
+    })
+
+    channel.handleAction<DelayValues>('delay', (action) => {
       const { timeout, onTimeout } = action.values
       if (action.sender === channel.id) {
         setTimeout(() => {
@@ -137,7 +184,7 @@ export default class Tools implements IScript<Props> {
       }
     })
 
-    channel.handleAction<DelayValues>('interval', action => {
+    channel.handleAction<DelayValues>('interval', (action) => {
       const { timeout, onTimeout } = action.values
       if (action.sender === channel.id) {
         const intervalAction = channel.createAction<DelayValues>(
@@ -149,7 +196,7 @@ export default class Tools implements IScript<Props> {
       }
     })
 
-    channel.handleAction<PrintValues>('print', action => {
+    channel.handleAction<PrintValues>('print', (action) => {
       const { message, duration, multiplayer } = action.values
 
       if (!multiplayer && action.sender !== channel.id) {
@@ -172,7 +219,7 @@ export default class Tools implements IScript<Props> {
     })
 
     // sync initial values
-    channel.request<SyncEntity[]>('syncEntities', syncEntities => {
+    channel.request<SyncEntity[]>('syncEntities', (syncEntities) => {
       for (const syncEntity of syncEntities) {
         const { entityName, transform, tween } = syncEntity
         const entity = getEntityByName(entityName)
@@ -184,7 +231,7 @@ export default class Tools implements IScript<Props> {
           if (tween) {
             const tweenable = new Tweenable({
               ...tween,
-              channel
+              channel,
             })
             entity.addComponentOrReplace(tweenable)
           }
@@ -193,15 +240,24 @@ export default class Tools implements IScript<Props> {
     })
     channel.reply<SyncEntity[]>('syncEntities', () => {
       const entities = this.getEntities()
-      return entities.map(entity => {
+      return entities.map((entity) => {
         const transform = entity.getComponent(Transform)
         const syncEntity: SyncEntity = {
           entityName: entity.name,
           transform: {
-            position: [transform.position.x, transform.position.y, transform.position.z],
-            rotation: [transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w],
+            position: [
+              transform.position.x,
+              transform.position.y,
+              transform.position.z,
+            ],
+            rotation: [
+              transform.rotation.x,
+              transform.rotation.y,
+              transform.rotation.z,
+              transform.rotation.w,
+            ],
             scale: [transform.scale.x, transform.scale.y, transform.scale.z],
-          }
+          },
         }
         if (entity.hasComponent(Tweenable)) {
           const { channel: _, ...tween } = entity.getComponent(Tweenable)

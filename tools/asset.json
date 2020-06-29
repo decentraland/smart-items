@@ -1,9 +1,7 @@
 {
   "id": "683aa047-8043-40f8-8d31-beb7ab1b138c",
-  "name": "Tools",
-  "tags": [
-    "tools"
-  ],
+  "name": "Toolbox",
+  "tags": ["tools"],
   "category": "decorations",
   "model": "models/tools.glb",
   "parameters": [],
@@ -143,6 +141,65 @@
         }
       ]
     },
+    {
+      "id": "animate",
+      "label": "Animate Item",
+      "parameters": [
+        {
+          "id": "target",
+          "label": "Item",
+          "type": "entity"
+        },
+        {
+          "id": "animation",
+          "label": "Animation Name",
+          "type": "text",
+          "default": "Action"
+        },
+
+        {
+          "id": "animAction",
+          "label": "Action",
+          "type": "options",
+          "options": [
+            {
+              "value": "play",
+              "label": "Play"
+            },
+            {
+              "value": "stop",
+              "label": "Stop"
+            },
+            {
+              "value": "pause",
+              "label": "Pause"
+            },
+            {
+              "value": "reset",
+              "label": "Reset"
+            }
+          ],
+          "default": "play"
+        },
+
+        {
+          "id": "speed",
+          "label": "Speed",
+          "type": "slider",
+          "step": 0.05,
+          "min": 0,
+          "max": 10,
+          "default": 1
+        },
+        {
+          "id": "loop",
+          "label": "Loop",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    },
+
     {
       "id": "delay",
       "label": "Delay",

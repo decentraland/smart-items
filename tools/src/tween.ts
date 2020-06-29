@@ -11,9 +11,7 @@ export type Tween = {
 }
 
 @Component('org.decentraland.Syncable')
-export class Syncable {
-
-}
+export class Syncable {}
 
 @Component('org.decentraland.Tweenable')
 export class Tweenable {
