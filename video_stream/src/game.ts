@@ -7,12 +7,13 @@ const spawner = new Spawner<Props>(button)
 spawner.spawn(
   'button',
   new Transform({
-    position: new Vector3(4, 1, 8),
+    position: new Vector3(4, 2, 8),
   }),
   {
     onClickText: 'Start stream',
     customStation: 'https://theuniverse.club/live/genesisplaza/index.m3u8',
     startOn: false,
+    volume: 0.8,
     onClick: [
       {
         actionId: 'toggle',

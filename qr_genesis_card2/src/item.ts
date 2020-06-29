@@ -18,6 +18,9 @@ export default class SignPost implements IScript<Props> {
 
     let QRTexture = new Texture(url)
     let QRMaterial = new Material()
+
+    QRMaterial.roughness = 1
+    QRMaterial.specularIntensity = 0
     QRMaterial.albedoTexture = QRTexture
 
     let QRPlane = new Entity()
@@ -28,7 +31,7 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.196, 0.09),
         rotation: Quaternion.Euler(-26, 0, 0),
-        scale: new Vector3(0.3, 0.3, 0.3)
+        scale: new Vector3(0.3, 0.3, 0.3),
       })
     )
 
@@ -40,7 +43,7 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.196, -0.09),
         rotation: Quaternion.Euler(26, 180, 0),
-        scale: new Vector3(0.3, 0.3, 0.3)
+        scale: new Vector3(0.3, 0.3, 0.3),
       })
     )
   }

@@ -6,6 +6,7 @@ export type Props = {
   customStation?: string
   onClickText: string
   startOn: boolean
+  volume: number
 }
 
 let defaultStation = 'https://theuniverse.club/live/genesisplaza/index.m3u8'
@@ -14,6 +15,7 @@ export default class Button implements IScript<Props> {
   channel = ''
   video: VideoTexture
   active: Record<string, boolean> = {}
+  volume: Record<string, number> = {}
   sign: Entity
   caption: Entity
   init() {}
@@ -27,6 +29,7 @@ export default class Button implements IScript<Props> {
       this.video.playing = false
       this.sign.getComponent(PlaneShape).visible = true
       this.caption.getComponent(Transform).scale = Vector3.One()
+      this.video.volume = this.volume[entity.name]
     }
   }
 
@@ -55,6 +58,7 @@ export default class Button implements IScript<Props> {
     mat.albedoTexture = this.video
     mat.specularIntensity = 0
     mat.roughness = 1
+    mat.metallic = 0
 
     screen.addComponent(mat)
 
@@ -69,6 +73,8 @@ export default class Button implements IScript<Props> {
       })
     )
 
+    this.volume[screen.name] = props.volume
+
     let placeholderMaterial = new Material()
     placeholderMaterial.albedoTexture = new Texture('images/stream.png')
     placeholderMaterial.specularIntensity = 0
@@ -81,6 +87,7 @@ export default class Button implements IScript<Props> {
     let text = new TextShape('Click for Video Streaming')
     text.fontSize = 2
     text.color = Color3.Black()
+    text.font = new Font(Fonts.SanFrancisco_Semibold)
     caption.addComponent(text)
 
     this.caption = caption

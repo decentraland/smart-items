@@ -23,6 +23,10 @@
         {
           "value": "https://edge.singsingmusic.net/MC2.mp3",
           "label": "Signs"
+        },
+        {
+          "value": "https://freeuk13.listen2myradio.com/live.mp3?typeportmount=s2_20223_stream_944192845",
+          "label": "MK Lab"
         }
       ]
     },
@@ -36,6 +40,12 @@
       "label": "Switched On",
       "type": "boolean",
       "default": "false"
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "default": 1
     },
     {
       "id": "onClickText",

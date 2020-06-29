@@ -1,3 +1,5 @@
+import { RadioDelayManager, Delay } from './utils'
+
 export type Props = {
   onClick?: Actions
   onActivate?: Actions
@@ -6,6 +8,7 @@ export type Props = {
   customStation?: string
   onClickText: string
   startOn: boolean
+  volume: number
 }
 
 let defaultStation = 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3'
@@ -14,7 +17,10 @@ export default class Button implements IScript<Props> {
   clip = new AudioClip('sounds/click.mp3')
   station = ''
   active: Record<string, boolean> = {}
-  init() {}
+  volume: Record<string, number> = {}
+  init() {
+    engine.addSystem(new RadioDelayManager())
+  }
 
   toggle(entity: Entity, value: boolean, silent?: boolean) {
     if (!silent) {
@@ -28,10 +34,21 @@ export default class Button implements IScript<Props> {
     const lightClip = animator.getClip('Light_Action')
 
     if (value) {
-      lightClip.play()
+      lightClip.stop()
+      switchClip.stop()
+      switchClip.play()
+      entity.addComponent(
+        new Delay(500, () => {
+          switchClip.stop()
+          lightClip.stop()
+          lightClip.play()
+        })
+      )
+
       let musicStream = new AudioStream(this.station)
       entity.addComponentOrReplace(musicStream)
       musicStream.playing = true
+      musicStream.volume = this.volume[entity.name]
     } else {
       lightClip.stop()
       switchClip.stop()
@@ -77,6 +94,8 @@ export default class Button implements IScript<Props> {
         )
       )
     }
+
+    this.volume[button.name] = props.volume
 
     if (props.startOn) {
       this.toggle(button, true, true)

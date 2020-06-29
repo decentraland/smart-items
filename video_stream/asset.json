@@ -9,20 +9,16 @@
       "type": "options",
       "options": [
         {
-          "value": "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
-          "label": "Rave"
+          "value": "https://theuniverse.club/live/genesisplaza/index.m3u8",
+          "label": "Genesis plaza stream"
         },
         {
-          "value": "https://dclcoreradio.com/dclradio.ogg",
-          "label": "Interviews"
+          "value": "https://theuniverse.club/live/sohoplaza/index.m3u8",
+          "label": "Soho plaza stream"
         },
         {
-          "value": "https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e",
-          "label": "Delta"
-        },
-        {
-          "value": "https://edge.singsingmusic.net/MC2.mp3",
-          "label": "Signs"
+          "value": "https://theuniverse.club/live/consensys/index.m3u8",
+          "label": "Music animations"
         }
       ]
     },
@@ -42,6 +38,12 @@
       "label": "Hover text",
       "type": "text",
       "default": "Start stream"
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "default": 1
     },
     {
       "id": "onClick",

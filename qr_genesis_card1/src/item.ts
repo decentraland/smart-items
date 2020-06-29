@@ -20,6 +20,9 @@ export default class SignPost implements IScript<Props> {
 
     let QRTexture = new Texture(url)
     let QRMaterial = new Material()
+
+    QRMaterial.roughness = 1
+    QRMaterial.specularIntensity = 0
     QRMaterial.albedoTexture = QRTexture
 
     let QRPlane = new Entity()
@@ -30,7 +33,7 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.4, 0.01),
         rotation: Quaternion.Euler(0, 0, 0),
-        scale: new Vector3(0.3, 0.3, 0.3)
+        scale: new Vector3(0.3, 0.3, 0.3),
       })
     )
 
@@ -42,13 +45,14 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.4, -0.01),
         rotation: Quaternion.Euler(0, 180, 0),
-        scale: new Vector3(0.3, 0.3, 0.3)
+        scale: new Vector3(0.3, 0.3, 0.3),
       })
     )
 
     let signText = new Entity()
     signText.setParent(host)
     let text = new TextShape(props.text)
+    text.font = new Font(Fonts.SanFrancisco_Semibold)
     text.fontSize = props.fontSize
     text.color = Color3.FromHexString('#525151ff')
     text.outlineColor = Color3.FromHexString('#525151ff')
@@ -64,7 +68,7 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.2, 0.01),
         rotation: Quaternion.Euler(0, 180, 0),
-        scale: new Vector3(0.05, 0.05, 0.05)
+        scale: new Vector3(0.05, 0.05, 0.05),
       })
     )
 
@@ -76,15 +80,15 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.2, -0.01),
         rotation: Quaternion.Euler(0, 0, 0),
-        scale: new Vector3(0.05, 0.05, 0.05)
+        scale: new Vector3(0.05, 0.05, 0.05),
       })
     )
 
-    channel.handleAction<ChangeTextType>('changeText', action => {
+    channel.handleAction<ChangeTextType>('changeText', (action) => {
       text.value = action.values.newText
     })
 
-    channel.request<string>('getText', signText => (text.value = signText))
+    channel.request<string>('getText', (signText) => (text.value = signText))
     channel.reply<string>('getText', () => text.value)
   }
 }

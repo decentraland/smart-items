@@ -20,6 +20,9 @@ export default class SignPost implements IScript<Props> {
 
     let QRTexture = new Texture(url)
     let QRMaterial = new Material()
+
+    QRMaterial.roughness = 1
+    QRMaterial.specularIntensity = 0
     QRMaterial.albedoTexture = QRTexture
 
     let QRPlane = new Entity()
@@ -30,7 +33,7 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.54, -0.18),
         rotation: Quaternion.Euler(0, 0, 0),
-        scale: new Vector3(0.25, 0.25, 0.25)
+        scale: new Vector3(0.25, 0.25, 0.25),
       })
     )
 
@@ -38,6 +41,7 @@ export default class SignPost implements IScript<Props> {
     signText.setParent(host)
     let text = new TextShape(props.text)
     text.fontSize = props.fontSize
+    text.font = new Font(Fonts.SanFrancisco_Semibold)
     text.color = Color3.FromHexString('#8cfdff')
     text.outlineColor = Color3.FromHexString('#8cfdff')
 
@@ -51,15 +55,15 @@ export default class SignPost implements IScript<Props> {
       new Transform({
         position: new Vector3(0, 0.7, -0.185),
         rotation: Quaternion.Euler(0, 180, 0),
-        scale: new Vector3(0.05, 0.05, 0.05)
+        scale: new Vector3(0.05, 0.05, 0.05),
       })
     )
 
-    channel.handleAction<ChangeTextType>('changeText', action => {
+    channel.handleAction<ChangeTextType>('changeText', (action) => {
       text.value = action.values.newText
     })
 
-    channel.request<string>('getText', signText => (text.value = signText))
+    channel.request<string>('getText', (signText) => (text.value = signText))
     channel.reply<string>('getText', () => text.value)
   }
 }
