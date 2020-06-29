@@ -40,6 +40,19 @@ async function pack() {
   console.log('Done!')
 }
 
+
+async function clean() {
+  let count = 1
+  const total = list.length
+  for (const dir of list) {
+    console.log(`[${count}/${total}] Deleting files ${dir}...`)
+    await execute(rm, 'node_modules')
+    await execute(rm, 'bin')
+    count++
+  }
+  console.log('Done!')
+}
+
 async function execute(dir, command, commands) {
   return new Promise((resolve, reject) => {
     const cwd = path.join(process.cwd(), dir)
