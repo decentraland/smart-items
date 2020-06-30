@@ -92,14 +92,30 @@ export default class Tools implements IScript<Props> {
     // handle actions
     channel.handleAction<Tween>('move', (action) => {
       const { target, ...tween } = action.values
+      const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        if (entity.hasComponent(Tweenable)) {
+          let existingTweenble = entity.getComponent(Tweenable)
+          if (
+            existingTweenble.sender !== action.sender &&
+            existingTweenble.type == 'move' &&
+            existingTweenble.x === action.values.x &&
+            existingTweenble.y === action.values.y &&
+            existingTweenble.z === action.values.z
+          ) {
+            // same tween already in progress?
+            return
+          }
+        }
+
         const origin = entity.getComponent(Transform).position.clone()
         const tweenable = new Tweenable({
           ...tween,
           type: 'move',
           channel,
           origin,
+          sender,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
@@ -108,8 +124,22 @@ export default class Tools implements IScript<Props> {
 
     channel.handleAction<Tween>('rotate', (action) => {
       const { target, ...tween } = action.values
+      const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        if (entity.hasComponent(Tweenable)) {
+          let existingTweenble = entity.getComponent(Tweenable)
+          if (
+            existingTweenble.sender !== action.sender &&
+            existingTweenble.type == 'rotate' &&
+            existingTweenble.x === action.values.x &&
+            existingTweenble.y === action.values.y &&
+            existingTweenble.z === action.values.z
+          ) {
+            // same tween already in progress?
+            return
+          }
+        }
         const origin = entity.getComponent(Transform).rotation.clone()
           .eulerAngles
         const tweenable = new Tweenable({
@@ -117,6 +147,7 @@ export default class Tools implements IScript<Props> {
           type: 'rotate',
           channel,
           origin,
+          sender,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
@@ -125,14 +156,29 @@ export default class Tools implements IScript<Props> {
 
     channel.handleAction<Tween>('scale', (action) => {
       const { target, ...tween } = action.values
+      const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        if (entity.hasComponent(Tweenable)) {
+          let existingTweenble = entity.getComponent(Tweenable)
+          if (
+            existingTweenble.sender !== action.sender &&
+            existingTweenble.type == 'scale' &&
+            existingTweenble.x === action.values.x &&
+            existingTweenble.y === action.values.y &&
+            existingTweenble.z === action.values.z
+          ) {
+            // same tween already in progress?
+            return
+          }
+        }
         const origin = entity.getComponent(Transform).scale.clone()
         const tweenable = new Tweenable({
           ...tween,
           type: 'scale',
           channel,
           origin,
+          sender,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())

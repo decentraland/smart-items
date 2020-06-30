@@ -25,6 +25,7 @@ export class Tweenable {
   onComplete: Actions
   channel: IChannel
   origin: Vector3
+  sender: string = 'initial'
 
   constructor(args: {
     type: TweenType
@@ -36,6 +37,7 @@ export class Tweenable {
     onComplete: Actions
     channel: IChannel
     origin: Vector3
+    sender?: string
   }) {
     this.type = args.type
     this.x = args.x
@@ -46,6 +48,7 @@ export class Tweenable {
     this.onComplete = args.onComplete
     this.channel = args.channel
     this.origin = args.origin
+    this.sender = args.sender
   }
 }
 
