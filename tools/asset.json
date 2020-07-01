@@ -34,6 +34,91 @@
           "default": 0
         },
         {
+          "id": "curve",
+          "label": "Curve type",
+          "type": "options",
+          "options": [
+            {
+              "value": "linear",
+              "label": "Linear"
+            },
+            {
+              "value": "easeinsine",
+              "label": "Ease-in Sine"
+            },
+            {
+              "value": "easeoutsine",
+              "label": "Ease-out Sine"
+            },
+            {
+              "value": "easeinoutsine",
+              "label": "Ease-in-out Sine"
+            },
+            {
+              "value": "easeinquadratic",
+              "label": "Ease-in Quad"
+            },
+            {
+              "value": "easeoutquadratic",
+              "label": "Ease-out Quad"
+            },
+            {
+              "value": "easeinoutquadratic",
+              "label": "Ease-in-out Quad"
+            },
+            {
+              "value": "easeincubic",
+              "label": "Ease-in Cubic"
+            },
+            {
+              "value": "easeoutcubic",
+              "label": "Ease-out Cubic"
+            },
+            {
+              "value": "easeinoutcubic",
+              "label": "Ease-in-out Cubic"
+            },
+            {
+              "value": "easeinexpo",
+              "label": "Ease-in Expo"
+            },
+            {
+              "value": "easeoutexpo",
+              "label": "Ease-out Expo"
+            },
+            {
+              "value": "easeinoutexpo",
+              "label": "Ease-in-out Expo"
+            },
+            {
+              "value": "easeinelastic",
+              "label": "Ease-in Elastic"
+            },
+            {
+              "value": "easeoutelastic",
+              "label": "Ease-out Elastic"
+            },
+            {
+              "value": "easeinoutelastic",
+              "label": "Ease-in-out Elastic"
+            },
+            {
+              "value": "easeinbounce",
+              "label": "Ease-in Bounce"
+            },
+            {
+              "value": "easeoutbounce",
+              "label": "Ease-out Bounce"
+            },
+            {
+              "value": "easeinoutbounce",
+              "label": "Ease-in-out Bounce"
+            }
+          ],
+          "default": "linear"
+        },
+
+        {
           "id": "speed",
           "label": "Speed",
           "type": "slider",
@@ -83,6 +168,90 @@
           "default": 0
         },
         {
+          "id": "curve",
+          "label": "Curve type",
+          "type": "options",
+          "options": [
+            {
+              "value": "linear",
+              "label": "Linear"
+            },
+            {
+              "value": "easeinsine",
+              "label": "Ease-in Sine"
+            },
+            {
+              "value": "easeoutsine",
+              "label": "Ease-out Sine"
+            },
+            {
+              "value": "easeinoutsine",
+              "label": "Ease-in-out Sine"
+            },
+            {
+              "value": "easeinquadratic",
+              "label": "Ease-in Quad"
+            },
+            {
+              "value": "easeoutquadratic",
+              "label": "Ease-out Quad"
+            },
+            {
+              "value": "easeinoutquadratic",
+              "label": "Ease-in-out Quad"
+            },
+            {
+              "value": "easeincubic",
+              "label": "Ease-in Cubic"
+            },
+            {
+              "value": "easeoutcubic",
+              "label": "Ease-out Cubic"
+            },
+            {
+              "value": "easeinoutcubic",
+              "label": "Ease-in-out Cubic"
+            },
+            {
+              "value": "easeinexpo",
+              "label": "Ease-in Expo"
+            },
+            {
+              "value": "easeoutexpo",
+              "label": "Ease-out Expo"
+            },
+            {
+              "value": "easeinoutexpo",
+              "label": "Ease-in-out Expo"
+            },
+            {
+              "value": "easeinelastic",
+              "label": "Ease-in Elastic"
+            },
+            {
+              "value": "easeoutelastic",
+              "label": "Ease-out Elastic"
+            },
+            {
+              "value": "easeinoutelastic",
+              "label": "Ease-in-out Elastic"
+            },
+            {
+              "value": "easeinbounce",
+              "label": "Ease-in Bounce"
+            },
+            {
+              "value": "easeoutbounce",
+              "label": "Ease-out Bounce"
+            },
+            {
+              "value": "easeinoutbounce",
+              "label": "Ease-in-out Bounce"
+            }
+          ],
+          "default": "linear"
+        },
+        {
           "id": "speed",
           "label": "Speed",
           "type": "slider",
@@ -124,6 +293,90 @@
           "label": "Z",
           "type": "float",
           "default": 0
+        },
+        {
+          "id": "curve",
+          "label": "Curve type",
+          "type": "options",
+          "options": [
+            {
+              "value": "linear",
+              "label": "Linear"
+            },
+            {
+              "value": "easeinsine",
+              "label": "Ease-in Sine"
+            },
+            {
+              "value": "easeoutsine",
+              "label": "Ease-out Sine"
+            },
+            {
+              "value": "easeinoutsine",
+              "label": "Ease-in-out Sine"
+            },
+            {
+              "value": "easeinquadratic",
+              "label": "Ease-in Quad"
+            },
+            {
+              "value": "easeoutquadratic",
+              "label": "Ease-out Quad"
+            },
+            {
+              "value": "easeinoutquadratic",
+              "label": "Ease-in-out Quad"
+            },
+            {
+              "value": "easeincubic",
+              "label": "Ease-in Cubic"
+            },
+            {
+              "value": "easeoutcubic",
+              "label": "Ease-out Cubic"
+            },
+            {
+              "value": "easeinoutcubic",
+              "label": "Ease-in-out Cubic"
+            },
+            {
+              "value": "easeinexpo",
+              "label": "Ease-in Expo"
+            },
+            {
+              "value": "easeoutexpo",
+              "label": "Ease-out Expo"
+            },
+            {
+              "value": "easeinoutexpo",
+              "label": "Ease-in-out Expo"
+            },
+            {
+              "value": "easeinelastic",
+              "label": "Ease-in Elastic"
+            },
+            {
+              "value": "easeoutelastic",
+              "label": "Ease-out Elastic"
+            },
+            {
+              "value": "easeinoutelastic",
+              "label": "Ease-in-out Elastic"
+            },
+            {
+              "value": "easeinbounce",
+              "label": "Ease-in Bounce"
+            },
+            {
+              "value": "easeoutbounce",
+              "label": "Ease-out Bounce"
+            },
+            {
+              "value": "easeinoutbounce",
+              "label": "Ease-in-out Bounce"
+            }
+          ],
+          "default": "linear"
         },
         {
           "id": "speed",

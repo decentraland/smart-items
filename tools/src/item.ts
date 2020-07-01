@@ -1,4 +1,11 @@
-import { TweenSystem, Tweenable, Tween, Syncable, TweenType } from './tween'
+import {
+  TweenSystem,
+  Tweenable,
+  Tween,
+  Syncable,
+  TweenType,
+  CurveType,
+} from './tween'
 import { setTimeout, DelaySystem } from './delay'
 import { Animated, AnimType } from './animation'
 
@@ -33,6 +40,7 @@ type SyncEntity = {
   tween?: {
     transition: number
     type: TweenType
+    curve: CurveType
     x: number
     y: number
     z: number

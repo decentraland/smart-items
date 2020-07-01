@@ -26,8 +26,8 @@ box.addComponent(
             actionId: 'print',
             values: {
               message: 'Hola',
-              duration: 5
-            }
+              duration: 5,
+            },
           },
           {
             entityName: 'tools',
@@ -42,14 +42,14 @@ box.addComponent(
                   actionId: 'print',
                   values: {
                     message: 'Como andas',
-                    duration: 5
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
+                    duration: 5,
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
     })
 
     bus.emit('tools', {
@@ -60,6 +60,7 @@ box.addComponent(
         x: 4,
         y: 0,
         z: 4,
+        curve: 'easeinexpo',
         speed: 10,
         relative: false,
         onComplete: [
@@ -71,6 +72,7 @@ box.addComponent(
               x: 0,
               y: 5,
               z: 0,
+              curve: 'easeinoutelastic',
               speed: 10,
               relative: true,
               onComplete: [
@@ -82,6 +84,7 @@ box.addComponent(
                     x: 2,
                     y: 2,
                     z: 2,
+                    curve: 'easeinoutsine',
                     speed: 10,
                     relative: true,
                     onComplete: [
@@ -93,19 +96,20 @@ box.addComponent(
                           x: 0,
                           y: 0,
                           z: 180,
+                          curve: 'linear',
                           speed: 10,
                           relative: true,
-                          onComplete: []
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
+                          onComplete: [],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
     })
   })
 )
