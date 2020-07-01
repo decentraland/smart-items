@@ -218,15 +218,11 @@ export default class Tools implements IScript<Props> {
         const currentTime: number = +Date.now()
         let animator: Animator
 
-        log('FULL COMPONENT LIST: ', entity.components)
-
         if (entity.hasComponent(Animator)) {
           animator = entity.getComponent(Animator)
-          log('ALREADY HAS ANIMATOR')
         } else {
           animator = new Animator()
           entity.addComponent(animator)
-          log('NEW ANIMATOR')
         }
 
         let currentAnim: string
@@ -234,7 +230,6 @@ export default class Tools implements IScript<Props> {
           case 'play':
             if (entity.hasComponent(Animated)) {
               let existingAnim = entity.getComponent(Animated)
-              log('ALREADY HAD ANIMATION, ', existingAnim.name)
 
               if (
                 existingAnim.sender !== action.sender &&
@@ -243,13 +238,12 @@ export default class Tools implements IScript<Props> {
                 existingAnim.name === action.values.animation &&
                 existingAnim.speed === existingAnim.speed
               ) {
-                log('REAPEATED ANIMATION')
                 // same anim already in progress?
                 break
               }
               if (existingAnim.type == 'play') {
                 // stop any other playing animations
-                log('STOPPING OLD ANIMATION ', existingAnim.name)
+
                 animator.getClip(existingAnim.name).stop()
               }
             }
@@ -267,37 +261,34 @@ export default class Tools implements IScript<Props> {
               sender,
               timestamp: currentTime,
             })
-            log('ADDING NEW ANIMATION ', animation)
+
             entity.addComponentOrReplace(animated)
             entity.addComponentOrReplace(new Syncable())
             break
           case 'stop':
             if (!entity.hasComponent(Animated)) {
-              log('NO EXISTING ANIMAITON')
               break
             }
             currentAnim = entity.getComponent(Animated).name
-            log('STOPING OLD ANIMATION,', currentAnim)
+
             animator.getClip(currentAnim).stop()
             entity.getComponent(Animated).type = 'stop'
             break
           case 'pause':
             if (!entity.hasComponent(Animated)) {
-              log('NO EXISTING ANIMAITON')
               break
             }
             currentAnim = entity.getComponent(Animated).name
-            log('PAUSING OLD ANIMATION,', currentAnim)
+
             animator.getClip(currentAnim).pause()
             entity.getComponent(Animated).type = 'pause'
             break
           case 'reset':
             if (!entity.hasComponent(Animated)) {
-              log('NO EXISTING ANIMAITON')
               break
             }
             currentAnim = entity.getComponent(Animated).name
-            log('RESETTING OLD ANIMATION,', currentAnim)
+
             animator.getClip(currentAnim).reset()
             entity.getComponent(Animated).type = 'reset'
             break
