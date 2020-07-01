@@ -1,5 +1,6 @@
 import { TweenSystem, Tweenable, Tween, Syncable, TweenType } from './tween'
 import { setTimeout, DelaySystem } from './delay'
+import { Animated, AnimType } from './animation'
 
 export type Props = {}
 
@@ -16,10 +17,10 @@ type PrintValues = {
 
 type AnimationValues = {
   target: string
-  animation: string
   animAction: string
   speed: number
   loop: boolean
+  animation?: string
 }
 
 type SyncEntity = {
@@ -39,6 +40,12 @@ type SyncEntity = {
     relative: boolean
     onComplete: Actions
     origin: Vector3
+  }
+  anim?: {
+    type: AnimType
+    name: string
+    speed: number
+    loop: boolean
   }
 }
 
@@ -94,12 +101,15 @@ export default class Tools implements IScript<Props> {
       const { target, ...tween } = action.values
       const sender = action.sender
       const entity = getEntityByName(target)
+
       if (entity) {
+        const currentTime: number = +Date.now()
         if (entity.hasComponent(Tweenable)) {
           let existingTweenble = entity.getComponent(Tweenable)
           if (
             existingTweenble.sender !== action.sender &&
             existingTweenble.type == 'move' &&
+            currentTime - existingTweenble.timestamp < 500 &&
             existingTweenble.x === action.values.x &&
             existingTweenble.y === action.values.y &&
             existingTweenble.z === action.values.z
@@ -116,6 +126,7 @@ export default class Tools implements IScript<Props> {
           channel,
           origin,
           sender,
+          timestamp: currentTime,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
@@ -127,11 +138,13 @@ export default class Tools implements IScript<Props> {
       const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        const currentTime: number = +Date.now()
         if (entity.hasComponent(Tweenable)) {
           let existingTweenble = entity.getComponent(Tweenable)
           if (
             existingTweenble.sender !== action.sender &&
             existingTweenble.type == 'rotate' &&
+            currentTime - existingTweenble.timestamp < 500 &&
             existingTweenble.x === action.values.x &&
             existingTweenble.y === action.values.y &&
             existingTweenble.z === action.values.z
@@ -148,6 +161,7 @@ export default class Tools implements IScript<Props> {
           channel,
           origin,
           sender,
+          timestamp: currentTime,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
@@ -159,11 +173,13 @@ export default class Tools implements IScript<Props> {
       const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        const currentTime: number = +Date.now()
         if (entity.hasComponent(Tweenable)) {
           let existingTweenble = entity.getComponent(Tweenable)
           if (
             existingTweenble.sender !== action.sender &&
             existingTweenble.type == 'scale' &&
+            currentTime - existingTweenble.timestamp < 500 &&
             existingTweenble.x === action.values.x &&
             existingTweenble.y === action.values.y &&
             existingTweenble.z === action.values.z
@@ -179,6 +195,7 @@ export default class Tools implements IScript<Props> {
           channel,
           origin,
           sender,
+          timestamp: currentTime,
         })
         entity.addComponentOrReplace(tweenable)
         entity.addComponentOrReplace(new Syncable())
@@ -187,35 +204,94 @@ export default class Tools implements IScript<Props> {
 
     channel.handleAction<AnimationValues>('animate', (action) => {
       const { target, animation, animAction, speed, loop } = action.values
+      const sender = action.sender
       const entity = getEntityByName(target)
       if (entity) {
+        const currentTime: number = +Date.now()
         let animator: Animator
+
+        log('FULL COMPONENT LIST: ', entity.components)
 
         if (entity.hasComponent(Animator)) {
           animator = entity.getComponent(Animator)
+          log('ALREADY HAS ANIMATOR')
         } else {
           animator = new Animator()
           entity.addComponent(animator)
+          log('NEW ANIMATOR')
         }
 
+        let currentAnim: string
         switch (animAction) {
           case 'play':
-            let animClip = new AnimationState(animation, {
-              looping: loop,
+            if (entity.hasComponent(Animated)) {
+              let existingAnim = entity.getComponent(Animated)
+              log('ALREADY HAD ANIMATION, ', existingAnim.name)
+
+              if (
+                existingAnim.sender !== action.sender &&
+                existingAnim.type == 'play' &&
+                currentTime - existingAnim.timestamp < 500 &&
+                existingAnim.name === action.values.animation &&
+                existingAnim.speed === existingAnim.speed
+              ) {
+                log('REAPEATED ANIMATION')
+                // same anim already in progress?
+                break
+              }
+              if (existingAnim.type == 'play') {
+                // stop any other playing animations
+                log('STOPPING OLD ANIMATION ', existingAnim.name)
+                animator.getClip(existingAnim.name).stop()
+              }
+            }
+
+            let animClip = animator.getClip(animation)
+            animClip.looping = loop
+            animClip.speed = speed
+            animClip.playing = true
+            const animated = new Animated({
+              type: 'play',
+              name: animation,
               speed: speed,
+              loop: loop,
+              channel,
+              sender,
+              timestamp: currentTime,
             })
-            animator.addClip(animClip)
-            animClip.stop()
-            animClip.play()
+            log('ADDING NEW ANIMATION ', animation)
+            entity.addComponentOrReplace(animated)
+            entity.addComponentOrReplace(new Syncable())
             break
           case 'stop':
-            animator.getClip(animation).stop()
+            if (!entity.hasComponent(Animated)) {
+              log('NO EXISTING ANIMAITON')
+              break
+            }
+            currentAnim = entity.getComponent(Animated).name
+            log('STOPING OLD ANIMATION,', currentAnim)
+            animator.getClip(currentAnim).stop()
+            entity.getComponent(Animated).type = 'stop'
             break
           case 'pause':
-            animator.getClip(animation).pause()
+            if (!entity.hasComponent(Animated)) {
+              log('NO EXISTING ANIMAITON')
+              break
+            }
+            currentAnim = entity.getComponent(Animated).name
+            log('PAUSING OLD ANIMATION,', currentAnim)
+            animator.getClip(currentAnim).pause()
+            entity.getComponent(Animated).type = 'pause'
             break
           case 'reset':
-            animator.getClip(animation).reset()
+            if (!entity.hasComponent(Animated)) {
+              log('NO EXISTING ANIMAITON')
+              break
+            }
+            currentAnim = entity.getComponent(Animated).name
+            log('RESETTING OLD ANIMATION,', currentAnim)
+            animator.getClip(currentAnim).reset()
+            entity.getComponent(Animated).type = 'reset'
             break
         }
       }
@@ -267,7 +343,7 @@ export default class Tools implements IScript<Props> {
     // sync initial values
     channel.request<SyncEntity[]>('syncEntities', (syncEntities) => {
       for (const syncEntity of syncEntities) {
-        const { entityName, transform, tween } = syncEntity
+        const { entityName, transform, tween, anim } = syncEntity
         const entity = getEntityByName(entityName)
         if (entity) {
           const original = entity.getComponent(Transform)
@@ -279,7 +355,35 @@ export default class Tools implements IScript<Props> {
               ...tween,
               channel,
             })
+
             entity.addComponentOrReplace(tweenable)
+          }
+          if (anim) {
+            const animated = new Animated({
+              ...anim,
+              channel,
+            })
+            entity.addComponentOrReplace(animated)
+            let animator = new Animator()
+            entity.addComponentOrReplace(animator)
+
+            let animClip = animator.getClip(anim.name)
+            animClip.looping = anim.loop
+            animClip.speed = anim.speed
+            switch (anim.type) {
+              case 'play':
+                animClip.play()
+                break
+              case 'stop':
+                animClip.stop()
+                break
+              case 'pause':
+                animClip.pause()
+                break
+              case 'reset':
+                animClip.reset()
+                break
+            }
           }
         }
       }
@@ -309,6 +413,11 @@ export default class Tools implements IScript<Props> {
           const { channel: _, ...tween } = entity.getComponent(Tweenable)
           syncEntity.tween = tween
         }
+        if (entity.hasComponent(Animated)) {
+          const { channel: _, ...anim } = entity.getComponent(Animated)
+          syncEntity.anim = anim
+        }
+
         return syncEntity
       })
     })

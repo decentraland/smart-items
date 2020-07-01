@@ -26,6 +26,7 @@ export class Tweenable {
   channel: IChannel
   origin: Vector3
   sender: string = 'initial'
+  timestamp: number
 
   constructor(args: {
     type: TweenType
@@ -38,6 +39,7 @@ export class Tweenable {
     channel: IChannel
     origin: Vector3
     sender?: string
+    timestamp?: number
   }) {
     this.type = args.type
     this.x = args.x
@@ -49,6 +51,7 @@ export class Tweenable {
     this.channel = args.channel
     this.origin = args.origin
     this.sender = args.sender
+    this.timestamp = args.timestamp
   }
 }
 

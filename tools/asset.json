@@ -150,12 +150,6 @@
           "label": "Item",
           "type": "entity"
         },
-        {
-          "id": "animation",
-          "label": "Animation Name",
-          "type": "text",
-          "default": "Action"
-        },
 
         {
           "id": "animAction",
@@ -181,10 +175,15 @@
           ],
           "default": "play"
         },
+        {
+          "id": "animation",
+          "label": "Animation Name",
+          "type": "text"
+        },
 
         {
           "id": "speed",
-          "label": "Speed",
+          "label": "Animation Speed",
           "type": "slider",
           "step": 0.05,
           "min": 0,
