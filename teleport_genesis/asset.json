@@ -1,0 +1,51 @@
+{
+  "id": "1ab788bf-107d-4b91-881e-48dfb1d46284",
+  "name": "Teleport",
+  "tags": ["teleport", "travel", "wormhole", "fast travel", "link"],
+  "category": "decorations",
+  "model": "models/signpost/SignPost.glb",
+  "parameters": [
+    {
+      "id": "x",
+      "label": "X coordinate",
+      "type": "text",
+      "default": "0"
+    },
+    {
+      "id": "y",
+      "label": "Y coordinate",
+      "type": "text",
+      "default": "0"
+    },
+    {
+      "id": "name",
+      "label": "Location name",
+      "type": "text"
+    }
+  ],
+  "actions": [
+    {
+      "id": "changeLocation",
+      "label": "Change Location",
+      "parameters": [
+        {
+          "id": "x",
+          "label": "X coordinate",
+          "type": "text",
+          "default": "0"
+        },
+        {
+          "id": "y",
+          "label": "Y coordinate",
+          "type": "text",
+          "default": "0"
+        },
+        {
+          "id": "name",
+          "label": "Location name",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
