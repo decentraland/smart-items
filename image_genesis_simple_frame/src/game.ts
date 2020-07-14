@@ -8,10 +8,11 @@ spawner.spawn(
   'post',
   new Transform({
     position: new Vector3(4, 1, 8),
-    scale: new Vector3(4, 4, 4)
+    scale: new Vector3(4, 4, 4),
   }),
   {
     image:
-      'https://lh6.googleusercontent.com/W6Ht1u0NKh59qt5zgdXNn8xrkYMxDXOFGdkiJVU9rWzOUdZ0wLE_qoYvltbmKNVcYAxAI5D82Q79Zeiw98-waNMCFhnZHM35BYEoNZie8w2ydhxrGuLd-aApfCs5-lv1aQAjsV2ar4G2K3Fd7kBFUJC7RdhBq1vCM-8FG5MziSBX-ubVQbQgOZgVUBaA2rjuFqBO0Q=s200'
+      'https://s3.amazonaws.com/events.decentraland.org/poster/570906395efe2b3f.png',
+    nsfw: true,
   }
 )
