@@ -1,5 +1,6 @@
 {
   "name": "Trigger Tile Round",
+  "model": "models/round_trigger_EditMode.glb",
   "tags": ["area", "trigger"],
   "category": "decorations",
   "parameters": [

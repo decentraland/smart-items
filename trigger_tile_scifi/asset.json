@@ -1,5 +1,6 @@
 {
   "name": "Trigger Tile SciFi",
+  "model": "models/sci_fi_trigger_EditMode.glb",
   "tags": ["area", "trigger"],
   "category": "decorations",
   "parameters": [

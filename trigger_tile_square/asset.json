@@ -1,6 +1,7 @@
 {
   "name": "Trigger Tile Square",
   "tags": ["area", "trigger"],
+  "model": "models/square_trigger_EditMode.glb",
   "category": "decorations",
   "parameters": [
     {
