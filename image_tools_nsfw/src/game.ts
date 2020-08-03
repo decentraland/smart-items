@@ -7,12 +7,11 @@ const spawner = new Spawner<Props>(post)
 spawner.spawn(
   'post',
   new Transform({
-    position: new Vector3(4, 1, 8),
-    scale: new Vector3(4, 4, 4),
+    position: new Vector3(4, 0, 8),
+    scale: new Vector3(1, 1, 1),
   }),
   {
-    image:
-      'https://s3.amazonaws.com/events.decentraland.org/poster/570906395efe2b3f.png',
+    image: 'https://i.imgur.com/d25gO61.jpg',
     nsfw: true,
   }
 )

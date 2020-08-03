@@ -1,4 +1,5 @@
 {
+  "id": "39419a6c-d2c3-4252-9f34-ba5ff44536ed",
   "name": "Trigger Tile Round",
   "model": "models/round_trigger_EditMode.glb",
   "tags": ["area", "trigger"],

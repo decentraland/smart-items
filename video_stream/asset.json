@@ -1,6 +1,8 @@
 {
+  "id": "a747f104-5434-42a8-a543-8739c24cf253",
   "name": "Video stream",
   "tags": ["sound", "video", "movie", "music", "streaming", "ambient"],
+  "model": "models/stream_preview.glb",
   "category": "decorations",
   "parameters": [
     {
@@ -18,7 +20,7 @@
         },
         {
           "value": "https://theuniverse.club/live/consensys/index.m3u8",
-          "label": "Music animations"
+          "label": "Music visualizations"
         }
       ]
     },
@@ -37,13 +39,16 @@
       "id": "onClickText",
       "label": "Hover text",
       "type": "text",
-      "default": "Start stream"
+      "default": "Play video"
     },
     {
       "id": "volume",
       "label": "Volume",
-      "type": "number",
-      "default": 1
+      "type": "slider",
+      "default": 1,
+      "max": 1,
+      "min": 0,
+      "step": 0.01
     },
     {
       "id": "onClick",

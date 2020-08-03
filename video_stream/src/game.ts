@@ -7,7 +7,7 @@ const spawner = new Spawner<Props>(button)
 spawner.spawn(
   'button',
   new Transform({
-    position: new Vector3(4, 2, 8),
+    position: new Vector3(4, 0, 8),
   }),
   {
     onClickText: 'Start stream',

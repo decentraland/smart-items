@@ -1,0 +1,39 @@
+{
+  "id": "b88efbbf-2a9a-47b4-86e1-e38ecc2b433b",
+  "name": "External link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "model": "models/signpost/SignPost.glb",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Site URL",
+      "type": "text",
+      "default": "https://decentraland.org"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+    }
+  ],
+  "actions": [
+    {
+      "id": "changeLink",
+      "label": "Change Link",
+      "parameters": [
+        {
+          "id": "url",
+          "label": "Site URL",
+          "type": "text",
+          "default": "https://decentraland.org"
+        },
+        {
+          "id": "name",
+          "label": "Hover Label",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

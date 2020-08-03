@@ -1,4 +1,5 @@
 {
+  "id": "c974867d-d527-414d-aac0-6fccbd9f8afe",
   "name": "Radio",
   "tags": ["sound", "music", "streaming", "ambient"],
   "category": "decorations",
@@ -11,10 +12,6 @@
         {
           "value": "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
           "label": "Rave"
-        },
-        {
-          "value": "https://dclcoreradio.com/dclradio.ogg",
-          "label": "Interviews"
         },
         {
           "value": "https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e",
@@ -39,13 +36,16 @@
       "id": "startOn",
       "label": "Switched On",
       "type": "boolean",
-      "default": "false"
+      "default": false
     },
     {
       "id": "volume",
       "label": "Volume",
-      "type": "number",
-      "default": 1
+      "type": "slider",
+      "default": 1,
+      "max": 1,
+      "min": 0,
+      "step": 0.01
     },
     {
       "id": "onClickText",

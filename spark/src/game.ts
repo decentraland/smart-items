@@ -7,7 +7,7 @@ const spawner = new Spawner<Props>(arrow)
 spawner.spawn(
   'spark',
   new Transform({
-    position: new Vector3(4, 0, 8),
+    position: new Vector3(4, 1, 8),
   }),
   { active: true }
 )

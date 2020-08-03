@@ -1,0 +1,15 @@
+{
+  "id": "7d669c08-c354-45e4-b3a3-c915c8fd6b6e",
+  "name": "Image simple frame",
+  "tags": ["signpost", "text", "interactive"],
+  "category": "decorations",
+  "model": "models/image_preview.glb",
+  "parameters": [
+    {
+      "id": "image",
+      "label": "External Image URL",
+      "type": "text",
+      "default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

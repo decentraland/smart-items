@@ -1,4 +1,5 @@
 {
+  "id": "8002162b-01cb-4958-a3e9-6c789d8b3c56",
   "name": "Invisible Cylinder",
   "model": "models/Cylinder_EditMode.glb",
   "tags": ["invisible", "wall", "cylinder", "column", "pillar", "collider"],

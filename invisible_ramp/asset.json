@@ -1,4 +1,5 @@
 {
+  "id": "9abf3cc1-dd4b-471d-a2d5-655fb61a6d03",
   "name": "Invisible Ramp",
   "model": "models/Ramp_EditMode.glb",
   "tags": ["invisible", "wall", "ramp", "collider"],

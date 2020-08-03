@@ -1,4 +1,5 @@
 {
+  "id": "dda11355-9872-4517-a595-dab493243dd9",
   "name": "Invisible Sphere",
   "model": "models/Sphere_EditMode.glb",
   "tags": ["invisible", "wall", "sphere", "ball", "globe", "round", "collider"],

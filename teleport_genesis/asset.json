@@ -1,9 +1,8 @@
 {
-  "id": "1ab788bf-107d-4b91-881e-48dfb1d46284",
+  "id": "0ee46c79-338c-445a-a506-ea26d80fbe46",
   "name": "Teleport",
   "tags": ["teleport", "travel", "wormhole", "fast travel", "link"],
   "category": "decorations",
-  "model": "models/signpost/SignPost.glb",
   "parameters": [
     {
       "id": "x",

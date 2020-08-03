@@ -17,18 +17,15 @@ export default class Button implements IScript<Props> {
   active: Record<string, boolean> = {}
   volume: Record<string, number> = {}
   sign: Entity
-  caption: Entity
   init() {}
 
   toggle(entity: Entity, value: boolean) {
     if (value) {
       this.video.playing = true
       this.sign.getComponent(PlaneShape).visible = false
-      this.caption.getComponent(Transform).scale = Vector3.Zero()
     } else {
       this.video.playing = false
       this.sign.getComponent(PlaneShape).visible = true
-      this.caption.getComponent(Transform).scale = Vector3.One()
       this.video.volume = this.volume[entity.name]
     }
   }
@@ -37,10 +34,13 @@ export default class Button implements IScript<Props> {
     const screen = new Entity(host.name + '-screen')
     screen.setParent(host)
 
+    let scaleMult = 1.55
+
     screen.addComponent(new PlaneShape())
     screen.addComponent(
       new Transform({
-        scale: new Vector3(5, 2.3, 5),
+        scale: new Vector3(1.92 * scaleMult, 1.08 * scaleMult, 10 * scaleMult),
+        position: new Vector3(0, 0.548 * scaleMult, 0),
       })
     )
 
@@ -51,6 +51,11 @@ export default class Button implements IScript<Props> {
     } else {
       this.channel = defaultStation
     }
+
+    // //test
+    // let test = new Entity()
+    // test.setParent(host)
+    // test.addComponentOrReplace(new GLTFShape('models/stream_preview.glb'))
 
     // video material
     this.video = new VideoTexture(new VideoClip(this.channel))
@@ -64,12 +69,13 @@ export default class Button implements IScript<Props> {
 
     // icon for streaming
     let sign = new Entity(host.name + '-sign')
-    sign.setParent(host)
+    sign.setParent(screen)
 
     sign.addComponent(new PlaneShape())
     sign.addComponent(
       new Transform({
-        position: new Vector3(0, 0, 0.1),
+        position: new Vector3(0, 0, 0.002),
+        rotation: Quaternion.Euler(180, 0, 0),
       })
     )
 
@@ -82,23 +88,6 @@ export default class Button implements IScript<Props> {
 
     sign.addComponent(placeholderMaterial)
     this.sign = sign
-
-    let caption = new Entity()
-    let text = new TextShape('Click for Video Streaming')
-    text.fontSize = 2
-    text.color = Color3.Black()
-    text.font = new Font(Fonts.SanFrancisco_Semibold)
-    caption.addComponent(text)
-
-    this.caption = caption
-
-    caption.addComponent(
-      new Transform({
-        rotation: Quaternion.Euler(0, 180, 0),
-        position: new Vector3(0, -0.7, 0),
-      })
-    )
-    caption.setParent(sign)
 
     if (props.onClick) {
       sign.addComponent(

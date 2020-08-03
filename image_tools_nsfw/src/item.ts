@@ -25,7 +25,8 @@ export default class SignPost implements IScript<Props> {
     QRMaterial.albedoTexture = QRTexture
 
     let NSFWMaterial = new Material()
-    NSFWMaterial.albedoColor = Color4.Black()
+    let NSFWTexture = new Texture('images/sensitive_content.png')
+    NSFWMaterial.albedoTexture = NSFWTexture
     NSFWMaterial.metallic = 0
     NSFWMaterial.roughness = 1
     NSFWMaterial.specularIntensity = 0
@@ -36,25 +37,13 @@ export default class SignPost implements IScript<Props> {
     QRPlane.addComponent(QRMaterial)
     QRPlane.addComponent(
       new Transform({
-        position: new Vector3(0, 0.35, 0),
+        position: new Vector3(0, 0.5, 0),
         rotation: Quaternion.Euler(180, 0, 0),
-        scale: new Vector3(0.5, 0.5, 0.5),
+        scale: new Vector3(1, 1, 1),
       })
     )
 
     if (props.nsfw) {
-      let nsfwLabel = new Entity()
-      nsfwLabel.setParent(host)
-      nsfwLabel.addComponent(new TextShape('NSFW'))
-      nsfwLabel.getComponent(TextShape).fontSize = 3
-      nsfwLabel.addComponent(
-        new Transform({
-          position: new Vector3(0, 0.35, 0.003),
-          rotation: Quaternion.Euler(0, 180, 0),
-          scale: new Vector3(0.5, 0.5, 0.5),
-        })
-      )
-
       let cover = new Entity()
       cover.setParent(host)
       cover.addComponent(new PlaneShape())
@@ -62,9 +51,9 @@ export default class SignPost implements IScript<Props> {
       cover.addComponent(NSFWMaterial)
       cover.addComponent(
         new Transform({
-          position: new Vector3(0, 0.35, 0.002),
-          rotation: Quaternion.Euler(0, 0, 0),
-          scale: new Vector3(0.5, 0.5, 0.5),
+          position: new Vector3(0, 0.5, 0.002),
+          rotation: Quaternion.Euler(180, 0, 0),
+          scale: new Vector3(1, 1, 1),
         })
       )
       cover.addComponent(
@@ -73,9 +62,8 @@ export default class SignPost implements IScript<Props> {
             cover.getComponent(PlaneShape).visible = false
             cover.getComponent(PlaneShape).isPointerBlocker = false
             backCover.getComponent(PlaneShape).visible = false
-            nsfwLabel.getComponent(TextShape).value = ''
           },
-          { hoverText: 'Uncover NSFW Image' }
+          { hoverText: 'Uncover Image' }
         )
       )
 
@@ -85,10 +73,21 @@ export default class SignPost implements IScript<Props> {
       backCover.addComponent(NSFWMaterial)
       backCover.addComponent(
         new Transform({
-          position: new Vector3(0, 0.35, -0.002),
-          rotation: Quaternion.Euler(0, 0, 0),
-          scale: new Vector3(0.5, 0.5, 0.5),
+          position: new Vector3(0, 0.5, -0.002),
+          rotation: Quaternion.Euler(0, 0, 180),
+          scale: new Vector3(1, 1, 1),
         })
+      )
+
+      backCover.addComponent(
+        new OnPointerDown(
+          () => {
+            cover.getComponent(PlaneShape).visible = false
+            cover.getComponent(PlaneShape).isPointerBlocker = false
+            backCover.getComponent(PlaneShape).visible = false
+          },
+          { hoverText: 'Uncover Image' }
+        )
       )
     }
   }

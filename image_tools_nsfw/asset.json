@@ -1,20 +1,21 @@
 {
-  "name": "Image simple frame",
+  "id": "c5f821af-a08f-4a88-bf8c-219f5038dc9a",
+  "name": "Image - NSFW",
   "tags": ["signpost", "text", "interactive"],
   "category": "decorations",
-  "model": "models/QR_SimpleFrame.glb",
+  "model": "models/image_preview.glb",
   "parameters": [
     {
       "id": "image",
       "label": "External Image URL",
       "type": "text",
-      "default": "https://previews.123rf.com/images/ginasanders/ginasanders1109/ginasanders110900012/10486806-an-unsuspecting-woman-shrugs-shrug-of-helplessness-and.jpg"
+      "default": "https://i.imgur.com/d25gO61.jpg"
     },
     {
       "id": "nsfw",
       "label": "Not Safe For Work",
       "type": "boolean",
-      "default": false
+      "default": true
     }
   ]
 }
