@@ -1,10 +1,8 @@
 on:
   push:
-    branches:
-      - "!master"
   pull_request:
 
-name: CI
+name: build
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -17,4 +15,13 @@ jobs:
       - name: npm install
         run:  npm install
       - name: build all
+        env:
+            BUILD: true
         run:  node index.js
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: smart-items-${{ github.sha }}
+          path: |
+            ${{ runner.workspace }}/*/item.zip
