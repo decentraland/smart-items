@@ -1,13 +1,15 @@
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
-const { spawn, exec } = require("child_process");
+const { exec } = require("child_process");
 
 const list = fs
   .readdirSync(path.resolve("."))
   .filter((dir) => fs.existsSync(path.resolve(`${dir}/asset.json`)));
 
 const ITEMS_DIRECTORY = "items";
+
+const dcl = require.resolve(".bin/dcl");
 
 rimraf.sync(ITEMS_DIRECTORY);
 fs.mkdirSync(ITEMS_DIRECTORY);
@@ -60,7 +62,7 @@ async function build() {
     try {
       await execute(dir, "npm install");
       await generateItemJs(dir);
-      await execute(dir, "dcl pack");
+      await execute(dir, `${dcl} pack`);
     } catch (e) {
       errors.push({ dir, error: e });
     }
