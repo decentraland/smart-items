@@ -3,4 +3,6 @@ bin
 .DS_Store
 *.zip
 items
+**/src/*.js
+**/package-lock.json
 */tsconfig.item.json
