@@ -4,21 +4,6 @@ export type Props = {
   onUse?: Actions
   respawns?: boolean
 }
-      "id": "onClickText",
-      "label": "Hover text",
-      "type": "string",
-      "default": "Open/Close"
-    },
-    {
-      "id": "onOpen",
-      "label": "When opened",
-      "type": "actions"
-    },
-    {
-      "id": "onClose",
-      "label": "When closed",
-      "type": "actions"
-    }
 
 export default class Button implements IScript<Props> {
   hiddenKeys: Entity[] = []
