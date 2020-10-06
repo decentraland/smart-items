@@ -4,5 +4,4 @@ bin
 *.zip
 items
 **/src/*.js
-**/package-lock.json
 */tsconfig.item.json

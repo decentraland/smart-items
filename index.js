@@ -25,7 +25,7 @@ async function generateItemJs(dir) {
   );
 
   if (!assetJson.id) {
-    throw new Error(`asset.json has no id`);
+    throw new Error(`${path.resolve(dir, "asset.json")} has no id field`);
   }
 
   baseTsConfigItem.compilerOptions.bundledPackageName = assetJson.id;
@@ -37,7 +37,11 @@ async function generateItemJs(dir) {
 
   const tsc = require.resolve("typescript/bin/tsc");
 
-  await execute(dir, `${tsc} -p tsconfig.item.json`);
+  try {
+    await execute(dir, `${tsc} -p tsconfig.item.json`);
+  } catch (e) {
+    errors.push({ dir, error: e });
+  }
 }
 
 async function build() {
@@ -54,7 +58,7 @@ async function build() {
   for (const dir of list) {
     console.log(`[${count}/${total}] Building ${dir}...`);
     try {
-      await execute(dir, "npm update");
+      await execute(dir, "npm install");
       await generateItemJs(dir);
       await execute(dir, "dcl pack");
     } catch (e) {
@@ -99,7 +103,7 @@ async function execute(dir, command) {
         console.error("! " + stderr.replace(/\n/g, "\n  "));
 
       if (error) {
-        onError(stderr);
+        onError(new Error(stderr || `${command} failed`));
       } else {
         onSuccess(stdout);
       }
