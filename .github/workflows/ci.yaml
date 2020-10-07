@@ -14,17 +14,19 @@ jobs:
           node-version: 14.x
       - name: npm install
         run:  npm install
+
       - name: build all
-        continue-on-error: true
         env:
             BUILD: true
         run:  node index.js
 
       - name: move files
+        if: ${{ always() }}
         run:  node index.js
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
+        if: ${{ always() }}
         with:
           name: smart-items-${{ github.sha }}
           path: |
