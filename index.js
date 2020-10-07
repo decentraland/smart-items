@@ -71,8 +71,8 @@ async function build() {
 
   if (errors.length) {
     for (let { dir, error } of errors) {
-      console.log(`Error in folder: ${dir}`);
-      console.log(error);
+      console.log(`\nError in folder: ${dir}`);
+      console.log(error.toString());
     }
     throw new Error("Completed with errors");
   }
