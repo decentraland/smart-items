@@ -20,9 +20,12 @@ jobs:
             BUILD: true
         run:  node index.js
 
+      - name: move files
+        run:  node index.js
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: smart-items-${{ github.sha }}
           path: |
-            ${{ runner.workspace }}/*/item.zip
+            items/*.zip
