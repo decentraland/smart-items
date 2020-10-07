@@ -1,5 +1,4 @@
 import { ScoreBoardComponent } from './scoreboard'
-import e = require('express')
 
 export type Props = {
   initialVal: number

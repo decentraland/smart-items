@@ -3,3 +3,5 @@ bin
 .DS_Store
 *.zip
 items
+**/src/*.js
+*/tsconfig.item.json

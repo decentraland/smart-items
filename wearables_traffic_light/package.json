@@ -14,6 +14,7 @@
     "decentraland-ecs": "^6.4.9"
   },
   "dependencies": {
-    "decentraland-builder-scripts": "^0.24.0"
+    "decentraland-builder-scripts": "^0.24.0",
+    "typescript": "^4.1.0-beta"
   }
 }
