@@ -54,15 +54,19 @@ async function build() {
     console.log("Installing typescript@beta");
     await execute(process.cwd(), "npm install typescript@beta");
   }
-
-  await execute(process.cwd(), "npm install");
+  try {
+    fs.mkdirSync("shared-node_modules");
+  } catch {}
 
   let count = 1;
   const total = list.length;
   for (const dir of list) {
     console.log(`[${count}/${total}] Building ${dir}...`);
     try {
-      await execute(dir, "ln -s ../node_modules node_modules");
+      try {
+        await execute(dir, "rm -rf node_modules");
+      } catch {}
+      await execute(dir, "ln -s ../shared-node_modules node_modules");
       await execute(dir, "npm install --no-audit");
       await generateItemJs(dir);
       await execute(dir, `${dcl} pack`);
@@ -79,8 +83,6 @@ async function build() {
     }
     throw new Error("Completed with errors");
   }
-
-  await execute(process.cwd(), "npm install");
 
   console.log("Done!");
 }
