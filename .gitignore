@@ -5,3 +5,4 @@ bin
 items
 **/src/*.js
 */tsconfig.item.json
+shared-node_modules
