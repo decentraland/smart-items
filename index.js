@@ -60,7 +60,7 @@ async function build() {
   for (const dir of list) {
     console.log(`[${count}/${total}] Building ${dir}...`);
     try {
-      await execute(dir, "npm install");
+      await execute(dir, "npm ci --no-audit");
       await generateItemJs(dir);
       await execute(dir, `${dcl} pack`);
     } catch (e) {
