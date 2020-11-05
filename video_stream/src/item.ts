@@ -13,21 +13,43 @@ let defaultStation = 'https://theuniverse.club/live/genesisplaza/index.m3u8'
 
 export default class Button implements IScript<Props> {
   channel = ''
-  video: VideoTexture
+  video: Record<string, VideoTexture> = {}
+  materials: Record<string, Material> = {}
   active: Record<string, boolean> = {}
   volume: Record<string, number> = {}
-  sign: Entity
+  sign: Record<string, Entity> = {}
+  activeScreen: Entity
   init() {}
 
   toggle(entity: Entity, value: boolean) {
+    log('all screens: ', this.video, ' setting: ', entity.name, ' to ', value)
+
     if (value) {
-      this.video.playing = true
-      this.sign.getComponent(PlaneShape).visible = false
+      if (this.activeScreen && this.activeScreen == entity) {
+        return
+      } else if (this.activeScreen) {
+        this.toggle(this.activeScreen, false)
+      }
+
+      this.activeScreen = entity
+
+      this.active[entity.name] = true
+
+      this.video[entity.name].playing = true
+      this.sign[entity.name].getComponent(PlaneShape).visible = false
     } else {
-      this.video.playing = false
-      this.sign.getComponent(PlaneShape).visible = true
-      this.video.volume = this.volume[entity.name]
+      if (!this.activeScreen || this.activeScreen != entity) {
+        return
+      }
+
+      this.activeScreen = null
+
+      this.active[entity.name] = false
+      this.video[entity.name].playing = false
+      this.sign[entity.name].getComponent(PlaneShape).visible = true
+      this.video[entity.name].volume = this.volume[entity.name]
     }
+    return
   }
 
   spawn(host: Entity, props: Props, channel: IChannel) {
@@ -58,21 +80,21 @@ export default class Button implements IScript<Props> {
     // test.addComponentOrReplace(new GLTFShape('models/stream_preview.glb'))
 
     // video material
-    this.video = new VideoTexture(new VideoClip(this.channel))
-    const mat = new Material()
-    mat.albedoTexture = this.video
-    mat.specularIntensity = 0
-    mat.roughness = 1
-    mat.metallic = 0
+    this.video[screen.name] = new VideoTexture(new VideoClip(this.channel))
+    this.materials[screen.name] = new Material()
+    this.materials[screen.name].albedoTexture = this.video[screen.name]
+    this.materials[screen.name].specularIntensity = 0
+    this.materials[screen.name].roughness = 1
+    this.materials[screen.name].metallic = 0
 
-    screen.addComponent(mat)
+    screen.addComponent(this.materials[screen.name])
 
     // icon for streaming
-    let sign = new Entity(host.name + '-sign')
-    sign.setParent(screen)
+    this.sign[screen.name] = new Entity(host.name + '-sign')
+    this.sign[screen.name].setParent(screen)
 
-    sign.addComponent(new PlaneShape())
-    sign.addComponent(
+    this.sign[screen.name].addComponent(new PlaneShape())
+    this.sign[screen.name].addComponent(
       new Transform({
         position: new Vector3(0, 0, 0.002),
         rotation: Quaternion.Euler(180, 0, 0),
@@ -86,11 +108,10 @@ export default class Button implements IScript<Props> {
     placeholderMaterial.specularIntensity = 0
     placeholderMaterial.roughness = 1
 
-    sign.addComponent(placeholderMaterial)
-    this.sign = sign
+    this.sign[screen.name].addComponent(placeholderMaterial)
 
     if (props.onClick) {
-      sign.addComponent(
+      this.sign[screen.name].addComponent(
         new OnPointerDown(
           () => {
             channel.sendActions(props.onClick)
@@ -106,14 +127,12 @@ export default class Button implements IScript<Props> {
 
     if (props.startOn) {
       this.toggle(screen, true)
-      this.active[screen.name] = true
     } else {
-      this.active[screen.name] = false
+      this.toggle(screen, false)
     }
 
     // handle actions
     channel.handleAction('activate', ({ sender }) => {
-      this.active[screen.name] = true
       this.toggle(screen, true)
 
       if (sender === channel.id) {
@@ -121,7 +140,6 @@ export default class Button implements IScript<Props> {
       }
     })
     channel.handleAction('deactivate', ({ sender }) => {
-      this.active[screen.name] = false
       this.toggle(screen, false)
       if (sender === channel.id) {
         channel.sendActions(props.onDeactivate)
@@ -129,7 +147,7 @@ export default class Button implements IScript<Props> {
     })
     channel.handleAction('toggle', ({ sender }) => {
       let value = !this.active[screen.name]
-      this.active[screen.name] = value
+
       this.toggle(screen, value)
       if (sender === channel.id) {
         if (value) {

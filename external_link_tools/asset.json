@@ -3,13 +3,12 @@
   "name": "External link",
   "tags": ["external", "website", "internet", "fast travel", "link"],
   "category": "decorations",
-  "model": "models/signpost/SignPost.glb",
   "parameters": [
     {
       "id": "url",
       "label": "Site URL",
       "type": "text",
-      "default": "https://decentraland.org"
+      "default": "decentraland.org"
     },
     {
       "id": "name",

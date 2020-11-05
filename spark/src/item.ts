@@ -29,7 +29,9 @@ export default class Spark implements IScript<Props> {
     siren.setParent(host)
 
     const animator = new Animator()
-    const clip = new AnimationState('Spark_Action', { looping: true })
+    const clip = new AnimationState('Spark_Action_Armature.000', {
+      looping: true,
+    })
     animator.addClip(clip)
 
     siren.addComponent(animator)
