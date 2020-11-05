@@ -1,5 +1,4 @@
 import { ScoreBoardComponent } from './scoreboard'
-import e = require('express')
 
 export type Props = {
   initialVal: number
@@ -177,11 +176,11 @@ export default class ScoreBoard implements IScript<Props> {
     let score = board.getComponent(ScoreBoardComponent)
 
     // handle actions
-    channel.handleAction('increase', e => {
+    channel.handleAction<any>('increase', e => {
       if (!score.enabled) return
       this.updateBoard(board, score.currentValue + e.values.amount)
     })
-    channel.handleAction('decrease', e => {
+    channel.handleAction<any>('decrease', e => {
       if (!score.enabled) return
       this.updateBoard(board, score.currentValue - e.values.amount)
     })
