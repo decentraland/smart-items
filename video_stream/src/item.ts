@@ -32,22 +32,20 @@ export default class Button implements IScript<Props> {
       }
 
       this.activeScreen = entity
-
       this.active[entity.name] = true
-
+      this.video[entity.name].volume = this.volume[entity.name]
       this.video[entity.name].playing = true
-      this.sign[entity.name].getComponent(PlaneShape).visible = false
+      engine.removeEntity(this.sign[entity.name])
+      //this.sign[entity.name].getComponent(PlaneShape).visible = false
     } else {
       if (!this.activeScreen || this.activeScreen != entity) {
         return
       }
 
       this.activeScreen = null
-
       this.active[entity.name] = false
       this.video[entity.name].playing = false
-      this.sign[entity.name].getComponent(PlaneShape).visible = true
-      this.video[entity.name].volume = this.volume[entity.name]
+      //this.sign[entity.name].getComponent(PlaneShape).visible = true
     }
     return
   }
@@ -86,6 +84,9 @@ export default class Button implements IScript<Props> {
     this.materials[screen.name].specularIntensity = 0
     this.materials[screen.name].roughness = 1
     this.materials[screen.name].metallic = 0
+    this.materials[screen.name].emissiveTexture = this.video[screen.name]
+    this.materials[screen.name].emissiveIntensity = 0.8
+    this.materials[screen.name].emissiveColor = new Color3(1, 1, 1)
 
     screen.addComponent(this.materials[screen.name])
 
@@ -114,6 +115,20 @@ export default class Button implements IScript<Props> {
       this.sign[screen.name].addComponent(
         new OnPointerDown(
           () => {
+            channel.sendActions(props.onClick)
+          },
+          {
+            button: ActionButton.POINTER,
+            hoverText: props.onClickText,
+            distance: 6,
+          }
+        )
+      )
+
+      screen.addComponent(
+        new OnPointerDown(
+          () => {
+            log('clicked')
             channel.sendActions(props.onClick)
           },
           {

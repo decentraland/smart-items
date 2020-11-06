@@ -64,7 +64,7 @@ export function parseURL(url: string) {
 
   if (url.substr(0, 7) == 'http://') {
     newURL = 'https://' + url.substring(7).trim()
-  } else if (url.substr(0, 7) != 'https://') {
+  } else if (url.substr(0, 8) != 'https://') {
     newURL = 'https://' + url.trim()
   }
 
