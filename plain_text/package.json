@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "decentraland-builder-scripts": "^0.24.0",
-    "decentraland-ecs": "next"
+    "decentraland-ecs": "^6.6.1-20201118163111.commit-3e630b3"
   }
 }
