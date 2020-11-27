@@ -1,0 +1,151 @@
+{
+	"id": "5a39336c-b0fe-4228-9383-92c5f9e5fe03",
+  "name": "NFT Picture Frame",
+  "tags": ["NFT", "crypto", "art", "frame", "picture", "gallery"],
+  "category": "decorations",
+  "model": "models/CustomFrame.glb",
+  "parameters": [
+    {
+      "id": "id",
+      "label": "NFT ID",
+      "type": "text",
+      "default": "558536"
+	},
+	{
+		"id": "contract",
+		"label": "NFT Contract",
+		"type": "text",
+		"default": "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d"
+	  },
+	  {
+		"id": "style",
+		"label" :"Frame Style",
+		"type": "options",
+		"options": [
+		  {"value": "Classic","label": "Classic"
+		  },
+		  {"value": "Baroque_Ornament","label": "Baroque Ornament"
+		  },
+{"value": "Diamond_Ornament","label": "Diamond Ornament"
+		  },
+{"value": "Minimal_Wide","label": "Minimal Wide"
+		  },
+{"value": "Minimal_Grey","label": "Minimal Grey"
+		  },
+{"value": "Blocky","label": "Blocky"
+		  },
+{"value": "Gold_Edges","label": "Gold Edges"
+		  },
+{"value": "Gold_Carved","label": "Gold Carved"
+		  },
+{"value": "Gold_Wide","label": "Gold Wide"
+		  },
+{"value": "Gold_Rounded","label": "Gold Rounded"
+		  },
+{"value": "Metal_Medium","label": "Metal Medium"
+		  },
+{"value": "Metal_Wide","label": "Metal Wide"
+		  },
+{"value": "Metal_Slim","label": "Metal Slim"
+		  },
+{"value": "Metal_Rounded","label": "Metal Rounded"
+		  },
+{"value": "Pins","label": "Pins"
+		  },
+{"value": "Minimal_Black","label": "Minimal Black"
+		  },
+{"value": "Minimal_White","label": "Minimal White"
+		  },
+{"value": "Tape","label": "Tape"
+		  },
+{"value": "Wood_Slim","label": "Wood Slim"
+		  },
+{"value": "Wood_Wide","label": "Wood Wide"
+		  },
+{"value": "Wood_Twigs","label": "Wood Twigs"
+		  },
+{"value": "Canvas","label": "Canvas"
+		  }
+		],
+		"default": "Classic"
+	},
+	  {
+		"id": "color",
+		"label" :"Background Color",
+		"type": "options",
+		"options": [
+		  {
+			"value": "#000000",
+			"label": "Black"
+		  },
+		  {
+			"value": "#FFFFFF",
+			"label": "White"
+		  },
+		  {
+			"value": "#808080",
+			"label": "Gray"
+		  },
+		  {
+			"value": "#FF0000",
+			"label": "Red"
+		  },
+		  {
+			"value": "#00FF00",
+			"label": "Lime"
+		  },
+		  {
+			"value": "#0000FF",
+			"label": "Blue"
+		  },
+		  {
+			"value": "#800000",
+			"label": "Maroon"
+		  },
+		  {
+			"value": "#808000",
+			"label": "Olive"
+		  },
+		  {
+			"value": "#008000",
+			"label": "Green"
+		  },
+		  {
+			"value": "#00FFFF",
+			"label": "Aqua"
+		  },
+		  {
+			"value": "#008080",
+			"label": "Teal"
+		  },
+		  {
+			"value": "#000080",
+			"label": "Navy"
+		  },
+		  {
+			"value": "#FF00FF",
+			"label": "Fuchsia"
+		  },
+		  {
+			"value": "#800080",
+			"label": "Purple"
+		  }
+		],
+		"default": "#FFFFFF"
+	},
+	{
+		"id": "ui",
+		"label": "Include UI",
+		"type": "boolean",
+		"default": true
+	  },
+	  {
+		"id": "uiText",
+		"label": "Extra UI Text",
+		"type": "textarea",
+		"default": ""
+	  }
+  ]
+
+
+}

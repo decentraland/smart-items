@@ -1,16 +1,24 @@
 {
 	"id": "5a39336c-b0fe-4228-9383-92c5f9e5fe03",
-  "name": "Plain text",
-  "tags": ["signpost", "text", "interactive"],
+  "name": "Gallery Info - Cream",
+  "tags": ["signpost", "text"],
   "category": "decorations",
-  "model": "models/SomeText.glb",
   "parameters": [
     {
       "id": "text",
       "label": "Text",
       "type": "textarea",
       "default": "Some text"
-    },
+	},
+	{
+		"id": "fontSize",
+		"label": "Font Size",
+		"type": "slider",
+		"min": 2,
+		"max": 10,
+		"step": 0.5,
+		"default": 5
+	  },
 	{
 		"id": "font",
 		"label" :"Font",
@@ -90,7 +98,7 @@
 			"label": "Purple"
 		  }
 		],
-		"default": "#FFFFFF"
+		"default": "#000000"
 	}
 
   ]

@@ -5,7 +5,9 @@ const post = new SignPost()
 const spawner = new Spawner<Props>(post)
 
 spawner.spawn('post', new Transform({ position: new Vector3(4, 0, 8) }), {
-  text: 'Some text',
+  text:
+    'This is my gallery check it out it is really dope, all of my friends tell me that I should do this professionally.',
   font: 'SF',
-  color: '#FFFFFF',
+  fontSize: 5,
+  color: '#000000',
 })

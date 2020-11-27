@@ -1,0 +1,49 @@
+{
+  "id": "5a39336c-b0fe-4228-9383-92c5f9e5fe03",
+  "name": "Floor Lamp",
+  "tags": [
+    "lights",
+    "lamp", "lighting"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "startOn",
+		"label": "Start On",
+		"type": "boolean",
+		"default": true
+	  },
+
+	  {
+		"id": "clickable",
+		"label": "Click on/off",
+		"type": "boolean",
+		"default": true
+	  },
+
+
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When deactivated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}
