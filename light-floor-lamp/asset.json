@@ -1,6 +1,7 @@
 {
   "id": "5a39336c-b0fe-4228-9383-92c5f9e5fe03",
   "name": "Floor Lamp",
+  "model": "moldels/FlorLampA_On.glb",
   "tags": [
     "lights",
     "lamp", "lighting"
