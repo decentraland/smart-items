@@ -1,7 +1,7 @@
 {
-  "id": "5a39336c-b0fe-4228-9383-92c5f9e5fe03",
-  "name": "Floor Lamp",
-  "model": "models/FloorLampA_On.glb",
+  "id": "346bc1be-8329-4ec0-a077-607a09b1a267",
+  "name": "Double Floor Lamp",
+  "model": "models/FloorLampB_On.glb",
   "tags": [
     "lights",
     "lamp", "lighting"
