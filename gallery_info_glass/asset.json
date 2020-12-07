@@ -1,0 +1,105 @@
+{
+	"id": "bcdcfbe4-bd95-4100-9174-b38785b45e2c",
+  "name": "Gallery Info - Glass",
+  "tags": ["signpost", "text"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "textarea",
+      "default": "Some text"
+	},
+	{
+		"id": "fontSize",
+		"label": "Font Size",
+		"type": "slider",
+		"min": 2,
+		"max": 10,
+		"step": 0.5,
+		"default": 5
+	  },
+	{
+		"id": "font",
+		"label" :"Font",
+		"type": "options",
+		"options": [
+		  {
+			"value": "SF",
+			"label": "SanFrancisco"
+		  },
+		  {
+			"value": "SF_Heavy",
+			"label": "SanFrancisco Heavy"
+		  }
+		],
+		"default": "SF"
+	},
+	{
+		"id": "color",
+		"label" :"Color",
+		"type": "options",
+		"options": [
+		  {
+			"value": "#000000",
+			"label": "Black"
+		  },
+		  {
+			"value": "#FFFFFF",
+			"label": "White"
+		  },
+		  {
+			"value": "#808080",
+			"label": "Gray"
+		  },
+		  {
+			"value": "#FF0000",
+			"label": "Red"
+		  },
+		  {
+			"value": "#00FF00",
+			"label": "Lime"
+		  },
+		  {
+			"value": "#0000FF",
+			"label": "Blue"
+		  },
+		  {
+			"value": "#800000",
+			"label": "Maroon"
+		  },
+		  {
+			"value": "#808000",
+			"label": "Olive"
+		  },
+
+		    {
+			"value": "#008000",
+			"label": "Green"
+		  },
+		  {
+			"value": "#00FFFF",
+			"label": "Aqua"
+		  },
+		  {
+			"value": "#008080",
+			"label": "Teal"
+		  },
+		  {
+			"value": "#000080",
+			"label": "Navy"
+		  },
+		  {
+			"value": "#FF00FF",
+			"label": "Fuchsia"
+		  },
+		  {
+			"value": "#800080",
+			"label": "Purple"
+		  }
+		],
+		"default": "#000000"
+	}
+
+  ]
+}
