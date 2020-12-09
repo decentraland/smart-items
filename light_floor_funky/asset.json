@@ -1,7 +1,7 @@
 {
-  "id": "838cbb11-ceeb-4f83-9382-1520bdd1b2ee",
+  "id": "2263960d-51ff-483a-bd2a-a9d286558620",
   "name": "Funky Floor Light",
-  "model": "models/FluorescentLight_On.glb",
+  "model": "models/FunkyFloorLight_On.glb",
   "tags": [
     "lights",
     "lamp", "lighting", "floor", "funky"
