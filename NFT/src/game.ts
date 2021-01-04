@@ -14,7 +14,7 @@ spawner.spawn(
     contract: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
     id: '558536',
     color: '#0000FF',
-    style: 'Gold_Carved',
+    style: 'Classic',
     ui: true,
     uiText: 'I really like this painting, I did it myself.',
   }

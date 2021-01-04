@@ -16,7 +16,7 @@ export default class SignPost implements IScript<Props> {
 
     frame.addComponent(
       new Transform({
-        position: new Vector3(0, 1.5, 0),
+        position: new Vector3(0, 0.25, 0),
         rotation: Quaternion.Euler(0, 180, 0),
       })
     )

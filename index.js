@@ -30,7 +30,7 @@ async function generateItemJs(dir) {
     throw new Error(`${path.resolve(dir, "asset.json")} has no id field`);
   }
 
-  baseTsConfigItem.compilerOptions.bundledPackageName = assetJson.id;
+  //baseTsConfigItem.compilerOptions.bundledPackageName = assetJson.id;
 
   fs.writeFileSync(
     path.resolve(dir, "tsconfig.item.json"),
