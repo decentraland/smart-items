@@ -34,7 +34,12 @@
       "label": "Switched On",
       "type": "boolean",
       "default": "false"
-    },
+	},
+	{
+		"id": "image",
+		"label": "Preview Image URL",
+		"type": "text"
+	  },
     {
       "id": "onClickText",
       "label": "Hover text",

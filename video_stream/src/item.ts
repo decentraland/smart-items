@@ -7,6 +7,7 @@ export type Props = {
   onClickText: string
   startOn: boolean
   volume: number
+  image?: string
 }
 
 let defaultStation = 'https://theuniverse.club/live/genesisplaza/index.m3u8'
@@ -105,7 +106,9 @@ export default class Button implements IScript<Props> {
     this.volume[screen.name] = props.volume
 
     let placeholderMaterial = new Material()
-    placeholderMaterial.albedoTexture = new Texture('images/stream.png')
+    placeholderMaterial.albedoTexture = new Texture(
+      props.image ? props.image : 'images/stream.png'
+    )
     placeholderMaterial.specularIntensity = 0
     placeholderMaterial.roughness = 1
 
