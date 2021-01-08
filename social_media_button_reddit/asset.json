@@ -1,0 +1,25 @@
+{
+  "id": "9f53edee-a787-4654-897e-135c4efb649a",
+  "name": "Reddit Button link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Reddit page",
+      "type": "text",
+      "default": "decentraland"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

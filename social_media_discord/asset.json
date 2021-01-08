@@ -1,0 +1,25 @@
+{
+  "id": "8dcc2ca4-5e30-4488-9731-be24f0c041fd",
+  "name": "Discord link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Discord server",
+      "type": "text",
+      "default": "/channels/417796904760639509/433376431603580970"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

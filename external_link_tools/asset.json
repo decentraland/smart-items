@@ -1,6 +1,6 @@
 {
   "id": "b88efbbf-2a9a-47b4-86e1-e38ecc2b433b",
-  "name": "External link",
+  "name": "External Link",
   "tags": ["external", "website", "internet", "fast travel", "link"],
   "category": "decorations",
   "parameters": [
@@ -17,6 +17,11 @@
     }
   ],
   "actions": [
+	{
+		"id": "activate",
+		"label": "Activate",
+		"parameters": []
+	  },
     {
       "id": "changeLink",
       "label": "Change Link",

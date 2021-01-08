@@ -1,0 +1,25 @@
+{
+  "id": "d367d3f2-9696-4d61-985a-7988fbf5f50d",
+  "name": "Instagram link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Instagram handle",
+      "type": "text",
+      "default": "decentraland_art"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

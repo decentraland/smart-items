@@ -1,0 +1,25 @@
+{
+  "id": "8186a12c-d2ef-4f9d-96b9-cc2dd87567d1",
+  "name": "Youtube Button link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Youtube channel id",
+      "type": "text",
+      "default": "UCLXcTgzr05cFZaN972nuEXw"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

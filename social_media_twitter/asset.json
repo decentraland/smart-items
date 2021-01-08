@@ -1,0 +1,25 @@
+{
+  "id": "b53e3bde-9d22-4098-8707-29a685d25a3b",
+  "name": "Twitter link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Twitter handle",
+      "type": "text",
+      "default": "decentraland"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

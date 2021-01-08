@@ -1,0 +1,25 @@
+{
+  "id": "b42a4b34-39fb-48d9-850a-cf16a7cb78cb",
+  "name": "Wechat Button Link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Wechat group full URL",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

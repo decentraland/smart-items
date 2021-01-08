@@ -1,0 +1,25 @@
+{
+  "id": "96f697f7-0cc4-45c1-a55f-41fa5083fb8a",
+  "name": "Telegram Button link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Telegram invite link",
+      "type": "text",
+      "default": "decentralandTG"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

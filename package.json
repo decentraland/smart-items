@@ -22,8 +22,8 @@
   "dependencies": {
     "decentraland": "^3.4.5",
     "decentraland-builder-scripts": "^0.24.0",
-    "decentraland-ecs": "^6.6.1-20201008141239.commit-6001543",
+    "decentraland-ecs": "^6.6.3",
     "rimraf": "^3.0.2",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.3"
   }
 }

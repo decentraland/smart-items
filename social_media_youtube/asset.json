@@ -1,0 +1,25 @@
+{
+  "id": "645d2a2b-266d-4872-9368-562ca4a81139",
+  "name": "Youtube link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Youtube channel id",
+      "type": "text",
+      "default": "UCLXcTgzr05cFZaN972nuEXw"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}

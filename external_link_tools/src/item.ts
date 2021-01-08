@@ -45,6 +45,12 @@ export default class Teleport implements IScript<Props> {
       link.getComponent(OnPointerDown).hoverText = hoverString
     })
 
+    channel.handleAction<ChangeLinkType>('activate', ({ sender }) => {
+      if (sender === channel.id) {
+        openExternalURL(url)
+      }
+    })
+
     channel.request<LinkData>('getCoords', (result) => {
       link.getComponent(OnPointerDown).callback = result.callback
       link.getComponent(OnPointerDown).hoverText = result.hoverText

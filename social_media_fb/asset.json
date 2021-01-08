@@ -1,0 +1,25 @@
+{
+  "id": "1d7e46b3-bfce-42bf-8d3c-cb9acebbf4ca",
+  "name": "Facebook link",
+  "tags": ["external", "website", "internet", "fast travel", "link"],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "url",
+      "label": "Facebook name",
+      "type": "text",
+      "default": "decentraland"
+    },
+    {
+      "id": "name",
+      "label": "Hover Label",
+      "type": "text"
+	},
+	{
+		"id": "bnw",
+		"label": "Black & White",
+		"type": "boolean",
+		"default": "false"
+	  }
+  ]
+}
