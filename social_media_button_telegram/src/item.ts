@@ -1,6 +1,7 @@
 export type Props = {
   url: string
   name?: string
+  bnw?: boolean
 }
 
 let siteName = 'telegram'
@@ -39,7 +40,11 @@ export default class SMedia_Link implements IScript<Props> {
     const link = new Entity()
     link.setParent(host)
 
-    link.addComponent(new GLTFShape('models/' + siteName + '.glb'))
+    if (props.bnw) {
+      link.addComponent(new GLTFShape('models/telegram_bnw.glb'))
+    } else {
+      link.addComponent(new GLTFShape('models/telegram.glb'))
+    }
 
     let url = parseURL(props.url)
 

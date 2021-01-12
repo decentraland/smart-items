@@ -33,7 +33,7 @@
       "id": "startOn",
       "label": "Switched On",
       "type": "boolean",
-      "default": "false"
+      "default": false
 	},
 	{
 		"id": "image",

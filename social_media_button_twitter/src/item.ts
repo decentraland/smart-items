@@ -38,9 +38,9 @@ export default class SMedia_Link implements IScript<Props> {
     link.setParent(host)
 
     if (props.bnw) {
-      link.addComponent(new GLTFShape('models/' + siteName + '_bnw.glb'))
+      link.addComponent(new GLTFShape('models/twitter_bnw.glb'))
     } else {
-      link.addComponent(new GLTFShape('models/' + siteName + '.glb'))
+      link.addComponent(new GLTFShape('models/twitter.glb'))
     }
 
     let url = parseURL(props.url)

@@ -4,9 +4,9 @@ export type Props = {
   bnw: boolean
 }
 
-let siteName = 'facebook'
-let siteURL = 'facebook.com'
-let defaulthover = 'Facebook Page'
+let siteName = 'youtube'
+let siteURL = 'youtube.com'
+let defaulthover = 'Youtube Link'
 
 let stringsToReplace: string[] = [
   'http://',
@@ -27,9 +27,9 @@ export default class SMedia_Link implements IScript<Props> {
     link.setParent(host)
 
     if (props.bnw) {
-      link.addComponent(new GLTFShape('models/' + siteName + '_bnw.glb'))
+      link.addComponent(new GLTFShape('models/youtube_bnw.glb'))
     } else {
-      link.addComponent(new GLTFShape('models/' + siteName + '.glb'))
+      link.addComponent(new GLTFShape('models/youtube.glb'))
     }
 
     let url = parseURL(props.url)

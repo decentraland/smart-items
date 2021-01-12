@@ -19,7 +19,7 @@
 		"id": "bnw",
 		"label": "Black & White",
 		"type": "boolean",
-		"default": "false"
+		"default": false
 	  }
   ]
 }

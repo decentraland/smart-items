@@ -1,6 +1,7 @@
 {
   "id": "12b03cb6-2066-4f72-b8ef-27bb851de48e",
   "name": "Facebook Button link",
+  "model": "models/facebook.glb",
   "tags": ["external", "website", "internet", "fast travel", "link"],
   "category": "decorations",
   "parameters": [
@@ -19,7 +20,7 @@
 		"id": "bnw",
 		"label": "Black & White",
 		"type": "boolean",
-		"default": "false"
+		"default": false
 	  }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "id": "1da1a2be-bd68-4e35-bd89-42280b39291c",
+  "id": "9a0c9732-f45c-4836-a524-e32f786787f7",
   "name": "Github link",
   "tags": ["external", "website", "internet", "fast travel", "link"],
   "category": "decorations",
@@ -19,7 +19,7 @@
 		"id": "bnw",
 		"label": "Black & White",
 		"type": "boolean",
-		"default": "false"
+		"default": false
 	  }
   ]
 }
