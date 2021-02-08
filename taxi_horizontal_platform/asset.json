@@ -1,0 +1,60 @@
+{
+  "id": "8d0cc5fb-6ed7-4452-9524-91f0e88ba77a",
+  "name": "Taxi Horizontal Platform",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive",
+    "taxi",
+    "vehicle"
+  ],
+  "category": "vehicles",
+  "model": "models/Horizontal_Flying_Taxi_Occupied.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 3,
+      "max": 20,
+      "min": 0,
+      "step": 1
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onReachEnd",
+      "label": "When end reached",
+      "type": "actions",
+      "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "When start reached",
+      "type": "actions",
+      "default": "goToEnd"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go to end",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Return to start",
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "f2531b20-80d1-403d-b810-14cab58045a8",
+  "name": "Flying Car Horizontal Platform",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive",
+    "car",
+    "flying",
+    "vehicle"
+  ],
+  "category": "vehicles",
+  "model": "models/Horizontal_Flying_Car_Blue.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 3,
+      "max": 20,
+      "min": 0,
+      "step": 1
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onReachEnd",
+      "label": "When end reached",
+      "type": "actions",
+      "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "When start reached",
+      "type": "actions",
+      "default": "goToEnd"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go to end",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Return to start",
+      "parameters": []
+    }
+  ]
+}

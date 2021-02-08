@@ -1,0 +1,58 @@
+{
+  "id": "ef85eb18-f69c-431c-bcfd-dd51d70a604f",
+  "name": "Vertical White Pad",
+  "tags": [
+    "platform",
+    "vertical",
+    "interactive"
+  ],
+  "category": "structures",
+  "model": "models/Vertical_White_Pad.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 5,
+      "max": 20,
+      "min": 0,
+      "step": 1
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onReachEnd",
+      "label": "When end reached",
+      "type": "actions",
+      "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "When start reached",
+      "type": "actions",
+      "default": "goToEnd"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go to end",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Return to start",
+      "parameters": []
+    }
+  ]
+}

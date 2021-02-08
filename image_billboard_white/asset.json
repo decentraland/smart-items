@@ -1,0 +1,19 @@
+{
+  "id": "76c9399b-8207-4d82-82fd-3ec792d1fbbb",
+  "name": "Image Billboard White",
+  "model": "models/Billboard_White.glb",
+  "tags": [
+    "image",
+    "billboard", "screen", "display", "smart", "advert", "sign"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

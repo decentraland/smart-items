@@ -1,0 +1,60 @@
+{
+  "id": "7280e965-8938-4759-851f-2bd5b9e8b47b",
+  "name": "Taxi B Horizontal Platform",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive",
+    "taxi",
+    "vehicle"
+  ],
+  "category": "vehicles",
+  "model": "models/Horizontal_Flying_Taxi_Available.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 3,
+      "max": 20,
+      "min": 0,
+      "step": 1
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onReachEnd",
+      "label": "When end reached",
+      "type": "actions",
+      "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "When start reached",
+      "type": "actions",
+      "default": "goToEnd"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go to end",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Return to start",
+      "parameters": []
+    }
+  ]
+}

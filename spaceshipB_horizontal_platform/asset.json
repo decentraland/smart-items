@@ -1,0 +1,60 @@
+{
+  "id": "cca81b2b-24d6-4ef3-aa46-dad27a03d55b",
+  "name": "Spaceship B Horizontal Platform",
+  "tags": [
+    "platform",
+    "horizontal",
+    "interactive",
+    "spaceship",
+    "vehicle"
+  ],
+  "category": "vehicles",
+  "model": "models/Horizontal_Spaceship_Blue.glb",
+  "parameters": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "integer",
+      "default": 10
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "slider",
+      "default": 3,
+      "max": 20,
+      "min": 0,
+      "step": 1
+    },
+    {
+      "id": "autoStart",
+      "label": "Auto Start",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "onReachEnd",
+      "label": "When end reached",
+      "type": "actions",
+      "default": "goToStart"
+    },
+    {
+      "id": "onReachStart",
+      "label": "When start reached",
+      "type": "actions",
+      "default": "goToEnd"
+    }
+  ],
+  "actions": [
+    {
+      "id": "goToEnd",
+      "label": "Go to end",
+      "parameters": []
+    },
+    {
+      "id": "goToStart",
+      "label": "Return to start",
+      "parameters": []
+    }
+  ]
+}

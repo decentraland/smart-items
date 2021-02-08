@@ -1,0 +1,19 @@
+{
+  "id": "83087d33-84d2-4135-af09-ab0fa357b59d",
+  "name": "Image Cube C",
+  "model": "models/Game_Cube_D.glb",
+  "tags": [
+    "image",
+    "cube", "screen", "display", "smart", "advert", "sign"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

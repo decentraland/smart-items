@@ -1,0 +1,95 @@
+{
+  "id": "1f1dfb04-879e-422f-a8da-44852a421199",
+  "name": "Video Computer Screen",
+  "model": "models/Display_Monitor.glb",
+  "tags": [
+    "video",
+    "computer", "screen", "display", "smart", "advert", "monitor"
+  ],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "station",
+      "label": "Preset Stream Channels",
+      "type": "options",
+      "options": [
+        {
+          "value": "https://theuniverse.club/live/genesisplaza/index.m3u8",
+          "label": "Genesis plaza stream"
+        },
+        {
+          "value": "https://theuniverse.club/live/sohoplaza/index.m3u8",
+          "label": "Soho plaza stream"
+        },
+        {
+          "value": "https://theuniverse.club/live/consensys/index.m3u8",
+          "label": "Music visualizations"
+        }
+      ]
+    },
+    {
+      "id": "customStation",
+      "label": "Custom Channel URL",
+      "type": "text"
+    },
+    {
+      "id": "startOn",
+      "label": "Switched On",
+      "type": "boolean",
+      "default": false
+	},
+	{
+		"id": "image",
+		"label": "Preview Image URL",
+		"type": "text"
+	  },
+    {
+      "id": "onClickText",
+      "label": "Hover text",
+      "type": "text",
+      "default": "Play video"
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "slider",
+      "default": 1,
+      "max": 1,
+      "min": 0,
+      "step": 0.01
+    },
+    {
+      "id": "onClick",
+      "label": "When clicked",
+      "type": "actions",
+      "default": "toggle"
+    },
+    {
+      "id": "onActivate",
+      "label": "When turned on",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When turned off",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Turn On",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Turn Off",
+      "parameters": []
+    },
+    {
+      "id": "toggle",
+      "label": "Turn On or Off",
+      "parameters": []
+    }
+  ]
+}

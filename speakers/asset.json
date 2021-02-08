@@ -1,0 +1,31 @@
+{
+  "id": "da30258e-3cc1-48a4-bc55-508e923ae977",
+  "name": "Speakers",
+  "model": "models/Cyberpunk_Speakers.glb",
+  "tags": [
+    "record",
+    "speakers", "player", "sound", "music"
+  ],
+  "category": "appliances",
+  "parameters": [
+
+	  {
+		"id": "clickable",
+		"label": "Click on/off",
+		"type": "boolean",
+		"default": true
+	  },
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7888b916-44e3-4e5d-90cc-3aafa9a64d34",
+  "name": "Image Billboard Small",
+  "model": "models/Small_Billboard.glb",
+  "tags": [
+    "image",
+    "billboard", "screen", "display", "smart", "advert", "sign"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

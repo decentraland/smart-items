@@ -1,0 +1,19 @@
+{
+  "id": "c4a799c1-9ef8-4787-914e-4f8c15357881",
+  "name": "Image Billboard Black",
+  "model": "models/Billboard_Black.glb",
+  "tags": [
+    "image",
+    "billboard", "screen", "display", "smart", "advert", "sign"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

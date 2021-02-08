@@ -1,0 +1,32 @@
+{
+  "id": "847450b9-fec3-4666-9db2-428ec9512d82",
+  "name": "Wall Extractor Fan",
+  "tags": [
+    "wall", "fan", "extractor", "ventilation"
+  ],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When deactivated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}

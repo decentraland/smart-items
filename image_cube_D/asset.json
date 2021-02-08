@@ -1,0 +1,19 @@
+{
+  "id": "575bcf74-87b6-424f-8971-d4c83ab60e65",
+  "name": "Image Cube D",
+  "model": "models/Game_Cube_E.glb",
+  "tags": [
+    "image",
+    "cube", "screen", "display", "smart", "advert", "sign"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

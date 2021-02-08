@@ -1,0 +1,15 @@
+{
+  "id": "b8755ec2-a4a1-4b3d-be0a-db5a2185d3b7",
+  "name": "Keyboard",
+  "tags": [
+    "keyboard", "type", "coding", "gaming"
+  ],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onClick",
+      "label": "When clicked",
+      "type": "actions"
+    }
+  ]
+}

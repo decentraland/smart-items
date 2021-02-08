@@ -1,0 +1,19 @@
+{
+  "id": "06c23898-6653-4343-b4d1-94bd343c8740",
+  "name": "Image Computer Screen",
+  "model": "models/Display_Monitor.glb",
+  "tags": [
+    "image",
+    "computer", "screen", "display", "smart"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

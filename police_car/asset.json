@@ -1,0 +1,31 @@
+{
+  "id": "1ed28f7d-046b-428c-8ac5-fcbed8df275e",
+  "name": "Police Car",
+  "model": "models/Police_Car.glb",
+  "tags": [
+    "police",
+    "car", "siren", "smart"
+  ],
+  "category": "vehicles",
+  "parameters": [
+
+	  {
+		"id": "clickable",
+		"label": "Click on/off",
+		"type": "boolean",
+		"default": true
+	  },
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    }
+  ]
+}

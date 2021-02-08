@@ -1,0 +1,19 @@
+{
+  "id": "6ef2baf2-3d2e-4093-b22b-34c2b6bb0e7b",
+  "name": "Image Screen",
+  "model": "models/Screen_Independent.glb",
+  "tags": [
+    "image",
+   "screen", "display", "smart"
+  ],
+  "category": "decorations",
+  "parameters": [
+
+	{
+		"id": "image",
+		"label": "External Image URL",
+		"type": "text",
+		"default": "https://i.imgur.com/d25gO61.jpg"
+    }
+  ]
+}

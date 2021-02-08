@@ -1,0 +1,32 @@
+{
+  "id": "eced91a9-934c-4bcb-94cc-2be8264ad942",
+  "name": "Ceiling Fan",
+  "tags": [
+    "ceiling", "fan", "extractor", "ventilation", "smart"
+  ],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When deactivated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}

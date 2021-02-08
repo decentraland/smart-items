@@ -1,0 +1,32 @@
+{
+  "id": "6ecf36b9-d21a-4767-b945-4b45cd53c537",
+  "name": "Helicopter",
+  "tags": [
+    "helicopter", "vehicle"
+  ],
+  "category": "decorations",
+  "parameters": [
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    },
+    {
+      "id": "onDeactivate",
+      "label": "When deactivated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    },
+    {
+      "id": "deactivate",
+      "label": "Deactivate",
+      "parameters": []
+    }
+  ]
+}

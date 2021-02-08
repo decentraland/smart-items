@@ -1,0 +1,31 @@
+{
+  "id": "69695443-7b21-4caa-9bf9-4147bab4ab6c",
+  "name": "Microwave",
+  "model": "models/Microwave_Closed.glb",
+  "tags": [
+    "microwave",
+    "cook", "kitchen", "machine"
+  ],
+  "category": "appliances",
+  "parameters": [
+
+	  {
+		"id": "clickable",
+		"label": "Click on/off",
+		"type": "boolean",
+		"default": true
+	  },
+    {
+      "id": "onActivate",
+      "label": "When activated",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "activate",
+      "label": "Activate",
+      "parameters": []
+    }
+  ]
+}
