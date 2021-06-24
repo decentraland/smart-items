@@ -4,6 +4,7 @@ export type Props = {
 
 export default class Button implements IScript<Props> {
   clip = new AudioClip('sounds/click.mp3')
+  gltfShape = new GLTFShape('models/Black_Fantasy_Button.glb')
 
   init() {}
 
@@ -22,7 +23,7 @@ export default class Button implements IScript<Props> {
     const button = new Entity()
     button.setParent(host)
 
-    button.addComponent(new GLTFShape('models/Black_Fantasy_Button.glb'))
+    button.addComponent(this.gltfShape)
 
     const animator = new Animator()
     const clip = new AnimationState('trigger', { looping: false })
