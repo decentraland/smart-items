@@ -5,6 +5,7 @@ export type Props = {
 
 export default class Button implements IScript<Props> {
   clip = new AudioClip('sounds/click.mp3')
+  gltfShape = new GLTFShape('models/Toggle_Fantasy_Button.glb')
 
   active: Record<string, boolean> = {}
 
@@ -42,7 +43,7 @@ export default class Button implements IScript<Props> {
     button.addComponent(animator)
     activateClip.stop()
 
-    button.addComponent(new GLTFShape('models/Toggle_Fantasy_Button.glb'))
+    button.addComponent(this.gltfShape)
 
     button.addComponent(
       new OnPointerDown(
