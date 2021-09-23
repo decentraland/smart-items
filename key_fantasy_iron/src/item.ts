@@ -13,8 +13,6 @@ export default class Button implements IScript<Props> {
 
   clip = new AudioClip('sounds/use.mp3')
   equipClip = new AudioClip('sounds/KeyEquip.mp3')
-  canvas = new UICanvas()
-  container = new UIContainerStack(this.canvas)
   texture = new Texture('images/Key.png')
 
   init({ inventory }) {

@@ -12,8 +12,6 @@ export default class Button implements IScript<Props> {
   inventory: IInventory
 
   clip = new AudioClip('sounds/use.mp3')
-  canvas = new UICanvas()
-  container = new UIContainerStack(this.canvas)
   texture = new Texture('images/Key.png')
 
   init({ inventory }) {
